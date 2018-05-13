@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B1A257020A7FF6B00F054E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */; };
+		3B1A257220A7FF6B00F054E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A257120A7FF6B00F054E0 /* ViewController.swift */; };
+		3B1A257520A7FF6B00F054E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257320A7FF6B00F054E0 /* Main.storyboard */; };
+		3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257620A7FF6B00F054E0 /* Assets.xcassets */; };
+		3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */; };
+		3B1A258520A7FF6B00F054E0 /* PollAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A258420A7FF6B00F054E0 /* PollAppTests.swift */; };
+		3B1A259020A7FF6B00F054E0 /* PollAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A258F20A7FF6B00F054E0 /* PollAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B1A258120A7FF6B00F054E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B1A256420A7FF6B00F054E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B1A256B20A7FF6B00F054E0;
+			remoteInfo = PollApp;
+		};
+		3B1A258C20A7FF6B00F054E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B1A256420A7FF6B00F054E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B1A256B20A7FF6B00F054E0;
+			remoteInfo = PollApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B1A256C20A7FF6B00F054E0 /* PollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B1A257120A7FF6B00F054E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B1A257420A7FF6B00F054E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B1A257620A7FF6B00F054E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B1A257920A7FF6B00F054E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B1A257B20A7FF6B00F054E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B1A258020A7FF6B00F054E0 /* PollAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1A258420A7FF6B00F054E0 /* PollAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAppTests.swift; sourceTree = "<group>"; };
+		3B1A258620A7FF6B00F054E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B1A258B20A7FF6B00F054E0 /* PollAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B1A258F20A7FF6B00F054E0 /* PollAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAppUITests.swift; sourceTree = "<group>"; };
+		3B1A259120A7FF6B00F054E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B1A256920A7FF6B00F054E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A257D20A7FF6B00F054E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A258820A7FF6B00F054E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B1A256320A7FF6A00F054E0 = {
+			isa = PBXGroup;
+			children = (
+				3B1A256E20A7FF6B00F054E0 /* PollApp */,
+				3B1A258320A7FF6B00F054E0 /* PollAppTests */,
+				3B1A258E20A7FF6B00F054E0 /* PollAppUITests */,
+				3B1A256D20A7FF6B00F054E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B1A256D20A7FF6B00F054E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B1A256C20A7FF6B00F054E0 /* PollApp.app */,
+				3B1A258020A7FF6B00F054E0 /* PollAppTests.xctest */,
+				3B1A258B20A7FF6B00F054E0 /* PollAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B1A256E20A7FF6B00F054E0 /* PollApp */ = {
+			isa = PBXGroup;
+			children = (
+				3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */,
+				3B1A257120A7FF6B00F054E0 /* ViewController.swift */,
+				3B1A257320A7FF6B00F054E0 /* Main.storyboard */,
+				3B1A257620A7FF6B00F054E0 /* Assets.xcassets */,
+				3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */,
+				3B1A257B20A7FF6B00F054E0 /* Info.plist */,
+			);
+			path = PollApp;
+			sourceTree = "<group>";
+		};
+		3B1A258320A7FF6B00F054E0 /* PollAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B1A258420A7FF6B00F054E0 /* PollAppTests.swift */,
+				3B1A258620A7FF6B00F054E0 /* Info.plist */,
+			);
+			path = PollAppTests;
+			sourceTree = "<group>";
+		};
+		3B1A258E20A7FF6B00F054E0 /* PollAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3B1A258F20A7FF6B00F054E0 /* PollAppUITests.swift */,
+				3B1A259120A7FF6B00F054E0 /* Info.plist */,
+			);
+			path = PollAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B1A256B20A7FF6B00F054E0 /* PollApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B1A259420A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollApp" */;
+			buildPhases = (
+				3B1A256820A7FF6B00F054E0 /* Sources */,
+				3B1A256920A7FF6B00F054E0 /* Frameworks */,
+				3B1A256A20A7FF6B00F054E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PollApp;
+			productName = PollApp;
+			productReference = 3B1A256C20A7FF6B00F054E0 /* PollApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B1A257F20A7FF6B00F054E0 /* PollAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B1A259720A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollAppTests" */;
+			buildPhases = (
+				3B1A257C20A7FF6B00F054E0 /* Sources */,
+				3B1A257D20A7FF6B00F054E0 /* Frameworks */,
+				3B1A257E20A7FF6B00F054E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B1A258220A7FF6B00F054E0 /* PBXTargetDependency */,
+			);
+			name = PollAppTests;
+			productName = PollAppTests;
+			productReference = 3B1A258020A7FF6B00F054E0 /* PollAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B1A258A20A7FF6B00F054E0 /* PollAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B1A259A20A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollAppUITests" */;
+			buildPhases = (
+				3B1A258720A7FF6B00F054E0 /* Sources */,
+				3B1A258820A7FF6B00F054E0 /* Frameworks */,
+				3B1A258920A7FF6B00F054E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B1A258D20A7FF6B00F054E0 /* PBXTargetDependency */,
+			);
+			name = PollAppUITests;
+			productName = PollAppUITests;
+			productReference = 3B1A258B20A7FF6B00F054E0 /* PollAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B1A256420A7FF6B00F054E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Ankleshwar;
+				TargetAttributes = {
+					3B1A256B20A7FF6B00F054E0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					3B1A257F20A7FF6B00F054E0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3B1A256B20A7FF6B00F054E0;
+					};
+					3B1A258A20A7FF6B00F054E0 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3B1A256B20A7FF6B00F054E0;
+					};
+				};
+			};
+			buildConfigurationList = 3B1A256720A7FF6B00F054E0 /* Build configuration list for PBXProject "PollApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B1A256320A7FF6A00F054E0;
+			productRefGroup = 3B1A256D20A7FF6B00F054E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B1A256B20A7FF6B00F054E0 /* PollApp */,
+				3B1A257F20A7FF6B00F054E0 /* PollAppTests */,
+				3B1A258A20A7FF6B00F054E0 /* PollAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B1A256A20A7FF6B00F054E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */,
+				3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */,
+				3B1A257520A7FF6B00F054E0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A257E20A7FF6B00F054E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A258920A7FF6B00F054E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B1A256820A7FF6B00F054E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1A257220A7FF6B00F054E0 /* ViewController.swift in Sources */,
+				3B1A257020A7FF6B00F054E0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A257C20A7FF6B00F054E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1A258520A7FF6B00F054E0 /* PollAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B1A258720A7FF6B00F054E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B1A259020A7FF6B00F054E0 /* PollAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B1A258220A7FF6B00F054E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B1A256B20A7FF6B00F054E0 /* PollApp */;
+			targetProxy = 3B1A258120A7FF6B00F054E0 /* PBXContainerItemProxy */;
+		};
+		3B1A258D20A7FF6B00F054E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B1A256B20A7FF6B00F054E0 /* PollApp */;
+			targetProxy = 3B1A258C20A7FF6B00F054E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B1A257320A7FF6B00F054E0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B1A257420A7FF6B00F054E0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B1A257920A7FF6B00F054E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B1A259220A7FF6B00F054E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B1A259320A7FF6B00F054E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B1A259520A7FF6B00F054E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B1A259620A7FF6B00F054E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3B1A259820A7FF6B00F054E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PollApp.app/PollApp";
+			};
+			name = Debug;
+		};
+		3B1A259920A7FF6B00F054E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PollApp.app/PollApp";
+			};
+			name = Release;
+		};
+		3B1A259B20A7FF6B00F054E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PollApp;
+			};
+			name = Debug;
+		};
+		3B1A259C20A7FF6B00F054E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PollAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lelojicreatives.PollAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PollApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B1A256720A7FF6B00F054E0 /* Build configuration list for PBXProject "PollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1A259220A7FF6B00F054E0 /* Debug */,
+				3B1A259320A7FF6B00F054E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B1A259420A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1A259520A7FF6B00F054E0 /* Debug */,
+				3B1A259620A7FF6B00F054E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B1A259720A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1A259820A7FF6B00F054E0 /* Debug */,
+				3B1A259920A7FF6B00F054E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B1A259A20A7FF6B00F054E0 /* Build configuration list for PBXNativeTarget "PollAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B1A259B20A7FF6B00F054E0 /* Debug */,
+				3B1A259C20A7FF6B00F054E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B1A256420A7FF6B00F054E0 /* Project object */;
+}
