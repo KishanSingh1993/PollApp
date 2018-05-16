@@ -12,10 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var viewController: PALogInVC?
+    var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+     
+        window = UIWindow(frame: UIScreen.main.bounds)
+        viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
+        navigationController = UINavigationController(rootViewController: (viewController)!)
+        self.window?.rootViewController = self.navigationController
+        navigationController?.navigationBar.isHidden = true
+        window?.makeKeyAndVisible()
+        
+        
         return true
     }
 
