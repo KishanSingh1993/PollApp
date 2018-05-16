@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PAOTPVC" customModule="PollApp" customModuleProvider="target">
             <connections>
+                <outlet property="txtOtp" destination="rgY-tT-yqk" id="jTn-5G-oli"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewOtp" destination="H20-1i-VIi" id="w6Z-f3-GZK"/>
             </connections>
@@ -42,13 +47,28 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LG9-e7-H1L">
+                            <rect key="frame" x="20" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="J1T-mq-fD0"/>
+                                <constraint firstAttribute="height" constant="30" id="MvE-5z-X3e"/>
+                            </constraints>
+                            <state key="normal" image="back.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="clickToBack:" destination="-1" eventType="touchUpInside" id="jb9-sl-zMM"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.43921568630000002" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="SaV-sd-PZP" secondAttribute="trailing" constant="20" id="1qV-tp-2Fy"/>
+                        <constraint firstItem="LG9-e7-H1L" firstAttribute="top" secondItem="e3r-1q-ok5" secondAttribute="top" constant="10" id="6h8-ej-fr8"/>
                         <constraint firstItem="SaV-sd-PZP" firstAttribute="top" secondItem="4bT-9M-mvi" secondAttribute="bottom" constant="25" id="B1a-ES-0Xq"/>
                         <constraint firstItem="4bT-9M-mvi" firstAttribute="leading" secondItem="e3r-1q-ok5" secondAttribute="leading" constant="20" id="DIg-1H-uyW"/>
                         <constraint firstAttribute="trailing" secondItem="4bT-9M-mvi" secondAttribute="trailing" constant="20" id="SJZ-dV-SUE"/>
+                        <constraint firstItem="LG9-e7-H1L" firstAttribute="leading" secondItem="e3r-1q-ok5" secondAttribute="leading" constant="20" id="gnd-bA-lEa"/>
                         <constraint firstItem="SaV-sd-PZP" firstAttribute="leading" secondItem="e3r-1q-ok5" secondAttribute="leading" constant="20" id="h0H-qW-s3v"/>
                         <constraint firstItem="4bT-9M-mvi" firstAttribute="top" secondItem="e3r-1q-ok5" secondAttribute="top" constant="50" id="nOu-aV-sru"/>
                         <constraint firstAttribute="height" constant="300" id="qgC-fP-Kxp"/>
@@ -77,6 +97,9 @@
                                     <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="rdw-RG-og1"/>
+                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W94-rX-Loz">
                             <rect key="frame" x="20" y="145" width="295" height="40"/>
@@ -110,4 +133,7 @@
             <point key="canvasLocation" x="-69.5" y="-134.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="back.png" width="32" height="32"/>
+    </resources>
 </document>
