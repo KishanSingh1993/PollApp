@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.7.2)
+  - SVProgressHUD (2.2.5)
+  - SwiftCharts (0.6.1)
+  - SwiftyJSON (4.1.0)
+  - TextFieldEffects (1.4.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - SVProgressHUD
+  - SwiftCharts
+  - SwiftyJSON
+  - TextFieldEffects
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - SVProgressHUD
+    - SwiftCharts
+    - SwiftyJSON
+    - TextFieldEffects
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftCharts: 77378d6cf667e95f9c79a745b6778e66eed5339c
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
+
+PODFILE CHECKSUM: 4b7995fe0189da0d58e140a3627def6a72b63ee0
+
+COCOAPODS: 1.5.0
