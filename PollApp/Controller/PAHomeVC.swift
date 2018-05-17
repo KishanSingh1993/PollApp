@@ -140,7 +140,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
-        cell.cellConfig(0, to: 200, By: 20)
+        
 
         return cell
     }

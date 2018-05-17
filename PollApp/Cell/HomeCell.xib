@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="height" constant="1" id="gwX-0m-lFf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-bE-tNh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-bE-tNh" customClass="viewChart" customModule="PollApp" customModuleProvider="target">
                                 <rect key="frame" x="10" y="34.000000000000007" width="300" height="122.66666666666669"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -121,7 +121,7 @@
                 <outlet property="lblName" destination="mbX-Vi-Kbe" id="9ru-xl-Y0J"/>
                 <outlet property="lblNumberOfViews" destination="QOB-ex-4ct" id="CUj-NH-g75"/>
                 <outlet property="lblTimes" destination="gGn-dR-aY7" id="bPq-je-OvH"/>
-                <outlet property="viewChart" destination="xcV-bE-tNh" id="STM-Vl-W2e"/>
+                <outlet property="viewChart" destination="xcV-bE-tNh" id="NZI-MU-lmb"/>
             </connections>
             <point key="canvasLocation" x="-14" y="-41"/>
         </tableViewCell>
