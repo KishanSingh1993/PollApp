@@ -9,7 +9,7 @@
 import UIKit
 import SwiftCharts
 
-class PAHomeVC: UIViewController {
+class PAHomeVC: BaseViewController {
 
     @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var btnChat: UIButton!
@@ -36,6 +36,7 @@ class PAHomeVC: UIViewController {
         
        btnHome .setButtonImage("homeblack.png")
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        print(self.appUserObject?.device_id)
        
     }
 

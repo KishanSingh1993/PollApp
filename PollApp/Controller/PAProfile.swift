@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PAProfile: UIViewController {
+class PAProfile: BaseViewController {
 
     @IBOutlet weak var viewPersonal: UIView!
     
@@ -18,12 +18,17 @@ class PAProfile: UIViewController {
     
     
     @IBOutlet weak var viewMain: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    UIView().setShadow(viewMain)
+        UIView().setShadow(viewMain)
         setShadow(viewPersonal)
         setShadow(viewCorporate)
         setShadow(viewEvent)
+        
+        print(self.appUserObject?.device_id)
         
     }
 

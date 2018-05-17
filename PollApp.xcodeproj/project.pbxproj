@@ -36,6 +36,11 @@
 		3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */; };
 		3B1A258520A7FF6B00F054E0 /* PollAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A258420A7FF6B00F054E0 /* PollAppTests.swift */; };
 		3B1A259020A7FF6B00F054E0 /* PollAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A258F20A7FF6B00F054E0 /* PollAppUITests.swift */; };
+		3B20FBEE20AC8ECD001E4636 /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20FBED20AC8ECD001E4636 /* UIExtentions.swift */; };
+		3B20FBF020AC902F001E4636 /* ECSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20FBEF20AC902F001E4636 /* ECSHelper.swift */; };
+		3B20FBF220ACB119001E4636 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B20FBF120ACB119001E4636 /* back.png */; };
+		3B20FBF620ACB982001E4636 /* AppUserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B20FBF420ACB981001E4636 /* AppUserObject.m */; };
+		3B20FBF820ACBA46001E4636 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20FBF720ACBA46001E4636 /* BaseViewController.swift */; };
 		3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320A5120A8636000E68788 /* PAHomeVC.swift */; };
 		3B320A5420A8636000E68788 /* PAHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B320A5220A8636000E68788 /* PAHomeVC.xib */; };
 		3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320A5520A8638200E68788 /* PAChatVC.swift */; };
@@ -107,6 +112,13 @@
 		3B1A258B20A7FF6B00F054E0 /* PollAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PollAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A258F20A7FF6B00F054E0 /* PollAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAppUITests.swift; sourceTree = "<group>"; };
 		3B1A259120A7FF6B00F054E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B20FBED20AC8ECD001E4636 /* UIExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
+		3B20FBEF20AC902F001E4636 /* ECSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECSHelper.swift; sourceTree = "<group>"; };
+		3B20FBF120ACB119001E4636 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		3B20FBF320ACB980001E4636 /* PollApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PollApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B20FBF420ACB981001E4636 /* AppUserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUserObject.m; sourceTree = "<group>"; };
+		3B20FBF520ACB982001E4636 /* AppUserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUserObject.h; sourceTree = "<group>"; };
+		3B20FBF720ACBA46001E4636 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3B320A5120A8636000E68788 /* PAHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAHomeVC.swift; sourceTree = "<group>"; };
 		3B320A5220A8636000E68788 /* PAHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAHomeVC.xib; sourceTree = "<group>"; };
 		3B320A5520A8638200E68788 /* PAChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAChatVC.swift; sourceTree = "<group>"; };
@@ -162,7 +174,13 @@
 		1B47B27620AC1303003223E1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3B20FBF720ACBA46001E4636 /* BaseViewController.swift */,
+				3B20FBF520ACB982001E4636 /* AppUserObject.h */,
+				3B20FBF420ACB981001E4636 /* AppUserObject.m */,
+				3B20FBEF20AC902F001E4636 /* ECSHelper.swift */,
+				3B20FBED20AC8ECD001E4636 /* UIExtentions.swift */,
 				1B47B27720AC1363003223E1 /* ServiceClass.swift */,
+				3B20FBF320ACB980001E4636 /* PollApp-Bridging-Header.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -268,6 +286,7 @@
 		3BD75AB320A803E5007FDD57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3B20FBF120ACB119001E4636 /* back.png */,
 				1B47B27A20AC1623003223E1 /* userBlack.png */,
 				1B47B27920AC1623003223E1 /* userWhite.png */,
 				1B6DA2F320A9999300A67E8A /* view.png */,
@@ -323,6 +342,7 @@
 				3B1A256920A7FF6B00F054E0 /* Frameworks */,
 				3B1A256A20A7FF6B00F054E0 /* Resources */,
 				F919C08FCD4DCB724FFF9C94 /* [CP] Embed Pods Frameworks */,
+				A0D0484989DFACE5901F6E89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,6 +361,8 @@
 				3B1A257C20A7FF6B00F054E0 /* Sources */,
 				3B1A257D20A7FF6B00F054E0 /* Frameworks */,
 				3B1A257E20A7FF6B00F054E0 /* Resources */,
+				281698E0AEE0F821DB038B7D /* [CP] Embed Pods Frameworks */,
+				D56004A0A4902D842CDD9125 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,6 +382,8 @@
 				3B1A258720A7FF6B00F054E0 /* Sources */,
 				3B1A258820A7FF6B00F054E0 /* Frameworks */,
 				3B1A258920A7FF6B00F054E0 /* Resources */,
+				994916D909CCCFC0CC3879EF /* [CP] Embed Pods Frameworks */,
+				BD511BEAD80EAB5858BF02F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,6 +407,7 @@
 				TargetAttributes = {
 					3B1A256B20A7FF6B00F054E0 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					3B1A257F20A7FF6B00F054E0 = {
@@ -428,6 +453,7 @@
 				3BD75AC120A85D02007FDD57 /* user (1).png in Resources */,
 				3BD75AB920A81125007FDD57 /* PAOTPVC.xib in Resources */,
 				1B6DA2E320A974F600A67E8A /* homeblack.png in Resources */,
+				3B20FBF220ACB119001E4636 /* back.png in Resources */,
 				1B47B27C20AC1623003223E1 /* userBlack.png in Resources */,
 				1B6DA2F220A9991900A67E8A /* share.png in Resources */,
 				3B320A5820A8638200E68788 /* PAChatVC.xib in Resources */,
@@ -468,6 +494,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		281698E0AEE0F821DB038B7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollAppTests/Pods-PollAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5CE5B945CF502F8564AE27EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +527,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		994916D909CCCFC0CC3879EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollAppUITests/Pods-PollAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9C0709ADABB184E99F2FF83B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +558,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0D0484989DFACE5901F6E89 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollApp/Pods-PollApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD511BEAD80EAB5858BF02F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollAppUITests/Pods-PollAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D56004A0A4902D842CDD9125 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollAppTests/Pods-PollAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D67E4BCFBB8EDF250EE1E3D1 /* [CP] Check Pods Manifest.lock */ = {
@@ -534,6 +635,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -542,6 +644,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -555,14 +658,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B20FBEE20AC8ECD001E4636 /* UIExtentions.swift in Sources */,
 				3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */,
 				3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */,
 				1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */,
 				1B79A2BB20ADA64E00291751 /* ChartVC.swift in Sources */,
 				3BD75AB820A81125007FDD57 /* PAOTPVC.swift in Sources */,
+				3B20FBF820ACBA46001E4636 /* BaseViewController.swift in Sources */,
 				1B47B27820AC1363003223E1 /* ServiceClass.swift in Sources */,
 				1B6DA2EF20A9928A00A67E8A /* HomeCell.swift in Sources */,
+				3B20FBF020AC902F001E4636 /* ECSHelper.swift in Sources */,
 				3B1A257020A7FF6B00F054E0 /* AppDelegate.swift in Sources */,
+				3B20FBF620ACB982001E4636 /* AppUserObject.m in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
 				1B79A2BE20ADA94200291751 /* BarCell.swift in Sources */,
@@ -727,12 +834,16 @@
 			baseConfigurationReference = 62451A328C0185658CB34567 /* Pods-PollApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 577N9MGWW6;
 				INFOPLIST_FILE = PollApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-initqube.PollApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.initqube.PollApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PollApp/Helper/PollApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,12 +854,15 @@
 			baseConfigurationReference = D4E7635BF7CEC1CCD9C92A28 /* Pods-PollApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 577N9MGWW6;
 				INFOPLIST_FILE = PollApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-initqube.PollApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.initqube.PollApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PollApp/Helper/PollApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
