@@ -28,11 +28,17 @@ class PAProfile: BaseViewController {
         setShadow(viewCorporate)
         setShadow(viewEvent)
         
-        print(self.appUserObject?.device_id)
+        print(self.appUserObject?.access_token)
         
     }
 
-
+    @IBAction func clickToDone(_ sender: Any) {
+        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        UserDefaults.standard.set(3, forKey: "isLogin")
+        UserDefaults.standard.synchronize()
+    }
+    
     func setShadow(_ view: UIView){
         
         
@@ -45,8 +51,7 @@ class PAProfile: BaseViewController {
     
 
     @IBAction func clickToPersonal(_ sender: Any) {
-        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+   
     }
     
 }

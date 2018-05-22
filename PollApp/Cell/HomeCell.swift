@@ -12,9 +12,10 @@ import SwiftCharts
 
 class HomeCell: UITableViewCell {
     @IBOutlet weak var lblNumberOfViews: UILabel!
-       var chartView: BarsChart!
+    
     @IBOutlet weak var lblTimes: UILabel!
    
+    weak var chartView: BarsChart!
     @IBOutlet weak var viewChart: viewChart!
     @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var lblName: UILabel!
@@ -22,7 +23,9 @@ class HomeCell: UITableViewCell {
         super.awakeFromNib()
       
         UIView().setShadow(self.contentView)
-        self.viewChart.reloadCollection(arrData: [])
+        
+       
+        
         
     }
 
@@ -32,7 +35,10 @@ class HomeCell: UITableViewCell {
         
     }
     
-    
+    func configeCell(with arrayOption: [Option]){
+        self.viewChart.reloadCollection(arrData: arrayOption)
+        
+    }
   
     
 }

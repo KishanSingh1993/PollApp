@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftCharts
+import SVProgressHUD
+
 
 class PAHomeVC: BaseViewController {
 
@@ -17,13 +19,13 @@ class PAHomeVC: BaseViewController {
     @IBOutlet weak var btnSetting: UIButton!
     @IBOutlet weak var btnHome: UIButton!
     @IBOutlet weak var viewBottom: UIView!
-    
+    var arrHomeProductData : Array<Any> = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewMain: UIView!
     var viewProfile: PAProfile?
     var viewChat: PAChatVC?
     var viewSearch: PASearch?
-    var viewSetting: QueSubmition?
+    var viewSetting: PAChatVC?
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -34,21 +36,38 @@ class PAHomeVC: BaseViewController {
       
         
         
-       btnHome .setButtonImage("homeblack.png")
+        btnHome .setButtonImage("homeblack.png")
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        print(self.appUserObject?.device_id)
+        
+        
+        callHomeScreenValue()
        
     }
 
- 
-    override func viewDidLayoutSubviews(){
+   func callHomeScreenValue(){
+    SVProgressHUD.show()
+   
+    ServiceClass().homeScreenData(strUrl: "survey", header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
+       
+        if(err != nil){
+            
+        }
+        else{
+                self.arrHomeProductData = arrData
+                self.tableView.reloadData()
+        }
+        SVProgressHUD.dismiss()
         
-     let  hieght = 220.0 * 2
-        
-        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: CGFloat(hieght))
-     
-        tableView.reloadData()
+    })
+    
     }
+    
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        setHomeData()
+    }
+    
+    
     
     @IBAction func clickToProfile(_ sender: Any) {
         self.searchBar.isHidden = true
@@ -79,6 +98,14 @@ class PAHomeVC: BaseViewController {
     
   
     @IBAction func clickToHome(_ sender: Any) {
+       
+        setHomeData()
+        self.tableView.reloadData()
+        
+    }
+    
+    func setHomeData(){
+        
         setButtonImg(btn: btnHome, strActive: "homeblack.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
         self.searchBar.isHidden = false
         if self.childViewControllers.count > 0{
@@ -111,7 +138,7 @@ class PAHomeVC: BaseViewController {
         
         setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
         
-        viewSetting = QueSubmition(nibName: "QueSubmition", bundle: nil)
+        viewSetting = PAChatVC(nibName: "PAChatVC", bundle: nil)
         
         addChildViewController(viewSetting!)
         viewMain.addSubview((viewSetting?.view)!)
@@ -133,7 +160,7 @@ class PAHomeVC: BaseViewController {
 extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return self.arrHomeProductData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,8 +168,17 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
-        
-
+        let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
+        cell.lblName.text = obj.name
+        cell.lblNumberOfViews.text = String(obj.attemptedCount)
+        cell.lblTimes.text = "remains"
+        if let ques = obj.questions {
+            let option = ques[0].options
+            cell.configeCell(with: option!)
+            print(option)
+        }
+       
+       
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -160,4 +196,18 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
 
         return viewFooter
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
+        
+            let option = obj.questions[0].options
+            let vc = QueSubmition(nibName: "QueSubmition", bundle: nil)
+            vc.arrQueOption = option!
+            present(vc, animated: true, completion: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+ 
+    
 }

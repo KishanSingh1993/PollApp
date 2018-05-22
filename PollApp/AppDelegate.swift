@@ -12,22 +12,43 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var viewController: PALogInVC?
+    var viewController: UIViewController?
     var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
      
+      
+        setRootcontrooler()
+        
+        return true
+    }
+
+    
+    
+    func setRootcontrooler(){
+        
+        let controllerVelue = UserDefaults.standard.integer(forKey: "isLogin")
+
+        if controllerVelue == 2 {
+             viewController = PAProfile(nibName: "PAProfile", bundle: nil)
+
+        }else if controllerVelue == 3{
+             viewController = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+        }
+        else{
+             viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
+        }
         window = UIWindow(frame: UIScreen.main.bounds)
-        viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
+       //viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
         navigationController = UINavigationController(rootViewController: (viewController)!)
         self.window?.rootViewController = self.navigationController
         navigationController?.navigationBar.isHidden = true
         window?.makeKeyAndVisible()
         
         
-        return true
     }
-
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,7 +87,7 @@
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="WPL-Gy-VDH"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23:02 remains" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-dR-aY7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGn-dR-aY7">
                         <rect key="frame" x="10" y="167.66666666666666" width="150" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="GIY-FJ-a90"/>
@@ -121,7 +120,7 @@
                 <outlet property="lblName" destination="mbX-Vi-Kbe" id="9ru-xl-Y0J"/>
                 <outlet property="lblNumberOfViews" destination="QOB-ex-4ct" id="CUj-NH-g75"/>
                 <outlet property="lblTimes" destination="gGn-dR-aY7" id="bPq-je-OvH"/>
-                <outlet property="viewChart" destination="xcV-bE-tNh" id="NZI-MU-lmb"/>
+                <outlet property="viewChart" destination="xcV-bE-tNh" id="DDM-eY-ST4"/>
             </connections>
             <point key="canvasLocation" x="-14" y="-41"/>
         </tableViewCell>

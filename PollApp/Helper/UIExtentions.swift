@@ -27,7 +27,34 @@ class UIExtensions: NSObject {
 
 
 
-
+extension UIButton {
+    public func makeCircular() {
+        layer.cornerRadius = frame.size.width / 2
+        layer.masksToBounds = true
+    }
+    public func setButtonImage(_ imageName: String) {
+        setImage(UIImage(named: imageName), for: .normal)
+    }
+    
+    public func setAttributedButtonTitle(_ title: NSAttributedString) {
+        setAttributedTitle(title, for: .normal)
+    }
+    public func setButtonTitleColor(_ color: UIColor) {
+        setTitleColor(color, for: .normal)
+    }
+    
+    public func setButtonBackgroudImage(_ imageName: String) {
+        setBackgroundImage(UIImage(named: imageName), for: .normal)
+    }
+    
+    public func setButtonBackgroundColor(_ color: UIColor) {
+        backgroundColor = color
+    }
+    public func setButtonTitle(_ title: String) {
+        setTitle(title, for: .normal)
+    }
+    
+}
 
 
 extension UITextField {

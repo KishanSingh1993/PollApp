@@ -12,16 +12,26 @@ class BarCell: UICollectionViewCell {
     
     let barView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    let lbl: UILabel = {
+        let lbl = UILabel()
+        lbl.backgroundColor = .white
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textAlignment = .left
+        lbl.font = UIFont(name:"Helvetica Neue", size: 13.0)
+        return lbl
+    }()
+    
     
     var barHeightConstraint: NSLayoutConstraint?
     
     override var isHighlighted: Bool {
         didSet {
-            barView.backgroundColor = isHighlighted ? .black : .red
+            barView.backgroundColor =  #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
         }
     }
     
@@ -29,6 +39,7 @@ class BarCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(barView)
+        addSubview(lbl)
         
 //        barView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
@@ -39,11 +50,21 @@ class BarCell: UICollectionViewCell {
         
 //        barView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
-        barView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        barView.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant:0).isActive = true
         
         barView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         
         barView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        
+        
+        lbl.bottomAnchor.constraint(equalTo: bottomAnchor,constant:0).isActive = true
+        
+        lbl.leftAnchor.constraint(equalTo: leftAnchor,constant:0).isActive = true
+    
+        lbl.widthAnchor.constraint(equalTo: widthAnchor,constant:200).isActive = true
+      
+
+
         
         
         

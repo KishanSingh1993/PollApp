@@ -70,6 +70,7 @@ class PALogInVC: UIViewController {
                         let  viewController = PAOTPVC(nibName: "PAOTPVC", bundle: nil)
                         viewController.strPhone = mobile
                         self.navigationController?.pushViewController(viewController, animated: true)
+              
                     
                 }
                 SVProgressHUD.dismiss()

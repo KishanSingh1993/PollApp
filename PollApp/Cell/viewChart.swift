@@ -11,7 +11,8 @@ class viewChart: UIView {
     var collectionView: UICollectionView!
     let cellId = "cellId"
     
-    let values: [CGFloat] = [12, 80, 20, 40]
+    let values: NSMutableArray = [18,5,3,7]
+    var arrOption: [Option] = []
 
     var space : CGFloat!
     
@@ -41,17 +42,30 @@ class viewChart: UIView {
     
 
     
-    func reloadCollection(arrData:NSMutableArray) {
+    func reloadCollection(arrData:[Option]) {
         
-//        self.arrEmojiPanel = arrData
+        print(arrData)
+        for var j in 0..<(arrData.count){
+            let valueCount = CGFloat(arrData[j].count)
+            self.values.add(valueCount)
+        }
+        
+        self.arrOption = arrData
+        
+  
+
         collectionView.reloadData()
     }
 }
 
 extension viewChart: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return values.count
+        return self.arrOption.count
     }
     
     func maxHeight() -> CGFloat {
@@ -63,12 +77,18 @@ extension viewChart: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BarCell
         
-        if let max = values.max() {
-            let value = values[indexPath.item]
-            let ratio = value / max
-            
-            cell.barHeightConstraint?.constant = maxHeight() * ratio
+         let optionName = arrOption[indexPath.row].option
+        let optionValue = arrOption[indexPath.row].count
+        
+        if let max = optionValue {
+            let value = values[indexPath.item] as! CGFloat
+            let ratio = value / CGFloat(max)
+
+            cell.barHeightConstraint?.constant = maxHeight() * value
         }
+       
+//        cell.barHeightConstraint?.constant =  maxHeight() * CGFloat(5)
+        cell.lbl.text = optionName
         
         return cell
     }
@@ -79,7 +99,7 @@ extension viewChart: UICollectionViewDataSource {
 
 extension viewChart : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 50
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 30, height: maxHeight())

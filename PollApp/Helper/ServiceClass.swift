@@ -95,74 +95,63 @@ class ServiceClass: NSObject {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public func getDataForSearchCity(strUrl:String,prama:[String:String],completion: @escaping (arrayBlock)){
+    public func homeScreenData(strUrl:String,header:String,completion:@escaping (arrayBlock)){
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        print(header)
+        
+        
+        
       
         
-        requestGETURL(baseURL+strUrl, params: nil, headers: nil, success: {
-                    (JSONResponse) -> Void in
-                    print(JSONResponse)
-  
-   
-//
-//            for rootdic  in JSONResponse.arrayObject! {
-//                if let obj = rootdic as? [String: Any] {
-//                   // let object = PlaceObject(JSON: obj)
-//                  //  self.arrIteam.append(object)
-//                }
-//
-//            }
-//
-          
-            completion(nil,self.arrIteam)
-           
      
+        
+        Alamofire.request(baseURL+strUrl, headers: headersValue).responseJSON { response in
+            debugPrint(response)
             
-            }){
-            (error) -> Void in
+            if response.result.isSuccess {
+                let resJson = JSON(response.result.value!)
                 
+                let dicData = resJson.dictionaryObject!
+                
+                if dicData["status"] as! Int == 200 {
+                    for rootDic in resJson["data"].array!{
+                        let obj = HomeScreenData(fromJson: rootDic)
+                       self.arrIteam.append(obj)
+                    }
+                    completion(nil,self.arrIteam)
+                }
+        
+                
+                
+                
+            }
+            if response.result.isFailure {
+                let error : Error = response.result.error!
                 completion(error,[])
-                       
+            }
+            
+            
         }
-        
-        //            for responseDic  in    JSONResponse["wsResponse"]{
-        //                print(responseDic)
-        //                if "0" == (responseDic.0){
-        //                    for rootdic  in JSONResponse.dictionaryObject! {
-        //                        print(rootdic)
-        //                        if rootdic is [String: Any] {
-        //
-        //                              print(rootdic)
-        //
-        //                        }
-        //
-        //                    }
-        //
-        //
-        //
-        //                completion(nil,self.arrIteam)
-        //            }
-        //
-        //
-        //            }
-        //
-
-       
-        
         
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     
     
 
@@ -192,7 +181,7 @@ class ServiceClass: NSObject {
     
     
     
-    private  func requestGETURL(_ strURL : String, params : [String : AnyObject]?, headers : [String : String]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
+    private  func requestGETURL(_ strURL : String, params : [String : AnyObject]?, headers : HTTPHeaders, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         Alamofire.request(strURL).responseJSON { (responseObject) -> Void in
             
             print(responseObject)

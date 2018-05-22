@@ -9,28 +9,58 @@
 import UIKit
 
 class QueSubmition: UIViewController {
-    @IBOutlet weak var btnFirst: UIButton!
-    @IBOutlet weak var btnSecond: UIButton!
-    @IBOutlet weak var btnFour: UIButton!
+    @IBOutlet weak var btnCheck: UIButton!
     
-    @IBOutlet weak var btnThried: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblQue: UILabel!
+      var arrQueOption: [Option] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        btnFirst.layer.borderWidth = 1
-        btnFirst.layer.borderColor = UIColor.black.cgColor
-        btnThried.layer.borderWidth = 1
-        btnThried.layer.borderColor = UIColor.black.cgColor
-        btnFour.layer.borderWidth = 1
-        btnFour.layer.borderColor = UIColor.black.cgColor
+        tableView.register(UINib(nibName: "QuestionCellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell");
+        self.btnCheck.makeCircular()
+        self.lblQue.text = "Whats your favorite Beverage ?"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func clickToBack(_ sender: Any) {
+       dismiss(animated: true, completion: nil)
     }
+    
     
 
 
+
+}
+extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrQueOption.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! QuestionCellTableViewCell
+         let optionName = arrQueOption[indexPath.row].option
+        cell.lblText.text = optionName
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
+        cell.lblText.backgroundColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
+        cell.lblText.textColor = UIColor.white
+        
+        
+
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
+        cell.lblText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell.lblText.textColor = UIColor.black
+    }
+    
 
 }

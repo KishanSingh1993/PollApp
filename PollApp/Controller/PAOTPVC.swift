@@ -53,15 +53,18 @@ class PAOTPVC: BaseViewController {
  
                 if let data = dicData["data"] as? [String : Any] {
                     if let user = data["user"] as? [String : Any] {
-                        print(dicData["authToken"])
-                       self.appUserObject?.setAttributesFrom(user)
+                        print(data["authToken"])
+                        self.appUserObject = AppUserObject.instance(from: dicData)
                         self.appUserObject?.userId = user["userId"] as! String
                         self.appUserObject?.userName = user["name"] as! String
-                        self.appUserObject?.access_token = dicData["authToken"] as! String
+                        self.appUserObject?.access_token = data["authToken"] as! String
                         self.appUserObject?.device_id = user["deviceId"] as! String
+                        
                         self.appUserObject?.saveToUserDefault()
                         let  viewController = PAProfile(nibName: "PAProfile", bundle: nil)
                         self.navigationController?.pushViewController(viewController, animated: true)
+                        UserDefaults.standard.set(2, forKey: "isLogin")
+                        UserDefaults.standard.synchronize()
                         
                     }
                    
@@ -80,7 +83,7 @@ class PAOTPVC: BaseViewController {
                 
             }
             else{
-                    let msg = dicData["status"] as! String
+                    let msg = dicData["userMessage"] as! String
                      ECSAlert().showAlert(message: msg, controller: self)
                 
                 
