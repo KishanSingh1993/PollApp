@@ -12,7 +12,12 @@ import SVProgressHUD
 
 
 class PAHomeVC: BaseViewController {
-
+    @IBOutlet weak var lblSetting: UILabel!
+    
+    @IBOutlet weak var lblSearch: UILabel!
+    @IBOutlet weak var lblGroup: UILabel!
+    @IBOutlet weak var lblprofile: UILabel!
+    @IBOutlet weak var lblHome: UILabel!
     @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var btnChat: UIButton!
     @IBOutlet weak var btnSearch: UIButton!
@@ -51,6 +56,8 @@ class PAHomeVC: BaseViewController {
        
         if(err != nil){
             
+        
+            
         }
         else{
                 self.arrHomeProductData = arrData
@@ -79,6 +86,7 @@ class PAHomeVC: BaseViewController {
         viewMain.addSubview((viewProfile?.view)!)
         viewProfile?.view.frame = viewMain.bounds
         viewProfile?.willMove(toParentViewController: self)
+           setLableTextColor(lbl: self.lblprofile, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblGroup, lbl4: lblSetting)
     }
     
    
@@ -92,7 +100,7 @@ class PAHomeVC: BaseViewController {
         viewMain.addSubview((viewChat?.view)!)
         viewChat?.view.frame = viewMain.bounds
         viewChat?.willMove(toParentViewController: self)
-        
+             setLableTextColor(lbl: self.lblGroup, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblprofile, lbl4: lblSetting)
         
     }
     
@@ -107,6 +115,10 @@ class PAHomeVC: BaseViewController {
     func setHomeData(){
         
         setButtonImg(btn: btnHome, strActive: "homeblack.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+        self.lblHome.textColor = #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1)
+        
+        setLableTextColor(lbl: self.lblHome, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblGroup, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblprofile, lbl4: lblSetting)
+        
         self.searchBar.isHidden = false
         if self.childViewControllers.count > 0{
             let viewControllers:[UIViewController] = self.childViewControllers
@@ -123,6 +135,7 @@ class PAHomeVC: BaseViewController {
     @IBAction func clickToSearch(_ sender: Any) {
         self.searchBar.isHidden = true
         setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupeblack.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+         setLableTextColor(lbl: self.lblSearch, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSetting)
         
         viewSearch = PASearch(nibName: "PASearch", bundle: nil)
         
@@ -138,6 +151,7 @@ class PAHomeVC: BaseViewController {
         
         setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
         
+               setLableTextColor(lbl: self.lblSetting, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSearch)
         viewSetting = PAChatVC(nibName: "PAChatVC", bundle: nil)
         
         addChildViewController(viewSetting!)
@@ -153,6 +167,18 @@ class PAHomeVC: BaseViewController {
         btn2 .setButtonImage(strUnactive2)
         btn3 .setButtonImage(strUnactive3)
         btn4 .setButtonImage(strUnactive4)
+        
+    }
+    
+    func setLableTextColor(lbl :UILabel, colorActive :UIColor,lbl1 :UILabel, colorUnactive :UIColor,   lbl2 :UILabel, lbl3 :UILabel, lbl4 :UILabel){
+        
+        lbl.textColor = colorActive
+        lbl1.textColor = colorUnactive
+        lbl3.textColor = colorUnactive
+        lbl2.textColor = colorUnactive
+        lbl4.textColor = colorUnactive
+        
+        
         
     }
 }

@@ -13,9 +13,12 @@ class PAProfile: BaseViewController {
     @IBOutlet weak var viewPersonal: UIView!
     
      @IBOutlet weak var viewCorporate: UIView!
+    @IBOutlet weak var lblPersonal: UILabel!
     
+    @IBOutlet weak var lblCorporates: UILabel!
     @IBOutlet weak var viewEvent: UIView!
     
+    @IBOutlet weak var lblEvent: UILabel!
     
     @IBOutlet weak var viewMain: UIView!
     
@@ -29,6 +32,10 @@ class PAProfile: BaseViewController {
         setShadow(viewEvent)
         
         print(self.appUserObject?.access_token)
+        lblPersonal.numberOfLines = 0
+        lblPersonal.text = "Personal\nProfile"
+        lblCorporates.text = "Corporate\nProfile"
+         lblEvent.text = "Event\nProfile"
         
     }
 
@@ -46,7 +53,7 @@ class PAProfile: BaseViewController {
  
         view.layer.cornerRadius = 5
         view.layer.borderWidth = 2
-        view.layer.borderColor = #colorLiteral(red: 0.4392156863, green: 0.6980392157, blue: 1, alpha: 1).cgColor
+        view.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1).cgColor
     }
     
 

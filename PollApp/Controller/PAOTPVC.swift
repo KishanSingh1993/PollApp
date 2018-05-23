@@ -13,7 +13,11 @@ import SVProgressHUD
 
 class PAOTPVC: BaseViewController {
 
-    @IBOutlet weak var txtOtp: HoshiTextField!
+    @IBOutlet weak var txtOtpFour: HoshiTextField!
+    
+    @IBOutlet weak var txtOtpThree: HoshiTextField!
+    @IBOutlet weak var txtOtpTwo: HoshiTextField!
+    @IBOutlet weak var txtOtpOne: HoshiTextField!
     var strPhone : String!
     
     @IBOutlet weak var viewOtp: UIView!
@@ -23,6 +27,50 @@ class PAOTPVC: BaseViewController {
 
             UIView().setShadow(self.viewOtp)
       
+        
+        txtOtpOne.delegate = self
+        txtOtpTwo.delegate = self
+        txtOtpThree.delegate = self
+        txtOtpFour.delegate = self
+        
+        
+        txtOtpOne.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        txtOtpTwo.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        txtOtpThree.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        txtOtpFour.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        self.txtOtpOne.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
+        self.txtOtpTwo.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
+        self.txtOtpThree.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
+        self.txtOtpFour.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+    }
+    
+    
+    @objc func textFieldDidChange(textField: UITextField){
+        
+        let text = textField.text
+        
+        if (text?.utf16.count)! >= 1{
+            switch textField{
+            case txtOtpOne:
+                txtOtpTwo.becomeFirstResponder()
+            case txtOtpTwo:
+                txtOtpThree.becomeFirstResponder()
+            case txtOtpThree:
+                txtOtpFour.becomeFirstResponder()
+            case txtOtpFour:
+                txtOtpFour.resignFirstResponder()
+            default:
+                break
+            }
+        }else{
+            
+        }
     }
 
     @IBAction func clickToBack(_ sender: Any) {
@@ -32,17 +80,38 @@ class PAOTPVC: BaseViewController {
     
     @IBAction func clickToVerify(_ sender: Any) {
         
-        callOtpServiec()
+        
+        if txtOtpOne.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please Enter the OTP", controller: self)
+            
+        }else if  txtOtpTwo.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please Enter the OTP", controller: self)
+            
+        }
+        else if  txtOtpThree.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please Enter the OTP", controller: self)
+            
+        }
+        else if  txtOtpFour.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please Enter the OTP", controller: self)
+            
+        }
+        else{
+            callOtpServiec()
+        }
+        
         
         
     }
     
     func callOtpServiec(){
         
+        let strValue = self.txtOtpOne.text! + self.txtOtpTwo.text! + self.txtOtpThree.text! + self.txtOtpFour.text!
+        
         SVProgressHUD.show()
         
         
-        let dic = ["OTP": self.txtOtp.text,
+        let dic = ["OTP": strValue,
                    "mobileNumber": self.strPhone,
                    "pushToken":"fsafsafsafsadfdas",
                    "deviceId":ECSHelper().getDeviceId()] as [String : Any]
@@ -100,19 +169,17 @@ class PAOTPVC: BaseViewController {
 
 extension PAOTPVC: UITextFieldDelegate{
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if textField.text?.count == 4{
-            return false
-        }
-        return true
-    }
+
     
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
         
+    }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
     }
     
 }

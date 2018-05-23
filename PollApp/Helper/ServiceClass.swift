@@ -125,6 +125,11 @@ class ServiceClass: NSObject {
                     }
                     completion(nil,self.arrIteam)
                 }
+                else{
+                    let msg = dicData["userMessage"] as! String
+                    
+                    completion(fatalError(msg) as! Error,[])
+                }
         
                 
                 

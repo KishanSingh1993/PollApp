@@ -17,6 +17,11 @@
                 <outlet property="btnProfile" destination="pKd-D9-Cqg" id="Kda-Wb-NJF"/>
                 <outlet property="btnSearch" destination="uYz-t6-9Am" id="QEK-Sf-Blj"/>
                 <outlet property="btnSetting" destination="MQE-1l-1QM" id="963-Yj-0fQ"/>
+                <outlet property="lblGroup" destination="ef7-qG-pc6" id="514-EB-YWF"/>
+                <outlet property="lblHome" destination="rX0-Fx-DoV" id="dRH-Zl-wuo"/>
+                <outlet property="lblSearch" destination="5rr-o7-bKb" id="8bD-qi-SWW"/>
+                <outlet property="lblSetting" destination="sIP-Hp-WpV" id="hin-a9-JAT"/>
+                <outlet property="lblprofile" destination="Hlk-19-1JM" id="BQ1-7E-D5R"/>
                 <outlet property="searchBar" destination="X67-T5-jLp" id="3fV-3G-jis"/>
                 <outlet property="tableView" destination="XhG-F7-P0s" id="ihV-HT-WhW"/>
                 <outlet property="view" destination="TXN-KZ-wCR" id="RBq-e5-jC1"/>
@@ -40,7 +45,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                     </subviews>
-                    <color key="backgroundColor" red="0.9585814475067358" green="0.62072510138585124" blue="0.0086658605889979121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.61176470588235299" green="0.0" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="X67-T5-jLp" secondAttribute="trailing" constant="20" id="KZO-6y-cm9"/>
                         <constraint firstItem="X67-T5-jLp" firstAttribute="leading" secondItem="isg-9S-7pc" secondAttribute="leading" constant="20" id="hvz-JV-FtR"/>
@@ -125,7 +130,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-qG-pc6">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-qG-pc6">
                                     <rect key="frame" x="84.666666666666671" y="0.0" width="75.000000000000014" height="14"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +157,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.90980392160000001" green="0.59215686270000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.5568627451" green="0.12941176469999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="08B-P8-kuC" firstAttribute="top" secondItem="MuD-X0-Ftq" secondAttribute="top" constant="5" id="5qA-Kn-0xN"/>
                         <constraint firstAttribute="bottom" secondItem="JZs-2j-mYJ" secondAttribute="bottom" id="7EQ-hm-3N6"/>
