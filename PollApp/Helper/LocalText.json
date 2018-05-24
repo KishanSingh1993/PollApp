@@ -1,0 +1,22 @@
+{
+    "Setting":[
+               {"name": "Survey notification","discription":""},
+                 {"name": "Notification Tone","discription":"Play notification when new notification recevied"},
+               {"name": "Show ticker","discription":"Shows snippet of new message in notification bar"},
+                {"name": "Vibration","discription":"Vibrate when new message are recevied"},
+                {"name": "About","discription":""},
+                {"name": "Privacy Policy","discription":""},
+                {"name": "Rate Us","discription":""},
+                {"name": "Logout","discription":""},
+               
+               ],
+    
+   
+
+
+    
+   
+   
+    
+}
+

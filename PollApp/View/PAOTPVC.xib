@@ -78,7 +78,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GoJ-fz-AQP">
                             <rect key="frame" x="20" y="50" width="295" height="60"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMD-C8-KJ7" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMD-C8-KJ7" customClass="HoshiTextField" customModule="TextFieldEffects">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="60"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -98,7 +98,7 @@
                                         <outlet property="delegate" destination="-1" id="nx4-ln-yoJ"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKZ-pR-3xm" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FKZ-pR-3xm" customClass="HoshiTextField" customModule="TextFieldEffects">
                                     <rect key="frame" x="75" y="0.0" width="70" height="60"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -118,7 +118,7 @@
                                         <outlet property="delegate" destination="-1" id="r66-P5-wTQ"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oa4-sa-kly" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oa4-sa-kly" customClass="HoshiTextField" customModule="TextFieldEffects">
                                     <rect key="frame" x="150" y="0.0" width="70" height="60"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -138,7 +138,7 @@
                                         <outlet property="delegate" destination="-1" id="2Rg-bK-teu"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iA-fi-efL" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iA-fi-efL" customClass="HoshiTextField" customModule="TextFieldEffects">
                                     <rect key="frame" x="225" y="0.0" width="70" height="60"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>

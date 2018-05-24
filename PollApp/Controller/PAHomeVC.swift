@@ -70,38 +70,37 @@ class PAHomeVC: BaseViewController {
         DispatchQueue.global(qos: .background).async {
             print("This is run on the background queue")
             
-            self.getContact(completion: { err,res   in
-                
-                if res == true{
-                    
-                    DispatchQueue.global(qos: .background).async {
-                        print("This is run on the background queue")
-                        
-                        let dic = ["users":self.arrayContract]
-                        
-                        
-                        ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, completion: {err , arrData   in
-                            
-                        })
-                        
-                    }
-                    
-                }
-                
-                else{
-                    
-                }
-               
-                
-                
-            })
+            self.getContact()
+            self.sendContact()
         }
        
+        
     }
     
     
     
-    @objc  func getContact(completion:@escaping (completBlock)){
+    func sendContact(){
+                            print(self.arrayContract)
+        
+        
+                            DispatchQueue.global(qos: .background).async {
+                                print("This is run on the background queue")
+        
+                                let dic = ["users":self.arrayContract]
+        
+        
+                                ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, completion: {err , arrData   in
+        
+                                })
+        
+                            }
+        
+        
+    }
+    
+    
+    
+    @objc  func getContact(){
         let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
         do {
             try contactStore.enumerateContacts(with: request){
@@ -128,14 +127,14 @@ class PAHomeVC: BaseViewController {
          
                 }
                 
-                    completion(nil , true)
+                
                 
                 
             }
             print(contacts)
         } catch {
             
-             completion(nil , false)
+            
             print("unable to fetch contacts")
         }
     }

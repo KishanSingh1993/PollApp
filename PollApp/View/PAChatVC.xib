@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,8 +18,28 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jG1-eJ-K4B">
+                    <rect key="frame" x="315" y="607" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Abr-wG-hfh"/>
+                        <constraint firstAttribute="height" constant="30" id="EaN-95-KLf"/>
+                    </constraints>
+                    <state key="normal" image="collaboration.png"/>
+                    <connections>
+                        <action selector="clickToGroup:" destination="-1" eventType="touchUpInside" id="mD6-fK-hMj"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jG1-eJ-K4B" secondAttribute="trailing" constant="30" id="LcH-QM-GsA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jG1-eJ-K4B" secondAttribute="bottom" constant="30" id="Ny1-hA-VNZ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="collaboration.png" width="32" height="32"/>
+    </resources>
 </document>

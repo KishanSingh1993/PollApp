@@ -8,12 +8,12 @@
 
 import UIKit
 
-class PASettingVC: UIViewController {
-
+class PASettingVC: BaseViewController {
+    var arrValue: Array<Dictionary<String,Any>>?
     @IBOutlet weak var tablView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        arrValue = setDataWithLocalJson("Setting") as NSArray as? Array<Dictionary<String, Any>>
           self.tablView.register(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
 
@@ -30,7 +30,7 @@ extension PASettingVC:UITableViewDelegate,UITableViewDataSource{
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return (self.arrValue?.count)!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,10 +38,33 @@ extension PASettingVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! SettingsCell
-        let mattrStr = NSMutableAttributedString(string: "Anuradha Dwivedi", attributes: [kCTFontAttributeName as NSAttributedStringKey: UIFont(name: "HelveticaNeue-Medium", size: 17.0) ,NSAttributedStringKey.foregroundColor: UIColor.blue])
-        mattrStr.append(NSAttributedString(string: "\n\("i Love You")", attributes: [kCTFontAttributeName as NSAttributedStringKey: UIFont(name: "HelveticaNeue", size: 14.0)]))
+        let strValue =  (arrValue?[indexPath.section]["discription"] as? String)!
+        
+        
+        let mattrStr = NSMutableAttributedString(string:(arrValue?[indexPath.section]["name"] as? String)!, attributes: [kCTFontAttributeName as NSAttributedStringKey: UIFont(name: "HelveticaNeue-Medium", size: 15.0) ,NSAttributedStringKey.foregroundColor: UIColor.black])
+    
+        mattrStr.append(NSAttributedString(string: "\n\(strValue)", attributes: [kCTFontAttributeName as NSAttributedStringKey: UIFont(name: "HelveticaNeue", size: 12.0),NSAttributedStringKey.foregroundColor: UIColor.gray]))
 
         cell.lblText.attributedText = mattrStr
+        
+        if indexPath.section == 0 {
+                cell.btnSwitch.isHidden = false
+        
+        }else if indexPath.section == 1{
+            
+             cell.btnSwitch.isHidden = false
+        }
+        else if indexPath.section == 2{
+            
+            cell.btnSwitch.isHidden = false
+        }
+        else if indexPath.section == 3{
+            
+            cell.btnSwitch.isHidden = false
+        }
+        else{
+            cell.btnSwitch.isHidden = true
+        }
        
         
         return cell
