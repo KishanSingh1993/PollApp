@@ -198,11 +198,11 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         cell.lblName.text = obj.name
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         cell.lblTimes.text = "remains"
-        if let ques = obj.questions {
-            let option = ques[0].options
-            cell.configeCell(with: option!)
-            print(option)
-        }
+//        if let ques = obj.questions {
+//            let option = ques[0].options
+//            cell.configeCell(with: option!)
+//            print(option)
+//        }
        
        
         return cell

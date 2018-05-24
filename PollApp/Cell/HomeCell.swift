@@ -14,18 +14,20 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var lblNumberOfViews: UILabel!
     
     @IBOutlet weak var lblTimes: UILabel!
-   
-    weak var chartView: BarsChart!
-    @IBOutlet weak var viewChart: viewChart!
+    @IBOutlet weak var viewChart: UIView!
+    var chart: BarsChart!
+    
+    
+    let sideSelectorHeight: CGFloat = 50
+  
     @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
       
         UIView().setShadow(self.contentView)
-        
        
-        
+     
         
     }
 
@@ -35,8 +37,7 @@ class HomeCell: UITableViewCell {
         
     }
     
-    func configeCell(with arrayOption: [Option]){
-        self.viewChart.reloadCollection(arrData: arrayOption)
+    func configChart(value: CGFloat , index: Int){
         
     }
   

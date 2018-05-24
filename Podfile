@@ -11,7 +11,7 @@ pod 'Toast-Swift'
  pod 'SwiftyJSON'
  pod 'Alamofire'
  pod 'SVProgressHUD'
-
+pod 'Charts'
 
 
   target 'PollAppTests' do

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Contacts
+
+
 
 class PAProfile: BaseViewController {
 
@@ -22,7 +25,13 @@ class PAProfile: BaseViewController {
     
     @IBOutlet weak var viewMain: UIView!
     
-    
+    let contactStore = CNContactStore()
+    var contacts = [CNContact]()
+    let keys = [
+        CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+        CNContactPhoneNumbersKey,
+        CNContactEmailAddressesKey
+        ] as [Any]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +45,12 @@ class PAProfile: BaseViewController {
         lblPersonal.text = "Personal\nProfile"
         lblCorporates.text = "Corporate\nProfile"
          lblEvent.text = "Event\nProfile"
+        
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            
+            self.getContact()
+        }
         
     }
 
@@ -57,8 +72,30 @@ class PAProfile: BaseViewController {
     }
     
 
+  @objc  func getContact(){
+        let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
+        do {
+            try contactStore.enumerateContacts(with: request){
+                (contact, stop) in
+                // Array containing all unified contacts from everywhere
+                self.contacts.append(contact)
+                for phoneNumber in contact.phoneNumbers {
+                    if let number = phoneNumber.value as? CNPhoneNumber, let label = phoneNumber.label {
+                        let localizedLabel = CNLabeledValue<CNPhoneNumber>.localizedString(forLabel: label)
+                        print("\(contact.givenName) \(contact.familyName) tel:\(localizedLabel) -- \(number.stringValue), email: \(contact.emailAddresses)")
+                    }
+                }
+            }
+            print(contacts)
+        } catch {
+            print("unable to fetch contacts")
+    }
+}
     @IBAction func clickToPersonal(_ sender: Any) {
    
     }
+    
+    
+    
     
 }
