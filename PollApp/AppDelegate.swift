@@ -28,18 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setRootcontrooler(){
         
         let controllerVelue = UserDefaults.standard.integer(forKey: "isLogin")
-
-        if controllerVelue == 2 {
-             viewController = PAProfile(nibName: "PAProfile", bundle: nil)
-
-        }else if controllerVelue == 3{
-             viewController = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+        
+        if controllerVelue == 3{
+            viewController = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
         }
         else{
-             viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
+            viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
         }
         window = UIWindow(frame: UIScreen.main.bounds)
-          viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
         navigationController = UINavigationController(rootViewController: (viewController)!)
         self.window?.rootViewController = self.navigationController
         navigationController?.navigationBar.isHidden = true

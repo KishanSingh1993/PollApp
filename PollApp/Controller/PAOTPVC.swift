@@ -130,9 +130,9 @@ class PAOTPVC: BaseViewController {
                         self.appUserObject?.device_id = user["deviceId"] as! String
                         
                         self.appUserObject?.saveToUserDefault()
-                        let  viewController = PAProfile(nibName: "PAProfile", bundle: nil)
-                        self.navigationController?.pushViewController(viewController, animated: true)
-                        UserDefaults.standard.set(2, forKey: "isLogin")
+                        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        UserDefaults.standard.set(3, forKey: "isLogin")
                         UserDefaults.standard.synchronize()
                         
                     }

@@ -9,6 +9,10 @@
 import UIKit
 import SwiftCharts
 import SVProgressHUD
+import Contacts
+
+
+    typealias completBlock = (_ error: Error?, _ response: Bool) -> Void
 
 
 class PAHomeVC: BaseViewController {
@@ -30,7 +34,22 @@ class PAHomeVC: BaseViewController {
     var viewProfile: PAProfile?
     var viewChat: PAChatVC?
     var viewSearch: PASearch?
-    var viewSetting: PAChatVC?
+    var viewSetting:PASettingVC?
+    var dicUserNumber : Dictionary = [
+        "name" : String(),
+    "mobileNumber": Int()
+  
+        ] as [String : Any]
+    
+    var arrayContract = NSMutableArray()
+    
+    let contactStore = CNContactStore()
+    var contacts = [CNContact]()
+    let keys = [
+        CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+        CNContactPhoneNumbersKey,
+        CNContactEmailAddressesKey
+        ] as [Any]
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -46,29 +65,120 @@ class PAHomeVC: BaseViewController {
         
         
         callHomeScreenValue()
+        
+        
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            
+            self.getContact(completion: { err,res   in
+                
+                if res == true{
+                    
+                    DispatchQueue.global(qos: .background).async {
+                        print("This is run on the background queue")
+                        
+                        let dic = ["users":self.arrayContract]
+                        
+                        
+                        ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, completion: {err , arrData   in
+                            
+                        })
+                        
+                    }
+                    
+                }
+                
+                else{
+                    
+                }
+               
+                
+                
+            })
+        }
        
+    }
+    
+    
+    
+    @objc  func getContact(completion:@escaping (completBlock)){
+        let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
+        do {
+            try contactStore.enumerateContacts(with: request){
+                (contact, stop) in
+                // Array containing all unified contacts from everywhere
+               
+                   self.contacts.append(contact)
+                
+                for phoneNumber in contact.phoneNumbers {
+                    if let number = phoneNumber.value as? CNPhoneNumber, let label = phoneNumber.label {
+                      
+                        print("\(contact.givenName) \(contact.familyName)  -- \(number.stringValue)")
+                        
+                        var  strName = contact.givenName + "" + contact.familyName
+                        
+                        self.dicUserNumber["name"] = strName
+                        self.dicUserNumber["mobileNumber"] = number.stringValue
+                        
+                         self.arrayContract.add(self.dicUserNumber)
+                    }
+                    
+                    print(self.arrayContract)
+                    
+         
+                }
+                
+                    completion(nil , true)
+                
+                
+            }
+            print(contacts)
+        } catch {
+            
+             completion(nil , false)
+            print("unable to fetch contacts")
+        }
     }
 
-   func callHomeScreenValue(){
-    SVProgressHUD.show()
-   
-    ServiceClass().homeScreenData(strUrl: "survey", header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
-       
-        if(err != nil){
-            
+    func callHomeScreenValue(){
+        SVProgressHUD.show()
         
+        ServiceClass().homeScreenData(strUrl: "survey", header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
             
-        }
-        else{
+            if(err != nil){
+                
+                // print(err?.localizedDescription)
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    UserDefaults.standard.set(1, forKey: "isLogin")
+                    UserDefaults.standard.synchronize()
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    delegate.setRootcontrooler()
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
+                SVProgressHUD.dismiss()
+                
+            }
+            else{
                 self.arrHomeProductData = arrData
                 self.tableView.reloadData()
-        }
-        SVProgressHUD.dismiss()
+            }
+            SVProgressHUD.dismiss()
+            
+        })
         
-    })
-    
     }
-    
  
     override func viewWillAppear(_ animated: Bool) {
         setHomeData()
@@ -152,7 +262,7 @@ class PAHomeVC: BaseViewController {
         setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
         
                setLableTextColor(lbl: self.lblSetting, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSearch)
-        viewSetting = PAChatVC(nibName: "PAChatVC", bundle: nil)
+        viewSetting = PASettingVC(nibName: "PASettingVC", bundle: nil)
         
         addChildViewController(viewSetting!)
         viewMain.addSubview((viewSetting?.view)!)
@@ -198,11 +308,11 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         cell.lblName.text = obj.name
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         cell.lblTimes.text = "remains"
-//        if let ques = obj.questions {
-//            let option = ques[0].options
-//            cell.configeCell(with: option!)
-//            print(option)
-//        }
+        if let ques = obj.questions {
+            let option = ques[0].options
+            cell.cellConfig(arrOption: option!)
+            print(option)
+        }
        
        
         return cell

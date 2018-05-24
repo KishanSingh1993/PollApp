@@ -52,7 +52,7 @@
                         <constraint firstAttribute="bottom" secondItem="9db-Ko-3H4" secondAttribute="bottom" constant="8" id="Sd4-qn-zZU"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quesation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qO-LN-KYJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qO-LN-KYJ">
                     <rect key="frame" x="20" y="96" width="374" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="14U-Gz-T03"/>
