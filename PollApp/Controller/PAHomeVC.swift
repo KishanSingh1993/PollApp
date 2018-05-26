@@ -16,6 +16,12 @@ import Contacts
 
 
 class PAHomeVC: BaseViewController {
+    
+    @IBOutlet weak var viewSearchBar: UIView!
+    
+    
+    
+    
     @IBOutlet weak var lblSetting: UILabel!
     
     @IBOutlet weak var lblSearch: UILabel!
@@ -56,12 +62,15 @@ class PAHomeVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+  self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
       
-        
+        self.searchBar.layer.masksToBounds = true;
+        self.searchBar.layer.cornerRadius = 20.0
         
         btnHome .setButtonImage("homeblack.png")
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        print(self.appUserObject?.userId)
+        
         
         
         callHomeScreenValue()
@@ -187,7 +196,7 @@ class PAHomeVC: BaseViewController {
     
     @IBAction func clickToProfile(_ sender: Any) {
         self.searchBar.isHidden = true
-      setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userBlack.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+    setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"identity_yellow.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewProfile = PAProfile(nibName: "PAProfile", bundle: nil)
         
@@ -201,9 +210,10 @@ class PAHomeVC: BaseViewController {
    
     @IBAction func clickToChat(_ sender: Any) {
         self.searchBar.isHidden = true
-        setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chat.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+         setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
+         viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
         
         addChildViewController(viewChat!)
         viewMain.addSubview((viewChat?.view)!)
@@ -223,7 +233,7 @@ class PAHomeVC: BaseViewController {
     
     func setHomeData(){
         
-        setButtonImg(btn: btnHome, strActive: "homeblack.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+        setButtonImg(btn: btnHome, strActive: "home_yellow.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         self.lblHome.textColor = #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1)
         
         setLableTextColor(lbl: self.lblHome, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblGroup, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblprofile, lbl4: lblSetting)
@@ -243,17 +253,13 @@ class PAHomeVC: BaseViewController {
    
     @IBAction func clickToSearch(_ sender: Any) {
         self.searchBar.isHidden = true
-        setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupeblack.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
+        setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupeblack.png", btn4: btnSetting, strUnactive4: "settings_.png")
          setLableTextColor(lbl: self.lblSearch, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSetting)
         
-//        viewSearch = PAContactList(nibName: "PAContactList", bundle: nil)
-//        viewSearch?.isHome = false
-//        addChildViewController(viewSearch!)
-//        viewMain.addSubview((viewSearch?.view)!)
-//        viewSearch?.view.frame = viewMain.bounds
-//        viewSearch?.willMove(toParentViewController: self)
+
         let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
         viewController.isHome = false
+        viewController.contactArray = self.arrayContract as! [[String : Any]]
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
@@ -261,7 +267,7 @@ class PAHomeVC: BaseViewController {
     @IBAction func clickToSetting(_ sender: Any) {
         self.searchBar.isHidden = true
         
-        setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
+      setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
         
                setLableTextColor(lbl: self.lblSetting, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSearch)
         viewSetting = PASettingVC(nibName: "PASettingVC", bundle: nil)

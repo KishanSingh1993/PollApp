@@ -40,6 +40,35 @@ class ServiceClass: NSObject {
     
     
     
+    public func postAnsForQue(strUrl:String,param:[String:Any],completion:@escaping (dictionaryBlock)){
+        
+        print(param)
+        
+        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: nil, success: {
+            (JSONResponse) -> Void in
+            print(JSONResponse)
+            
+            
+            
+            
+            
+            
+            completion(nil,JSONResponse.dictionaryObject!)
+            
+            
+            
+        }) {
+            (error) -> Void in
+            
+            completion(error,[:])
+            
+        }
+    }
+    
+    
+    
+    
+    
     
     public func getLoginDetails(strUrl:String,param:[String:Any],completion:@escaping (dictionaryBlock)){
         
@@ -120,6 +149,8 @@ class ServiceClass: NSObject {
             
         }
     }
+    
+    
     
     
     public func homeScreenData(strUrl:String,header:String,completion:@escaping (arrayBlock)){

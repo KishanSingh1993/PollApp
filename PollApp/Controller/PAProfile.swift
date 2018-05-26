@@ -13,6 +13,7 @@ import Contacts
 
 class PAProfile: BaseViewController {
 
+    @IBOutlet weak var viewTop: UIView!
     @IBOutlet weak var viewPersonal: UIView!
     
      @IBOutlet weak var viewCorporate: UIView!
@@ -23,6 +24,7 @@ class PAProfile: BaseViewController {
     
     @IBOutlet weak var lblEvent: UILabel!
     
+    @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var viewMain: UIView!
     
 
@@ -33,6 +35,10 @@ class PAProfile: BaseViewController {
         setShadow(viewPersonal)
         setShadow(viewCorporate)
         setShadow(viewEvent)
+        
+        self.viewTop.applyGradient(colours: [self.color1,self.color2])
+//        self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
+
         
         print(self.appUserObject?.access_token)
         lblPersonal.numberOfLines = 0

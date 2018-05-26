@@ -16,13 +16,16 @@ class PAContactList: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var isHome: Bool!
-    var contactArray = [["name": "Ankleshwar Prasad", "phone": 7503732194], ["name": "Jay", "phone": 1234888], ["name": "Krishan Kumar", "phone": 884038484023], ["name": "Puspayendra", "phone": 678] , ["name": "+917503732194", "phone": 7503732194]]
+    var contactArray = [["name": "Ankleshwar Prasad", "mobileNumber": 7503732194], ["name": "Jay", "mobileNumber": 1234888], ["name": "Krishan Kumar", "mobileNumber": 884038484023], ["name": "Puspayendra", "mobileNumber": 678] , ["name": "+917503732194", "mobileNumber": 7503732194]]
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        print(contactArray)
+        
         contactArray = contactArray.sorted(by:  {($0["name"] as! String) < ($1["name"] as! String) })
         
         self.tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "Cell")
@@ -78,9 +81,10 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! GroupCell
         
         let strName = self.contactArray[indexPath.section]["name"] as? String
-        let strPhone = self.contactArray[indexPath.section]["phone"] as! Int
+        let strPhone = self.contactArray[indexPath.section]["mobileNumber"] as? String
+
         cell.lblName?.text = strName
-        cell.lblPhone?.text = String(strPhone)
+        cell.lblPhone?.text = strPhone
         
         cell.lblImage.text = String(strName![(strName?.startIndex)!])
         cell.lblImage.backgroundColor = pickColor(alphabet: strName![(strName?.startIndex)!])

@@ -11,11 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PAOTPVC" customModule="PollApp" customModuleProvider="target">
             <connections>
+                <outlet property="btnOtp" destination="W94-rX-Loz" id="M7J-bh-evx"/>
                 <outlet property="txtOtpFour" destination="4iA-fi-efL" id="qdc-ea-cFJ"/>
                 <outlet property="txtOtpOne" destination="gMD-C8-KJ7" id="vSv-so-1ZZ"/>
                 <outlet property="txtOtpThree" destination="Oa4-sa-kly" id="tBu-Zw-D7o"/>
                 <outlet property="txtOtpTwo" destination="FKZ-pR-3xm" id="Skx-RN-Ph6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewGradent" destination="e3r-1q-ok5" id="Bem-1u-yYG"/>
                 <outlet property="viewOtp" destination="H20-1i-VIi" id="w6Z-f3-GZK"/>
             </connections>
         </placeholder>

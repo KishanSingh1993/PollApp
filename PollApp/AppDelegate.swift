@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
         }
         window = UIWindow(frame: UIScreen.main.bounds)
-        viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
+       //viewController = PALogInVC(nibName: "PALogInVC", bundle: nil)
         navigationController = UINavigationController(rootViewController: (viewController)!)
         self.window?.rootViewController = self.navigationController
         navigationController?.navigationBar.isHidden = true

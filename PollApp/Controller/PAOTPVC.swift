@@ -14,7 +14,9 @@ import SVProgressHUD
 class PAOTPVC: BaseViewController {
 
     @IBOutlet weak var txtOtpFour: HoshiTextField!
+    @IBOutlet weak var btnOtp: UIButton!
     
+    @IBOutlet weak var viewGradent: UIView!
     @IBOutlet weak var txtOtpThree: HoshiTextField!
     @IBOutlet weak var txtOtpTwo: HoshiTextField!
     @IBOutlet weak var txtOtpOne: HoshiTextField!
@@ -32,6 +34,11 @@ class PAOTPVC: BaseViewController {
         txtOtpTwo.delegate = self
         txtOtpThree.delegate = self
         txtOtpFour.delegate = self
+
+        
+
+        self.viewGradent.applyGradient(colours: [self.color1,self.color2])
+         self.btnOtp.applyGradient(colours: [self.btnColor1,self.btnColor2])
         
         
         txtOtpOne.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
@@ -178,8 +185,12 @@ extension PAOTPVC: UITextFieldDelegate{
         return true
         
     }
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.moveTextField(textField: textField, moveDistance: -100, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.moveTextField(textField: textField, moveDistance: -100, up: false)
     }
     
 }

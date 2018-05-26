@@ -12,10 +12,17 @@ import SVProgressHUD
 
 
 
-class PALogInVC: UIViewController {
-
+class PALogInVC: BaseViewController {
+    @IBOutlet weak var viewBackgound: UIView!
+    
     @IBOutlet weak var txtPhone: HoshiTextField!
     @IBOutlet weak var viewLogin: UIView!
+    
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var viewSecond: UIView!
+    
+  
+    
     
     var strOTP : String!
     
@@ -24,7 +31,21 @@ class PALogInVC: UIViewController {
 
         UIView().setShadow(self.viewLogin)
         
+        
+        self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
+ 
+        
+       // createGradientLayer(viewGradent: self.btnNext, color1: "#ffa200",color2:"#c28110", alphaValue: 1)
+        
+        
+        //self.viewBackgound.applyGradient(colours: [self.color1,self.color2])
+      //  self.btnNext.applyGradient(colours: [self.btnColor1,self.btnColor2])
+
+        
     }
+    
+    
+
 
     override func viewWillAppear(_ animated: Bool) {
         self.txtPhone.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
@@ -36,6 +57,12 @@ class PALogInVC: UIViewController {
         super.didReceiveMemoryWarning()
        
     }
+    
+    
+    
+
+    
+    
     
 
     @IBAction func clickToNext(_ sender: Any) {
@@ -107,6 +134,14 @@ extension PALogInVC: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.moveTextField(textField: textField, moveDistance: -150, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.moveTextField(textField: textField, moveDistance: -150, up: false)
     }
     
 }

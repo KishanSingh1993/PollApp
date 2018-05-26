@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PollApp/Helper/ServiceClass.swift"
-            timestampString = "548998210.989271"
+            timestampString = "549044168.636447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "ServiceClass"
-            landmarkType = "3">
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "homeScreenData(strUrl:header:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PollApp/Controller/PAProfile.swift"
-            timestampString = "548798146.313014"
+            timestampString = "549044168.636555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78">
+            startingLineNumber = "79"
+            endingLineNumber = "79">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PollApp/Controller/PAProfile.swift"
-            timestampString = "548798146.313509"
+            timestampString = "549044168.636737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80">
+            startingLineNumber = "79"
+            endingLineNumber = "79">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

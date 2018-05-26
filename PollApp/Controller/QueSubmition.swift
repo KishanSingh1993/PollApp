@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class QueSubmition: UIViewController {
+class QueSubmition: BaseViewController {
     @IBOutlet weak var btnCheck: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,10 +30,59 @@ class QueSubmition: UIViewController {
     }
     
     
+    func callServiceForQue(){
+        
+        SVProgressHUD.show()
+        
+        var strUrl = "users/" + (self.appUserObject?.userId)!+"/survey"
+        
+        let dic = ["surveyId": "self.txtPhone.text",
+                   "pushToken":"fsafsafsafsadfdas",
+                   "deviceId":ECSHelper().getDeviceId()] as [String : Any]
+        
+        ServiceClass().postAnsForQue(strUrl:strUrl, param: dic) { error , dicData  in
+            
+            if dicData["status"] as! Int == 200 {
+                if let users = dicData["data"] as? [String : Any] {
+//                    self.strOTP = users["OTP"] as! String
+//                    let mobile  = users["mobileNumber"] as! String
+//                    print(self.strOTP)
+//                    let  viewController = PAOTPVC(nibName: "PAOTPVC", bundle: nil)
+//                    viewController.strPhone = mobile
+//                    self.navigationController?.pushViewController(viewController, animated: true)
+//
+                    
+                }
+                SVProgressHUD.dismiss()
+                
+            }
+            else{
+                
+                if let users = dicData["errors"] as? [String : Any] {
+                    if let mobile = users["mobileNumber"] as? [String : Any]{
+                        
+                        let msg = mobile["msg"] as! String
+                        ECSAlert().showAlert(message: msg, controller: self)
+                        
+                    }
+                }
+                
+                SVProgressHUD.dismiss()
+                
+                
+                
+            }
+            
+        }
+    }
+    
+    
+
+        
+    }
 
 
 
-}
 extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +108,8 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
+        
+        print(arrQueOption[indexPath.row])
         cell.lblText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         cell.lblText.textColor = UIColor.black
     }
