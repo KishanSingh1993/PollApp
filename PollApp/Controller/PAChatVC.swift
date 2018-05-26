@@ -24,7 +24,7 @@ class PAChatVC: UIViewController {
     @IBAction func clickToGroup(_ sender: Any) {
         
         let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
-        
+        viewController.isHome = false
         self.navigationController?.pushViewController(viewController, animated: true)
         
         

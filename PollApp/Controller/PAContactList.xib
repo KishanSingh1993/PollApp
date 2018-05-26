@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PAContactList" customModule="PollApp" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="oY6-ka-jjC" id="fqA-ub-Lmb"/>
                 <outlet property="tableView" destination="Ycj-1W-xgv" id="0iB-99-358"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

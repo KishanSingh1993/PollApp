@@ -33,7 +33,7 @@ class PAHomeVC: BaseViewController {
     @IBOutlet weak var viewMain: UIView!
     var viewProfile: PAProfile?
     var viewChat: PAChatVC?
-    var viewSearch: PASearch?
+    var viewSearch: PAContactList?
     var viewSetting:PASettingVC?
     var dicUserNumber : Dictionary = [
         "name" : String(),
@@ -246,12 +246,15 @@ class PAHomeVC: BaseViewController {
         setButtonImg(btn: btnHome, strActive: "homewhite.png",btn1: btnProfile, strUnactive1:"userWhite.png", btn2: btnChat, strUnactive2: "chatwhite.png", btn3: btnSearch, strUnactive3: "loupeblack.png", btn4: btnSetting, strUnactive4: "settingswhite.png")
          setLableTextColor(lbl: self.lblSearch, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSetting)
         
-        viewSearch = PASearch(nibName: "PASearch", bundle: nil)
-        
-        addChildViewController(viewSearch!)
-        viewMain.addSubview((viewSearch?.view)!)
-        viewSearch?.view.frame = viewMain.bounds
-        viewSearch?.willMove(toParentViewController: self)
+//        viewSearch = PAContactList(nibName: "PAContactList", bundle: nil)
+//        viewSearch?.isHome = false
+//        addChildViewController(viewSearch!)
+//        viewMain.addSubview((viewSearch?.view)!)
+//        viewSearch?.view.frame = viewMain.bounds
+//        viewSearch?.willMove(toParentViewController: self)
+        let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
+        viewController.isHome = false
+        self.navigationController?.pushViewController(viewController, animated: true)
         
     }
     

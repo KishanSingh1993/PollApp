@@ -10,8 +10,12 @@ import UIKit
 
 class PAContactList: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var btnBack: UIButton!
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    var isHome: Bool!
     var contactArray = [["name": "Ankleshwar Prasad", "phone": 7503732194], ["name": "Jay", "phone": 1234888], ["name": "Krishan Kumar", "phone": 884038484023], ["name": "Puspayendra", "phone": 678] , ["name": "+917503732194", "phone": 7503732194]]
     
 
@@ -22,6 +26,10 @@ class PAContactList: UIViewController {
         contactArray = contactArray.sorted(by:  {($0["name"] as! String) < ($1["name"] as! String) })
         
         self.tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
+      
+            btnBack.isHidden = isHome
+        
         
        
     }
