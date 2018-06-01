@@ -36,17 +36,23 @@ class PAProfile: BaseViewController {
         setShadow(viewCorporate)
         setShadow(viewEvent)
         
-        self.viewTop.applyGradient(colours: [self.color1,self.color2])
-//        self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
+   
 
         
-        print(self.appUserObject?.access_token)
+       // print(self.appUserObject?.access_token)
         lblPersonal.numberOfLines = 0
         lblPersonal.text = "Personal\nProfile"
         lblCorporates.text = "Corporate\nProfile"
          lblEvent.text = "Event\nProfile"
  
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        print(self.viewTop.frame.size)
+        self.viewTop.applyGradient(colours: [self.color1,self.color2])
+        self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
+        self.btnDone.applyGradient(colours: [self.btnColor1,self.btnColor2])
     }
 
     @IBAction func clickToDone(_ sender: Any) {
@@ -66,7 +72,11 @@ class PAProfile: BaseViewController {
         view.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1).cgColor
     }
     
-
+    @IBAction func clickToCorporate(_ sender: Any) {
+        let vc = Corporate(nibName: "Corporate", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
     @IBAction func clickToPersonal(_ sender: Any) {
    

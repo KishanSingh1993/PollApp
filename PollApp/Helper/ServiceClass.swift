@@ -40,27 +40,60 @@ class ServiceClass: NSObject {
     
     
     
-    public func postAnsForQue(strUrl:String,param:[String:Any],completion:@escaping (dictionaryBlock)){
+    public func postAnsForQue(strUrl:String,param:[String:Any],header:String,completion:@escaping (arrayBlock)){
         
         print(param)
         
-        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: nil, success: {
+        print(param)
+        print(baseURL+strUrl)
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue, success: {
             (JSONResponse) -> Void in
             print(JSONResponse)
             
             
+            let dicData = JSONResponse.dictionaryObject!
+            
+            if dicData["status"] as! Int == 200 {
+                for rootDic in JSONResponse["data"]["questions"].array!{
+                    
+                 
+                        let obj = Question(fromJson: rootDic)
+                        self.arrIteam.append(obj)
+                    
+                   
+                    print(rootDic)
+                    
+                }
+                let msg = dicData["userMessage"] as! String
+                self.arrIteam.insert(msg, at: 1)
+                
+                
+                completion(nil,self.arrIteam)
+            }
+            
+            else{
+                let msg = dicData["userMessage"] as! String
+                
+                let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                
+                completion(error as Error,[])
+            }
             
             
-            
-            
-            completion(nil,JSONResponse.dictionaryObject!)
+           
             
             
             
         }) {
             (error) -> Void in
             
-            completion(error,[:])
+            completion(error,[])
             
         }
     }
@@ -124,12 +157,69 @@ class ServiceClass: NSObject {
     
     
     
-    public func ContactsSend(strUrl:String,param:[String:Any],completion:@escaping (dictionaryBlock)){
+    public func getContact(strUrl:String,param:[String:Any],header:String,completion:@escaping (arrayBlock)){
         
         print(param)
         print(baseURL+strUrl)
         
-        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: nil, success: {
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        Alamofire.request(baseURL+strUrl, headers: headersValue).responseJSON { response in
+            debugPrint(response)
+            
+            if response.result.isSuccess {
+                let resJson = JSON(response.result.value!)
+                
+                let dicData = resJson.dictionaryObject!
+                
+                if dicData["status"] as! Int == 200 {
+                    for rootDic in resJson["data"].array!{
+                        let obj = ContactList(fromJson: rootDic)
+                        self.arrIteam.append(obj)
+                    }
+                    completion(nil,self.arrIteam)
+                }
+                else{
+                    let msg = dicData["userMessage"] as! String
+                    
+                    let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                    
+                    completion(error as Error,[])
+                }
+                
+                
+                
+                
+            }
+            if response.result.isFailure {
+                let error : Error = response.result.error!
+                completion(error,[])
+            }
+            
+            
+        }
+
+
+    }
+    
+    
+    
+    
+    
+    public func ContactsSend(strUrl:String,param:[String:Any],header:String,completion:@escaping (dictionaryBlock)){
+        
+        print(param)
+        print(baseURL+strUrl)
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue, success: {
             (JSONResponse) -> Void in
             print(JSONResponse)
             

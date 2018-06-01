@@ -72,7 +72,7 @@
 		3B81A6DD20B73F8E00844703 /* collaboration.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A6DC20B73F8E00844703 /* collaboration.png */; };
 		3BA1389220B34E3700FC8D1A /* ServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1389120B34E3700FC8D1A /* ServiceHandler.swift */; };
 		3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1389B20B3E9CB00FC8D1A /* Option.swift */; };
-		3BA1389F20B3E9CB00FC8D1A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1389C20B3E9CB00FC8D1A /* Question.swift */; };
+		3BA1389F20B3E9CB00FC8D1A /* QuestionselfSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1389C20B3E9CB00FC8D1A /* QuestionselfSurvey.swift */; };
 		3BA138A020B3E9CB00FC8D1A /* HomeScreenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1389D20B3E9CB00FC8D1A /* HomeScreenData.swift */; };
 		3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */; };
 		3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */; };
@@ -87,6 +87,14 @@
 		3BD75ABD20A84B4C007FDD57 /* PAProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD75ABB20A84B4C007FDD57 /* PAProfile.xib */; };
 		3BD75ABF20A85C18007FDD57 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD75ABE20A85C18007FDD57 /* user.png */; };
 		3BD75AC120A85D02007FDD57 /* user (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD75AC020A85D01007FDD57 /* user (1).png */; };
+		3BF9482720BAA43700CECBCF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482520BAA43600CECBCF /* Question.swift */; };
+		3BF9482820BAA43700CECBCF /* SelfSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482620BAA43700CECBCF /* SelfSurvey.swift */; };
+		3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482920BAAA2800CECBCF /* ContactList.swift */; };
+		3BF9482C20BAAA2800CECBCF /* ContactListRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482A20BAAA2800CECBCF /* ContactListRes.swift */; };
+		3BF9482F20BAEB7D00CECBCF /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482D20BAEB7D00CECBCF /* BasicBarChart.swift */; };
+		3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482E20BAEB7D00CECBCF /* BarEntry.swift */; };
+		3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9483120C0532C00CECBCF /* Corporate.swift */; };
+		3BF9483420C0532C00CECBCF /* Corporate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF9483220C0532C00CECBCF /* Corporate.xib */; };
 		D2770C8FFC53A348DA4D867B /* Pods_PollAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BF3394449E501C238C95BA /* Pods_PollAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,7 +189,7 @@
 		3B81A6DC20B73F8E00844703 /* collaboration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collaboration.png; sourceTree = "<group>"; };
 		3BA1389120B34E3700FC8D1A /* ServiceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandler.swift; sourceTree = "<group>"; };
 		3BA1389B20B3E9CB00FC8D1A /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
-		3BA1389C20B3E9CB00FC8D1A /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		3BA1389C20B3E9CB00FC8D1A /* QuestionselfSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionselfSurvey.swift; sourceTree = "<group>"; };
 		3BA1389D20B3E9CB00FC8D1A /* HomeScreenData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenData.swift; sourceTree = "<group>"; };
 		3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellTableViewCell.swift; sourceTree = "<group>"; };
 		3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -196,6 +204,14 @@
 		3BD75ABB20A84B4C007FDD57 /* PAProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAProfile.xib; sourceTree = "<group>"; };
 		3BD75ABE20A85C18007FDD57 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		3BD75AC020A85D01007FDD57 /* user (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user (1).png"; sourceTree = "<group>"; };
+		3BF9482520BAA43600CECBCF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		3BF9482620BAA43700CECBCF /* SelfSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSurvey.swift; sourceTree = "<group>"; };
+		3BF9482920BAAA2800CECBCF /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		3BF9482A20BAAA2800CECBCF /* ContactListRes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListRes.swift; sourceTree = "<group>"; };
+		3BF9482D20BAEB7D00CECBCF /* BasicBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
+		3BF9482E20BAEB7D00CECBCF /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		3BF9483120C0532C00CECBCF /* Corporate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corporate.swift; sourceTree = "<group>"; };
+		3BF9483220C0532C00CECBCF /* Corporate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Corporate.xib; sourceTree = "<group>"; };
 		62451A328C0185658CB34567 /* Pods-PollApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollApp/Pods-PollApp.debug.xcconfig"; sourceTree = "<group>"; };
 		62BF3394449E501C238C95BA /* Pods_PollAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB5943D43DBEB5DAAFC19B6 /* Pods_PollAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +255,8 @@
 		1B47B27620AC1303003223E1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3BF9482E20BAEB7D00CECBCF /* BarEntry.swift */,
+				3BF9482D20BAEB7D00CECBCF /* BasicBarChart.swift */,
 				3B81A6CE20B708A700844703 /* LocalText.json */,
 				3B20FBF720ACBA46001E4636 /* BaseViewController.swift */,
 				3B20FBF520ACB982001E4636 /* AppUserObject.h */,
@@ -261,6 +279,8 @@
 				3BD75AB720A81125007FDD57 /* PAOTPVC.xib */,
 				3B320A5220A8636000E68788 /* PAHomeVC.xib */,
 				1BC81B9D20B6DF3200CF7EC7 /* PASettingVC.xib */,
+				3B81A6D120B725A000844703 /* PAContactList.xib */,
+				3BF9483220C0532C00CECBCF /* Corporate.xib */,
 				3BD75AB020A80117007FDD57 /* PALogInVC.xib */,
 			);
 			path = View;
@@ -277,8 +297,8 @@
 				3B320A5520A8638200E68788 /* PAChatVC.swift */,
 				3B320A5120A8636000E68788 /* PAHomeVC.swift */,
 				3BD75ABA20A84B4C007FDD57 /* PAProfile.swift */,
+				3BF9483120C0532C00CECBCF /* Corporate.swift */,
 				3B81A6D020B725A000844703 /* PAContactList.swift */,
-				3B81A6D120B725A000844703 /* PAContactList.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,9 +414,13 @@
 		3BA1389420B352E800FC8D1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3BF9482920BAAA2800CECBCF /* ContactList.swift */,
+				3BF9482A20BAAA2800CECBCF /* ContactListRes.swift */,
+				3BF9482520BAA43600CECBCF /* Question.swift */,
+				3BF9482620BAA43700CECBCF /* SelfSurvey.swift */,
 				3BA1389D20B3E9CB00FC8D1A /* HomeScreenData.swift */,
 				3BA1389B20B3E9CB00FC8D1A /* Option.swift */,
-				3BA1389C20B3E9CB00FC8D1A /* Question.swift */,
+				3BA1389C20B3E9CB00FC8D1A /* QuestionselfSurvey.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -595,6 +619,7 @@
 				1B6DA2E920A9841B00A67E8A /* PASearch.xib in Resources */,
 				3B81A6D720B734CF00844703 /* GroupCell.xib in Resources */,
 				3BD75ABF20A85C18007FDD57 /* user.png in Resources */,
+				3BF9483420C0532C00CECBCF /* Corporate.xib in Resources */,
 				3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */,
 				3B81A6CF20B708A800844703 /* LocalText.json in Resources */,
 				3B24588B20B991BA003E31DC /* chat_yellow@3x.png in Resources */,
@@ -801,12 +826,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF9482C20BAAA2800CECBCF /* ContactListRes.swift in Sources */,
 				3B20FBEE20AC8ECD001E4636 /* UIExtentions.swift in Sources */,
+				3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */,
 				3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */,
 				3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */,
 				1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */,
+				3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */,
 				3BD75AB820A81125007FDD57 /* PAOTPVC.swift in Sources */,
+				3BF9482F20BAEB7D00CECBCF /* BasicBarChart.swift in Sources */,
 				3B20FBF820ACBA46001E4636 /* BaseViewController.swift in Sources */,
+				3BF9482820BAA43700CECBCF /* SelfSurvey.swift in Sources */,
 				1BC81B9320B6D0FD00CF7EC7 /* YAxisValueFormatter.swift in Sources */,
 				1B47B27820AC1363003223E1 /* ServiceClass.swift in Sources */,
 				1B6DA2EF20A9928A00A67E8A /* HomeCell.swift in Sources */,
@@ -818,10 +848,12 @@
 				3B20FBF620ACB982001E4636 /* AppUserObject.m in Sources */,
 				3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */,
 				3B81A6D220B725A000844703 /* PAContactList.swift in Sources */,
-				3BA1389F20B3E9CB00FC8D1A /* Question.swift in Sources */,
+				3BA1389F20B3E9CB00FC8D1A /* QuestionselfSurvey.swift in Sources */,
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
+				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
+				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,
 				3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */,
 				3BA1389220B34E3700FC8D1A /* ServiceHandler.swift in Sources */,
 				3BA138A020B3E9CB00FC8D1A /* HomeScreenData.swift in Sources */,

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Corporate" customModule="PollApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPH-1G-AOx">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                    <color key="backgroundColor" red="0.30196078431372547" green="0.0" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1D-yH-3Ud">
+                    <rect key="frame" x="0.0" y="20" width="414" height="66"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BL4-nr-ISO">
+                            <rect key="frame" x="10" y="18" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="5CP-aa-rbR"/>
+                                <constraint firstAttribute="width" constant="30" id="Gw2-Gl-hAp"/>
+                            </constraints>
+                            <state key="normal" image="back.png"/>
+                            <connections>
+                                <action selector="clickToBack:" destination="-1" eventType="touchUpInside" id="p4t-oN-jfb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.61176470589999998" green="0.0" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="BL4-nr-ISO" firstAttribute="top" secondItem="n1D-yH-3Ud" secondAttribute="top" constant="18" id="MFU-Ue-uVv"/>
+                        <constraint firstAttribute="height" constant="66" id="emB-wB-ZWy"/>
+                        <constraint firstItem="BL4-nr-ISO" firstAttribute="leading" secondItem="n1D-yH-3Ud" secondAttribute="leading" constant="10" id="nqd-MC-kzd"/>
+                        <constraint firstAttribute="bottom" secondItem="BL4-nr-ISO" secondAttribute="bottom" constant="18" id="qnG-DN-bbY"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BV2-it-7gJ">
+                    <rect key="frame" x="0.0" y="86" width="414" height="650"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtr-nW-jIx">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                            <color key="backgroundColor" red="1" green="0.39915546410000002" blue="0.30311106999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="800" id="tIV-it-Sk8"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Vtr-nW-jIx" firstAttribute="leading" secondItem="BV2-it-7gJ" secondAttribute="leading" id="1W5-dG-iJY"/>
+                        <constraint firstAttribute="bottom" secondItem="Vtr-nW-jIx" secondAttribute="bottom" constant="-150" id="D5L-sc-apg"/>
+                        <constraint firstItem="Vtr-nW-jIx" firstAttribute="top" secondItem="BV2-it-7gJ" secondAttribute="top" id="e1n-N2-1Rh"/>
+                        <constraint firstItem="Vtr-nW-jIx" firstAttribute="centerX" secondItem="BV2-it-7gJ" secondAttribute="centerX" id="ukl-Hk-ZR1"/>
+                        <constraint firstAttribute="trailing" secondItem="Vtr-nW-jIx" secondAttribute="trailing" id="xtf-E9-Xvo"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sPH-1G-AOx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6hA-jr-Y5l"/>
+                <constraint firstItem="BV2-it-7gJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6zj-Fs-mr2"/>
+                <constraint firstItem="sPH-1G-AOx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8XW-H5-uJC"/>
+                <constraint firstItem="n1D-yH-3Ud" firstAttribute="top" secondItem="sPH-1G-AOx" secondAttribute="bottom" id="D0q-3G-009"/>
+                <constraint firstItem="n1D-yH-3Ud" firstAttribute="top" secondItem="sPH-1G-AOx" secondAttribute="bottom" id="FbB-0U-spe"/>
+                <constraint firstItem="BV2-it-7gJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TMc-xk-Fce"/>
+                <constraint firstItem="n1D-yH-3Ud" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bUc-Pg-XK3"/>
+                <constraint firstItem="Vtr-nW-jIx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="e41-AS-L8T"/>
+                <constraint firstItem="BV2-it-7gJ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="e69-Ri-3Cf"/>
+                <constraint firstItem="n1D-yH-3Ud" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="egG-2e-2zs"/>
+                <constraint firstItem="BV2-it-7gJ" firstAttribute="top" secondItem="n1D-yH-3Ud" secondAttribute="bottom" id="hY9-2r-ZU2"/>
+                <constraint firstAttribute="bottom" secondItem="n1D-yH-3Ud" secondAttribute="bottom" constant="328" id="o7W-va-r6u"/>
+                <constraint firstAttribute="trailing" secondItem="sPH-1G-AOx" secondAttribute="trailing" id="pb9-qb-18b"/>
+                <constraint firstItem="n1D-yH-3Ud" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="ycs-e2-EU8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="o7W-va-r6u"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <include reference="o7W-va-r6u"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="419" y="116"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back.png" width="32" height="32"/>
+    </resources>
+</document>

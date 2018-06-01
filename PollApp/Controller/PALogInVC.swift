@@ -44,7 +44,11 @@ class PALogInVC: BaseViewController {
         
     }
     
-    
+    override func viewDidLayoutSubviews() {
+        //btnNext.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
+        self.btnNext.applyGradient(colours: [self.btnColor1,self.btnColor2])
+    }
 
 
     override func viewWillAppear(_ animated: Bool) {

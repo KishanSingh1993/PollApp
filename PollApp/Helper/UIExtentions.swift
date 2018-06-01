@@ -46,7 +46,21 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
-
+public extension Date {
+    public  func ISOStringFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT") as TimeZone!
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.string(from:date)
+    }
+    
+    var toDay : String
+    {
+        let date = Date()
+        return ISOStringFromDate(date: date)
+    }
+}
 
 extension UIButton {
     public func makeCircular() {

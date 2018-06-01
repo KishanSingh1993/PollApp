@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,16 +30,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-NX-XJ2">
-                        <rect key="frame" x="95" y="14" width="199" height="42"/>
+                        <rect key="frame" x="80" y="14" width="180" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0on-5O-Jfg">
-                                <rect key="frame" x="0.0" y="0.0" width="199" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omu-72-UiG">
-                                <rect key="frame" x="0.0" y="21.5" width="199" height="20.5"/>
+                                <rect key="frame" x="0.0" y="21.5" width="180" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,25 +53,39 @@
                             <constraint firstAttribute="height" constant="1" id="vbU-eF-Hag"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U9-xX-Zwx">
+                        <rect key="frame" x="265" y="20" width="50" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Hxh-g0-7mc"/>
+                            <constraint firstAttribute="width" constant="50" id="fhX-JW-J1L"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <state key="normal" title="INVITE">
+                            <color key="titleColor" red="0.95858144749999996" green="0.62072510140000003" blue="0.0086658605890000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="y3Y-FJ-wQY" secondAttribute="trailing" id="31m-Fs-bFT"/>
                     <constraint firstItem="E7g-Ss-9mU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Em6-eV-kmw"/>
+                    <constraint firstItem="LWc-NX-XJ2" firstAttribute="leading" secondItem="E7g-Ss-9mU" secondAttribute="trailing" constant="15" id="GGs-ms-ZdG"/>
+                    <constraint firstItem="6U9-xX-Zwx" firstAttribute="leading" secondItem="LWc-NX-XJ2" secondAttribute="trailing" constant="5" id="HE0-vB-npK"/>
+                    <constraint firstAttribute="trailing" secondItem="6U9-xX-Zwx" secondAttribute="trailing" constant="5" id="OA6-VP-nM2"/>
                     <constraint firstItem="E7g-Ss-9mU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TCN-u5-mno"/>
-                    <constraint firstItem="LWc-NX-XJ2" firstAttribute="centerY" secondItem="E7g-Ss-9mU" secondAttribute="centerY" id="Tq7-NS-KL3"/>
+                    <constraint firstItem="LWc-NX-XJ2" firstAttribute="centerY" secondItem="E7g-Ss-9mU" secondAttribute="centerY" id="aWZ-cK-XBe"/>
+                    <constraint firstItem="6U9-xX-Zwx" firstAttribute="centerY" secondItem="E7g-Ss-9mU" secondAttribute="centerY" id="cnC-0l-Ysd"/>
                     <constraint firstItem="y3Y-FJ-wQY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="exh-qF-2US"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="LWc-NX-XJ2" secondAttribute="trailing" constant="10" id="geE-t3-DGX"/>
-                    <constraint firstItem="LWc-NX-XJ2" firstAttribute="leading" secondItem="E7g-Ss-9mU" secondAttribute="trailing" constant="30" id="pIX-S7-Ima"/>
                     <constraint firstAttribute="bottom" secondItem="y3Y-FJ-wQY" secondAttribute="bottom" id="zF5-wj-b8S"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnInvite" destination="6U9-xX-Zwx" id="8N6-dA-Wl1"/>
                 <outlet property="lblImage" destination="E7g-Ss-9mU" id="Wqc-P9-McA"/>
                 <outlet property="lblName" destination="0on-5O-Jfg" id="9C3-DK-P2h"/>
                 <outlet property="lblPhone" destination="Omu-72-UiG" id="MLQ-aM-gWv"/>
             </connections>
-            <point key="canvasLocation" x="-144" y="-14"/>
+            <point key="canvasLocation" x="114" y="-12"/>
         </tableViewCell>
     </objects>
 </document>

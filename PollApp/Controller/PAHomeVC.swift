@@ -15,7 +15,9 @@ import Contacts
     typealias completBlock = (_ error: Error?, _ response: Bool) -> Void
 
 
-class PAHomeVC: BaseViewController {
+class PAHomeVC: BaseViewController, QueSubmitionDelegate {
+
+    
     
     @IBOutlet weak var viewSearchBar: UIView!
     
@@ -62,7 +64,7 @@ class PAHomeVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
+       
       
         self.searchBar.layer.masksToBounds = true;
         self.searchBar.layer.cornerRadius = 20.0
@@ -73,7 +75,7 @@ class PAHomeVC: BaseViewController {
         
         
         
-        callHomeScreenValue()
+        
         
         
         DispatchQueue.global(qos: .background).async {
@@ -85,6 +87,13 @@ class PAHomeVC: BaseViewController {
        
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
+      self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
+    }
+    
+
     
     
     
@@ -98,7 +107,7 @@ class PAHomeVC: BaseViewController {
                                 let dic = ["users":self.arrayContract]
         
         
-                                ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, completion: {err , arrData   in
+                                ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
         
                                 })
         
@@ -163,10 +172,17 @@ class PAHomeVC: BaseViewController {
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
-                    UserDefaults.standard.set(1, forKey: "isLogin")
-                    UserDefaults.standard.synchronize()
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    delegate.setRootcontrooler()
+                    
+                    if "Your session has been expired. Please relogin.".isEqualToString(find: (err?.localizedDescription)!){
+                        
+                        UserDefaults.standard.set(1, forKey: "isLogin")
+                        UserDefaults.standard.synchronize()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        delegate.setRootcontrooler()
+                        
+                    }
+                    
+                  
                 })
                 self.present(alertController, animated: true, completion: nil)
                 
@@ -181,6 +197,7 @@ class PAHomeVC: BaseViewController {
             else{
                 self.arrHomeProductData = arrData
                 self.tableView.reloadData()
+                  SVProgressHUD.dismiss()
             }
             SVProgressHUD.dismiss()
             
@@ -190,6 +207,7 @@ class PAHomeVC: BaseViewController {
  
     override func viewWillAppear(_ animated: Bool) {
         setHomeData()
+        callHomeScreenValue()
     }
     
     
@@ -213,7 +231,7 @@ class PAHomeVC: BaseViewController {
          setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
-         viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
+        // viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
         
         addChildViewController(viewChat!)
         viewMain.addSubview((viewChat?.view)!)
@@ -259,7 +277,7 @@ class PAHomeVC: BaseViewController {
 
         let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
         viewController.isHome = false
-        viewController.contactArray = self.arrayContract as! [[String : Any]]
+      //  viewController.contactArray = self.arrayContract as! [[String : Any]]
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
@@ -299,6 +317,12 @@ class PAHomeVC: BaseViewController {
         
         
     }
+    
+    func setDataWithQuestion(index: Int, arrQuestion: Any) {
+        print(index,arrQuestion)
+        let indexSet = IndexSet(integer: index)
+        //self.tableView.reloadSections(indexSet, with: .automatic)
+    }
 }
 
 extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
@@ -319,8 +343,9 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         if let ques = obj.questions {
             let option = ques[0].options
             cell.cellConfig(arrOption: option!)
-            print(option)
+           // print(option)
         }
+        
        
        
         return cell
@@ -344,10 +369,14 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
-        
-            let option = obj.questions[0].options
+            
             let vc = QueSubmition(nibName: "QueSubmition", bundle: nil)
-            vc.arrQueOption = option!
+            vc.delegate = self
+            vc.objectData = obj
+            vc.objectSurvey = obj.selfSurvey
+            vc.index = indexPath.section
+        
+        
             present(vc, animated: true, completion: nil)
             tableView.deselectRow(at: indexPath, animated: true)
     }

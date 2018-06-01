@@ -10,8 +10,7 @@ import UIKit
 
 class PAChatVC: UIViewController {
     
-        var contactArrayChat = [["name": "Ankleshwar Prasad", "mobileNumber": 7503732194], ["name": "Jay", "mobileNumber": 1234888], ["name": "Krishan Kumar", "mobileNumber": 884038484023], ["name": "Puspayendra", "mobileNumber": 678] , ["name": "+917503732194", "mobileNumber": 7503732194]]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +26,7 @@ class PAChatVC: UIViewController {
         
         let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
         viewController.isHome = false
-        viewController.contactArray = self.contactArrayChat
+        //viewController.contactArray = self.contactArrayChat
         self.navigationController?.pushViewController(viewController, animated: true)
         
         

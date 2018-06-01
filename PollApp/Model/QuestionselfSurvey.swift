@@ -6,11 +6,9 @@ import Foundation
 import SwiftyJSON
 
 
-class Question : NSObject, NSCoding{
+class QuestionselfSurvey : NSObject, NSCoding{
 
 	var id : String!
-	var options : [Option]!
-	var question : String!
 	var givenAnswer : String!
 	var questionId : String!
 
@@ -23,13 +21,6 @@ class Question : NSObject, NSCoding{
 			return
 		}
 		id = json["_id"].stringValue
-		options = [Option]()
-		let optionsArray = json["options"].arrayValue
-		for optionsJson in optionsArray{
-			let value = Option(fromJson: optionsJson)
-			options.append(value)
-		}
-		question = json["question"].stringValue
 		givenAnswer = json["givenAnswer"].stringValue
 		questionId = json["questionId"].stringValue
 	}
@@ -42,16 +33,6 @@ class Question : NSObject, NSCoding{
 		var dictionary = [String:Any]()
 		if id != nil{
 			dictionary["_id"] = id
-		}
-		if options != nil{
-			var dictionaryElements = [[String:Any]]()
-			for optionsElement in options {
-				dictionaryElements.append(optionsElement.toDictionary())
-			}
-			dictionary["options"] = dictionaryElements
-		}
-		if question != nil{
-			dictionary["question"] = question
 		}
 		if givenAnswer != nil{
 			dictionary["givenAnswer"] = givenAnswer
@@ -69,8 +50,6 @@ class Question : NSObject, NSCoding{
     @objc required init(coder aDecoder: NSCoder)
 	{
          id = aDecoder.decodeObject(forKey: "_id") as? String
-         options = aDecoder.decodeObject(forKey: "options") as? [Option]
-         question = aDecoder.decodeObject(forKey: "question") as? String
          givenAnswer = aDecoder.decodeObject(forKey: "givenAnswer") as? String
          questionId = aDecoder.decodeObject(forKey: "questionId") as? String
 
@@ -84,12 +63,6 @@ class Question : NSObject, NSCoding{
 	{
 		if id != nil{
 			aCoder.encode(id, forKey: "_id")
-		}
-		if options != nil{
-			aCoder.encode(options, forKey: "options")
-		}
-		if question != nil{
-			aCoder.encode(question, forKey: "question")
 		}
 		if givenAnswer != nil{
 			aCoder.encode(givenAnswer, forKey: "givenAnswer")

@@ -37,7 +37,11 @@ import UIKit
         layer.cornerRadius = 5
     }
 }
-
+extension String {
+    func isEqualToString(find: String) -> Bool {
+        return String(format: self) == find
+    }
+}
 
 
 extension UIColor{

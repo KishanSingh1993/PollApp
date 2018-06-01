@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class PAContactList: UIViewController {
+class PAContactList: BaseViewController {
 
     
     @IBOutlet weak var btnBack: UIButton!
@@ -16,30 +17,76 @@ class PAContactList: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var isHome: Bool!
-    var contactArray = [["name": "Ankleshwar Prasad", "mobileNumber": 7503732194], ["name": "Jay", "mobileNumber": 1234888], ["name": "Krishan Kumar", "mobileNumber": 884038484023], ["name": "Puspayendra", "mobileNumber": 678] , ["name": "+917503732194", "mobileNumber": 7503732194]]
     
-
+    var contactArray : Array<Any> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        print(contactArray)
+    
         
-        contactArray = contactArray.sorted(by:  {($0["name"] as! String) < ($1["name"] as! String) })
+       
+        btnBack.isHidden = isHome
         
+        callContactData()
         self.tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
       
-            btnBack.isHidden = isHome
-        
-        
+    
        
     }
+    
+    
 
-    func setDefaultImage(name: String) {
- 
+    func callContactData(){
+      
+        
+        
+     SVProgressHUD.show()
+            
+          
+            
+            
+            ServiceClass().getContact(strUrl: "users/sync", param: [:], header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
+                
+                if(err != nil){
+                    
+                    // print(err?.localizedDescription)
+                    
+                    
+                    
+                    let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                    { action -> Void in
+                       
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                    
+                    
+                    
+                    
+                    SVProgressHUD.dismiss()
+                    
+                }
+                else{
+                    self.contactArray = arrData
+                    print(self.contactArray)
+                    self.tableView.reloadData()
+                }
+                SVProgressHUD.dismiss()
+                
+                
+            })
+            
+        
+        
+        
     }
+    
     
    
     
@@ -80,8 +127,10 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! GroupCell
         
-        let strName = self.contactArray[indexPath.section]["name"] as? String
-        let strPhone = self.contactArray[indexPath.section]["mobileNumber"] as? String
+           let obj:ContactList = contactArray[indexPath.section] as! ContactList
+        
+        let strName = obj.name
+        let strPhone = obj.mobileNumber
 
         cell.lblName?.text = strName
         cell.lblPhone?.text = strPhone
@@ -89,6 +138,13 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         cell.lblImage.text = String(strName![(strName?.startIndex)!])
         cell.lblImage.backgroundColor = pickColor(alphabet: strName![(strName?.startIndex)!])
         cell.lblImage.isEnabled = true
+        if obj.registered == 1{
+            cell.btnInvite.isHidden = true
+        }
+        else{
+             cell.btnInvite.isHidden = false
+        }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

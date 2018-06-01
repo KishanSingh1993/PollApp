@@ -10,6 +10,7 @@ import UIKit
 
 class GroupCell: UITableViewCell {
     @IBOutlet weak var lblImage: UILabel!
+    @IBOutlet weak var btnInvite: UIButton!
     
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblName: UILabel!

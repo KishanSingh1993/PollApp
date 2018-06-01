@@ -37,8 +37,8 @@ class PAOTPVC: BaseViewController {
 
         
 
-        self.viewGradent.applyGradient(colours: [self.color1,self.color2])
-         self.btnOtp.applyGradient(colours: [self.btnColor1,self.btnColor2])
+//        self.viewGradent.applyGradient(colours: [self.color1,self.color2])
+//         self.btnOtp.applyGradient(colours: [self.btnColor1,self.btnColor2])
         
         
         txtOtpOne.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
@@ -51,6 +51,12 @@ class PAOTPVC: BaseViewController {
         self.txtOtpFour.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        self.viewGradent.applyGradient(colours: [self.color1,self.color2])
+        self.btnOtp.applyGradient(colours: [self.btnColor1,self.btnColor2])
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -131,7 +137,7 @@ class PAOTPVC: BaseViewController {
                     if let user = data["user"] as? [String : Any] {
                         print(data["authToken"])
                         self.appUserObject = AppUserObject.instance(from: dicData)
-                        self.appUserObject?.userId = user["userId"] as! String
+                        self.appUserObject?.userId = user["_id"] as! String
                         self.appUserObject?.userName = user["name"] as! String
                         self.appUserObject?.access_token = data["authToken"] as! String
                         self.appUserObject?.device_id = user["deviceId"] as! String

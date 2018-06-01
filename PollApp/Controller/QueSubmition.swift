@@ -9,20 +9,44 @@
 import UIKit
 import SVProgressHUD
 
+protocol QueSubmitionDelegate {
+    func setDataWithQuestion(index : Int,arrQuestion: Any)
+}
+
+
 class QueSubmition: BaseViewController {
     @IBOutlet weak var btnCheck: UIButton!
-    
+     var delegate: QueSubmitionDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblQue: UILabel!
-      var arrQueOption: [Option] = []
-    
-    
+    var arrQueOption: [Option] = []
+    var StartedAt: String!
+    var index: Int!
+    var objectData : HomeScreenData!
+    var objectSurvey: SelfSurvey!
+    var optionName: String!
+    var isSelected : Bool!
+    var isSubmited: Bool!
+    var strSurvay : String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.arrQueOption = objectData.questions[0].options
+        
+        StartedAt = Date().toDay
+         self.isSelected = false
         tableView.register(UINib(nibName: "QuestionCellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell");
         self.btnCheck.makeCircular()
-        self.lblQue.text = "Whats your favorite Beverage ?"
+        self.lblQue.text = objectData.questions[0].question
+        
+        if isSubmited == true{
+            btnCheck.isHidden = true
+        }else{
+            btnCheck.isHidden = false
+        }
+        //print(objectSurvey.questions[0])
+        
+        
     }
 
     @IBAction func clickToBack(_ sender: Any) {
@@ -30,54 +54,81 @@ class QueSubmition: BaseViewController {
     }
     
     
-    func callServiceForQue(){
-        
+    func callServiceForQue(QueArray: [[String:String ]]){
+    
         SVProgressHUD.show()
         
-        var strUrl = "users/" + (self.appUserObject?.userId)!+"/survey"
+        let strUrl = "users/" + (self.appUserObject?.userId)!+"/survey"
         
-        let dic = ["surveyId": "self.txtPhone.text",
-                   "pushToken":"fsafsafsafsadfdas",
-                   "deviceId":ECSHelper().getDeviceId()] as [String : Any]
+        let dic = ["surveyId": objectData.id,
+                   "name": objectData.name,
+                   "questions":QueArray,
+                   "startedAt" : StartedAt] as [String : Any]
         
-        ServiceClass().postAnsForQue(strUrl:strUrl, param: dic) { error , dicData  in
+        ServiceClass().postAnsForQue(strUrl:strUrl, param: dic, header: (self.appUserObject?.access_token)!) { error , arrData  in
             
-            if dicData["status"] as! Int == 200 {
-                if let users = dicData["data"] as? [String : Any] {
-//                    self.strOTP = users["OTP"] as! String
-//                    let mobile  = users["mobileNumber"] as! String
-//                    print(self.strOTP)
-//                    let  viewController = PAOTPVC(nibName: "PAOTPVC", bundle: nil)
-//                    viewController.strPhone = mobile
-//                    self.navigationController?.pushViewController(viewController, animated: true)
-//
-                    
-                }
+            if(error != nil){
+                
+                // print(err?.localizedDescription)
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: (error?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
                 SVProgressHUD.dismiss()
                 
             }
             else{
+                print(arrData)
+                let arrQue = arrData[0]
+                let strMsg = arrData[1] as! String
                 
-                if let users = dicData["errors"] as? [String : Any] {
-                    if let mobile = users["mobileNumber"] as? [String : Any]{
-                        
-                        let msg = mobile["msg"] as! String
-                        ECSAlert().showAlert(message: msg, controller: self)
-                        
-                    }
-                }
+                let alertController = UIAlertController(title: "", message:strMsg, preferredStyle:UIAlertControllerStyle.alert)
                 
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    self.delegate?.setDataWithQuestion(index: self.index, arrQuestion: arrQue)
+                    
+                    self.dismiss(animated: true, completion: nil)
+                })
+                self.present(alertController, animated: true, completion: nil)
+                self.btnCheck.isHidden = true
                 SVProgressHUD.dismiss()
                 
-                
-                
+             
+               
             }
             
         }
     }
     
     
+    @IBAction func clickToCheck(_ sender: Any) {
+        
+        if isSelected == false {
+            ECSAlert().showAlert(message: "Please Select Option", controller: self)
+        }
+        else{
+            let queArray = [["questionId": objectData.questions[0].id,"givenAnswer":optionName]]
+            
+            callServiceForQue(QueArray: queArray as! [[String : String]])
+        }
+        
+     
 
+    }
+    
         
     }
 
@@ -90,7 +141,27 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! QuestionCellTableViewCell
-         let optionName = arrQueOption[indexPath.row].option
+            optionName = arrQueOption[indexPath.row].option
+        
+//        guard let name = objectSurvey.questions[0].givenAnswer else {
+//            return
+//        }
+             strSurvay = objectSurvey.questions[0].givenAnswer
+        
+       
+  
+        
+        
+        if optionName.isEqualToString(find: strSurvay!){
+              cell.lblText.backgroundColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
+              cell.lblText.textColor = UIColor.white
+                self.btnCheck.isHidden = true
+        }
+        else{
+              cell.lblText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+              cell.lblText.textColor = UIColor.black
+        }
+        
         cell.lblText.text = optionName
         return cell
     }
@@ -102,16 +173,19 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
         cell.lblText.backgroundColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
         cell.lblText.textColor = UIColor.white
-        
-        
+        optionName = arrQueOption[indexPath.row].option
+          self.isSelected = true
 
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
-        
+        self.isSelected = false
         print(arrQueOption[indexPath.row])
         cell.lblText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         cell.lblText.textColor = UIColor.black
+        
+        
+        
     }
     
 

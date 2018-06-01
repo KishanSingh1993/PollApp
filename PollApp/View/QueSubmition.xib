@@ -108,6 +108,9 @@
                     <state key="normal" image="done-tick.png">
                         <color key="titleColor" red="0.95858144749999996" green="0.62072510140000003" blue="0.0086658605890000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="clickToCheck:" destination="-1" eventType="touchUpInside" id="hMi-ZY-g2m"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
