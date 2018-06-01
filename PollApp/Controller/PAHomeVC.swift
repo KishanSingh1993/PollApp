@@ -218,10 +218,16 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
         
         viewProfile = PAProfile(nibName: "PAProfile", bundle: nil)
         
-        addChildViewController(viewProfile!)
-        viewMain.addSubview((viewProfile?.view)!)
-        viewProfile?.view.frame = viewMain.bounds
-        viewProfile?.willMove(toParentViewController: self)
+//        addChildViewController(viewProfile!)
+//        viewMain.addSubview((viewProfile?.view)!)
+//        viewProfile?.view.frame = viewMain.bounds
+//        viewProfile?.willMove(toParentViewController: self)
+        
+        
+        
+        
+        
+        self.navigationController?.pushViewController(viewProfile!, animated: true)
            setLableTextColor(lbl: self.lblprofile, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblGroup, lbl4: lblSetting)
     }
     

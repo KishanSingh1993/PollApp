@@ -97,12 +97,10 @@
                                 <outlet property="delegate" destination="-1" id="IZ3-6a-WGI"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwG-hi-naa">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwG-hi-naa">
                             <rect key="frame" x="20" y="120" width="334" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.95858144749999996" green="0.62072510140000003" blue="0.0086658605890000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="pi8-bd-daY"/>
-                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                             <state key="normal" title="Next">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,12 +113,9 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="3kN-Wu-W98"/>
-                        <constraint firstAttribute="trailing" secondItem="AwG-hi-naa" secondAttribute="trailing" constant="20" id="77v-NW-sPd"/>
                         <constraint firstItem="Bvu-h0-ol8" firstAttribute="leading" secondItem="b2W-9t-SeY" secondAttribute="leading" constant="20" id="BT3-yV-NNL"/>
-                        <constraint firstAttribute="bottom" secondItem="AwG-hi-naa" secondAttribute="bottom" constant="30" id="Lz7-gf-OQp"/>
                         <constraint firstAttribute="trailing" secondItem="Bvu-h0-ol8" secondAttribute="trailing" constant="20" id="i2J-ci-TOQ"/>
                         <constraint firstItem="Bvu-h0-ol8" firstAttribute="top" secondItem="b2W-9t-SeY" secondAttribute="top" constant="30" id="kiJ-fu-fc2"/>
-                        <constraint firstItem="AwG-hi-naa" firstAttribute="leading" secondItem="b2W-9t-SeY" secondAttribute="leading" constant="20" id="sy4-Uj-AHF"/>
                     </constraints>
                 </view>
             </subviews>

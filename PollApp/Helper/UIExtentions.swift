@@ -40,7 +40,9 @@ extension UIView {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        gradient.frame = self.bounds
+        print("------size-----\(self.frame.size)")
+        
+        gradient.frame.size = self.bounds.size
         gradient.colors = colours.map { $0.cgColor }
         gradient.locations = locations
         self.layer.insertSublayer(gradient, at: 0)

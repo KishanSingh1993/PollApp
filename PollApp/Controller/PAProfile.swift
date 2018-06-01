@@ -48,11 +48,19 @@ class PAProfile: BaseViewController {
         
     }
     
+    
+    @IBAction func clickToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLayoutSubviews() {
-        print(self.viewTop.frame.size)
         self.viewTop.applyGradient(colours: [self.color1,self.color2])
+        print(self.viewPersonal.frame.size)
+         print(self.viewPersonal.bounds.size)
         self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
         self.btnDone.applyGradient(colours: [self.btnColor1,self.btnColor2])
+
     }
 
     @IBAction func clickToDone(_ sender: Any) {
