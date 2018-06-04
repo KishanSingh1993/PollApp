@@ -11,8 +11,11 @@ pod 'Toast-Swift'
  pod 'SwiftyJSON'
  pod 'Alamofire'
  pod 'SVProgressHUD'
-pod 'Charts'
-
+ pod 'Charts'
+ pod 'FacebookCore'
+ pod 'FacebookLogin'
+ pod 'FacebookShare'
+ pod 'IQKeyboardManagerSwift'
 
   target 'PollAppTests' do
     inherit! :search_paths

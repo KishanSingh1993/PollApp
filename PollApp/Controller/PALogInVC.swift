@@ -93,36 +93,50 @@ class PALogInVC: BaseViewController {
         
         ServiceClass().getLoginDetails(strUrl:"login", param: dic) { error , dicData  in
             
-            if dicData["status"] as! Int == 200 {
-                if let users = dicData["data"] as? [String : Any] {
+            
+            
+            if error != nil {
+                
+                 SVProgressHUD.dismiss()
+                ECSAlert().showAlert(message:
+                    (error?.localizedDescription)!, controller: self)
+            }
+            else{
+                
+                if dicData["status"] as! Int == 200 {
+                    if let users = dicData["data"] as? [String : Any] {
                         self.strOTP = users["OTP"] as! String
                         let mobile  = users["mobileNumber"] as! String
                         print(self.strOTP)
                         let  viewController = PAOTPVC(nibName: "PAOTPVC", bundle: nil)
                         viewController.strPhone = mobile
                         self.navigationController?.pushViewController(viewController, animated: true)
-              
+                        
+                        
+                    }
+                    SVProgressHUD.dismiss()
                     
                 }
-                SVProgressHUD.dismiss()
-                
-            }
-            else{
-                
-                if let users = dicData["errors"] as? [String : Any] {
-                    if let mobile = users["mobileNumber"] as? [String : Any]{
-                        
-                        let msg = mobile["msg"] as! String
-                        ECSAlert().showAlert(message: msg, controller: self)
-
+                else{
+                    
+                    if let users = dicData["errors"] as? [String : Any] {
+                        if let mobile = users["mobileNumber"] as? [String : Any]{
+                            
+                            let msg = mobile["msg"] as! String
+                            ECSAlert().showAlert(message: msg, controller: self)
+                            
+                        }
                     }
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    
+                    
                 }
-                
-               SVProgressHUD.dismiss()
- 
-                
-                
-    }
+            }
+            
+            
+   
         
   }
 }

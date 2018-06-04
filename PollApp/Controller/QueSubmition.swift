@@ -44,7 +44,11 @@ class QueSubmition: BaseViewController {
         }else{
             btnCheck.isHidden = false
         }
-        //print(objectSurvey.questions[0])
+       
+        
+       
+        
+    
         
         
     }
@@ -143,10 +147,14 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! QuestionCellTableViewCell
             optionName = arrQueOption[indexPath.row].option
         
-//        guard let name = objectSurvey.questions[0].givenAnswer else {
-//            return
+//        if let myString =  self.nullToNil( value: objectSurvey.questions[0].givenAnswer as AnyObject ) , !(myString as AnyObject).isEmpty{
+//
+//            strSurvay = ""
 //        }
-             strSurvay = objectSurvey.questions[0].givenAnswer
+//        else{
+//            strSurvay = objectSurvey.questions[0].givenAnswer
+//        }
+//
         
        
   

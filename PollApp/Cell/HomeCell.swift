@@ -96,11 +96,28 @@ class HomeCell: UITableViewCell  {
         for i in 0..<arrOption.count{
         
             let value = arrOption[i].count
-        let valueGrap = value!
+            var valueGrap = Int()
+            var height: Float!
             
-            var height: Float = Float(value!) / 10.0
-            
-            height = height + 0.3
+            if value == 0{
+                
+                 valueGrap = value!
+                
+                height = Float(value!) / 10.0
+                
+             
+                
+            }
+            else{
+                 valueGrap = value!
+                
+                height = Float(value!) / 10.0
+                
+                print(height)
+                
+                height = height + 0.1
+            }
+      
             
             result.append(BarEntry(color: #colorLiteral(red: 0.5568627451, green: 0.1294117647, blue: 0.5882352941, alpha: 1), height: height, textValue: "\(String(describing: valueGrap))", title:arrOption[i].option, yAxis: "\(yAxis)%"))
             yAxis = yAxis + 2.0

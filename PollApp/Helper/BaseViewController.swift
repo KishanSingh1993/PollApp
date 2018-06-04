@@ -59,6 +59,14 @@ class BaseViewController: UIViewController {
         viewGradent.layer.addSublayer(gradientLayer)
     }
     
+    func nullToNil(value : AnyObject?) -> AnyObject? {
+        if value is NSNull {
+            return nil
+        } else {
+            return value
+        }
+    }
+    
     
     func moveTextField(textField: UITextField, moveDistance: Int , up: Bool){
         let moveDuration = 0.3

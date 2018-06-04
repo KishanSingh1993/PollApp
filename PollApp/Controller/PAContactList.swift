@@ -16,6 +16,9 @@ class PAContactList: BaseViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var arrayPersnonID: [String] = []
+    
     var isHome: Bool!
     
     var contactArray : Array<Any> = []
@@ -111,6 +114,14 @@ class PAContactList: BaseViewController {
         return  #colorLiteral(red: 0.5568627451, green: 0.1294117647, blue: 0.5882352941, alpha: 1)
     }
     
+  
+    @IBAction func clickToAdd(_ sender: Any) {
+        print(self.arrayPersnonID)
+    }
+    
+    
+    
+    
 
 }
 
@@ -144,6 +155,7 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         else{
              cell.btnInvite.isHidden = false
         }
+        cell.accessoryType = .none
         
         return cell
     }
@@ -151,4 +163,31 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         return 70.0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let obj:ContactList = contactArray[indexPath.section] as! ContactList
+        if obj.registered == 1{
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+                self.arrayPersnonID.append(obj.id)
+            }
+        }
+        else{
+            ECSAlert().showAlert(message: "User Not Register With Us", controller: self)
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         let obj:ContactList = contactArray[indexPath.section] as! ContactList
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
+        }
+        
+        if let index = self.arrayPersnonID.index(of: obj.id) {
+            self.arrayPersnonID.remove(at: index)
+        }
+        
+    }
+
+
 }

@@ -41,7 +41,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     @IBOutlet weak var viewMain: UIView!
     var viewProfile: PAProfile?
     var viewChat: PAChatVC?
-    var viewSearch: PAContactList?
+    var viewSearch: PASearch?
     var viewSetting:PASettingVC?
     var dicUserNumber : Dictionary = [
         "name" : String(),
@@ -72,7 +72,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
         btnHome .setButtonImage("homeblack.png")
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         print(self.appUserObject?.userId)
-        
+        self.tableView.backgroundColor = UIColor.clear
         
         
         
@@ -281,9 +281,9 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
          setLableTextColor(lbl: self.lblSearch, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSetting)
         
 
-        let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
-        viewController.isHome = false
-      //  viewController.contactArray = self.arrayContract as! [[String : Any]]
+        let  viewController = PASearch(nibName: "PASearch", bundle: nil)
+     
+   
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
@@ -379,12 +379,22 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
             let vc = QueSubmition(nibName: "QueSubmition", bundle: nil)
             vc.delegate = self
             vc.objectData = obj
-            vc.objectSurvey = obj.selfSurvey
+        
+        
+        
+        
             vc.index = indexPath.section
         
         
+           // present(vc, animated: true, completion: nil)
+        guard let myString = self.nullToNil(value: obj.selfSurvey) else{
+             vc.strSurvay = ""
             present(vc, animated: true, completion: nil)
-            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        vc.strSurvay = obj.selfSurvey.questions[0].givenAnswer
+        present(vc, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
  

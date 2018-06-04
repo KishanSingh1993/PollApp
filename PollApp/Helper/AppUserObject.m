@@ -261,6 +261,28 @@
 
 
 
+-(UIImage *)changeWhiteColorTransparent: (UIImage *)image
+{
+    //convert to uncompressed jpg to remove any alpha channels
+    //this is a necessary first step when processing images that already have transparency
+    image = [UIImage imageWithData:UIImageJPEGRepresentation(image, 1.0)];
+    CGImageRef rawImageRef=image.CGImage;
+    //RGB color range to mask (make transparent)  R-Low, R-High, G-Low, G-High, B-Low, B-High
+    const double colorMasking[6] = {222, 255, 222, 255, 222, 255};
+    
+    UIGraphicsBeginImageContext(image.size);
+    CGImageRef maskedImageRef=CGImageCreateWithMaskingColors(rawImageRef, colorMasking);
+    
+    //iPhone translation
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0.0, image.size.height);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+    
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, image.size.width, image.size.height), maskedImageRef);
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    CGImageRelease(maskedImageRef);
+    UIGraphicsEndImageContext();
+    return result;
+}
 
 @end
 

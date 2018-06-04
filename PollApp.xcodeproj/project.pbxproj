@@ -77,6 +77,10 @@
 		3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */; };
 		3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */; };
 		3BA138A820B4979B00FC8D1A /* done-tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA138A720B4979A00FC8D1A /* done-tick.png */; };
+		3BC73F7B20C1A2B7001771A1 /* PAEvent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */; };
+		3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */; };
+		3BC73F8320C29466001771A1 /* UserImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3BC73F8220C29466001771A1 /* UserImage.jpeg */; };
+		3BC73F8520C297A9001771A1 /* letter-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC73F8420C297A9001771A1 /* letter-x.png */; };
 		3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD75AAD20A800F6007FDD57 /* Constant.swift */; };
 		3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD75AAF20A80117007FDD57 /* PALogInVC.swift */; };
 		3BD75AB220A80117007FDD57 /* PALogInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD75AB020A80117007FDD57 /* PALogInVC.xib */; };
@@ -194,6 +198,10 @@
 		3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellTableViewCell.swift; sourceTree = "<group>"; };
 		3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCellTableViewCell.xib; sourceTree = "<group>"; };
 		3BA138A720B4979A00FC8D1A /* done-tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done-tick.png"; sourceTree = "<group>"; };
+		3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAEvent.xib; sourceTree = "<group>"; };
+		3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAEvent.swift; sourceTree = "<group>"; };
+		3BC73F8220C29466001771A1 /* UserImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = UserImage.jpeg; sourceTree = "<group>"; };
+		3BC73F8420C297A9001771A1 /* letter-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-x.png"; sourceTree = "<group>"; };
 		3BD75AAD20A800F6007FDD57 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BD75AAF20A80117007FDD57 /* PALogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PALogInVC.swift; sourceTree = "<group>"; };
 		3BD75AB020A80117007FDD57 /* PALogInVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PALogInVC.xib; sourceTree = "<group>"; };
@@ -272,6 +280,7 @@
 		1B6DA2EA20A98DAF00A67E8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */,
 				1B6DA2E820A9841B00A67E8A /* PASearch.xib */,
 				1B6DA2D320A9744000A67E8A /* QueSubmition.xib */,
 				3B320A5620A8638200E68788 /* PAChatVC.xib */,
@@ -298,6 +307,7 @@
 				3B320A5120A8636000E68788 /* PAHomeVC.swift */,
 				3BD75ABA20A84B4C007FDD57 /* PAProfile.swift */,
 				3BF9483120C0532C00CECBCF /* Corporate.swift */,
+				3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */,
 				3B81A6D020B725A000844703 /* PAContactList.swift */,
 			);
 			path = Controller;
@@ -428,6 +438,8 @@
 		3BD75AB320A803E5007FDD57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3BC73F8420C297A9001771A1 /* letter-x.png */,
+				3BC73F8220C29466001771A1 /* UserImage.jpeg */,
 				3B24589820B9AAC3003E31DC /* event.png */,
 				3B24589420B9A3D5003E31DC /* loupeblack.png */,
 				3B24589220B9A3D4003E31DC /* loupewhite.png */,
@@ -595,6 +607,7 @@
 				3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */,
 				3B24589620B9A3D5003E31DC /* settingsblack.png in Resources */,
 				3B320A5420A8636000E68788 /* PAHomeVC.xib in Resources */,
+				3BC73F8520C297A9001771A1 /* letter-x.png in Resources */,
 				3B24589520B9A3D5003E31DC /* loupewhite.png in Resources */,
 				3B81A67420B5DE6200844703 /* shareBlack.png in Resources */,
 				3BD75AC120A85D02007FDD57 /* user (1).png in Resources */,
@@ -612,6 +625,7 @@
 				3B24589120B991BA003E31DC /* chat_yellow@2x.png in Resources */,
 				3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */,
 				3BD75ABD20A84B4C007FDD57 /* PAProfile.xib in Resources */,
+				3BC73F7B20C1A2B7001771A1 /* PAEvent.xib in Resources */,
 				3BD75AB220A80117007FDD57 /* PALogInVC.xib in Resources */,
 				3B24588920B991BA003E31DC /* chat_@2x.png in Resources */,
 				3B24589020B991BA003E31DC /* home_yellow@3x.png in Resources */,
@@ -627,6 +641,7 @@
 				3B24588820B991BA003E31DC /* home_@1x.png in Resources */,
 				3B24589720B9A3D5003E31DC /* loupeblack.png in Resources */,
 				3B24588E20B991BA003E31DC /* chat_@3x.png in Resources */,
+				3BC73F8320C29466001771A1 /* UserImage.jpeg in Resources */,
 				1B6DA2D520A9744000A67E8A /* QueSubmition.xib in Resources */,
 				3B24588620B991BA003E31DC /* ic_identity_@3x.png in Resources */,
 				3B81A68220B5E16200844703 /* chat.png in Resources */,
@@ -797,7 +812,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PollApp/Pods-PollApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -807,7 +830,15 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -849,6 +880,7 @@
 				3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */,
 				3B81A6D220B725A000844703 /* PAContactList.swift in Sources */,
 				3BA1389F20B3E9CB00FC8D1A /* QuestionselfSurvey.swift in Sources */,
+				3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */,
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,

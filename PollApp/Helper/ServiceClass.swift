@@ -100,6 +100,52 @@ class ServiceClass: NSObject {
     
     
     
+    public func getProfileEventDetails(strUrl:String,param:[String:Any],header:String,completion:@escaping (dictionaryBlock)){
+        
+        print(param)
+        
+        
+        print(baseURL+strUrl)
+        
+        let headersValue = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        print(headersValue)
+        
+        requestPUTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue , success: {
+            (JSONResponse) -> Void in
+            print(JSONResponse)
+            
+             let dicData = JSONResponse.dictionaryObject!
+            
+            if dicData["status"] as! Int == 200 {
+               let jsonData = JSONResponse["data"].dictionaryObject
+                completion(nil,jsonData!)
+            }
+            else{
+                let msg = dicData["userMessage"] as! String
+                
+                let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                
+                completion(error as Error,[:])
+            }
+            
+            
+            
+            
+            
+        }) {
+            (error) -> Void in
+            
+            completion(error,[:])
+            
+        }
+    }
+    
+    
+    
+    
     
     
     
@@ -134,7 +180,13 @@ class ServiceClass: NSObject {
         
         print(param)
         
-        requestPUTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: nil, success: {
+        
+        let headersValue: HTTPHeaders = [
+            "": "",
+            
+        ]
+        
+        requestPUTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue, success: {
             (JSONResponse) -> Void in
             print(JSONResponse)
             
@@ -315,8 +367,10 @@ class ServiceClass: NSObject {
     
 
 
-    private func requestPUTURL(_ strURL : String, params : [String : AnyObject]?, headers : [String : String]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
+    private func requestPUTURL(_ strURL : String, params : [String : AnyObject]?, headers :[String : String]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void){
         
+        
+        print(headers ?? "")
         Alamofire.request(strURL, method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { (responseObject) -> Void in
             
             print(responseObject)

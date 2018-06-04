@@ -81,6 +81,17 @@
                         <outlet property="delegate" destination="-1" id="ldZ-F7-klg"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG0-le-Vm6">
+                    <rect key="frame" x="364" y="686" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="D3h-Fc-Y24"/>
+                        <constraint firstAttribute="width" constant="30" id="S0j-1k-9F8"/>
+                    </constraints>
+                    <state key="normal" title="Add"/>
+                    <connections>
+                        <action selector="clickToAdd:" destination="-1" eventType="touchUpInside" id="hUX-9Q-mC4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -92,7 +103,9 @@
                 <constraint firstItem="asZ-gF-ocG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="S5O-5K-ql0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ycj-1W-xgv" secondAttribute="trailing" constant="10" id="X4O-7D-DdJ"/>
                 <constraint firstItem="Ycj-1W-xgv" firstAttribute="top" secondItem="asZ-gF-ocG" secondAttribute="bottom" constant="10" id="c40-QH-MR8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kG0-le-Vm6" secondAttribute="trailing" constant="20" id="gBg-Gi-Gyd"/>
                 <constraint firstItem="Ycj-1W-xgv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="ib0-TO-KSa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kG0-le-Vm6" secondAttribute="bottom" constant="20" id="mGL-kr-Fu5"/>
                 <constraint firstItem="asZ-gF-ocG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="o3p-hF-KXI"/>
                 <constraint firstAttribute="trailing" secondItem="1kR-Rj-hAz" secondAttribute="trailing" id="yLl-TZ-jgY"/>
             </constraints>
