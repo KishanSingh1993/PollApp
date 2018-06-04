@@ -14,6 +14,11 @@
 		1B6DA2E920A9841B00A67E8A /* PASearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6DA2E820A9841B00A67E8A /* PASearch.xib */; };
 		1B6DA2EF20A9928A00A67E8A /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6DA2ED20A9928A00A67E8A /* HomeCell.swift */; };
 		1B6DA2F020A9928A00A67E8A /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6DA2EE20A9928A00A67E8A /* HomeCell.xib */; };
+		1BB356D220C5139E00247806 /* PACustomSurvay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB356D020C5139E00247806 /* PACustomSurvay.swift */; };
+		1BB356D320C5139E00247806 /* PACustomSurvay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB356D120C5139E00247806 /* PACustomSurvay.xib */; };
+		1BB356DA20C53BCE00247806 /* SurvayOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB356D820C53BCE00247806 /* SurvayOptionCell.swift */; };
+		1BB356DB20C53BCE00247806 /* SurvayOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB356D920C53BCE00247806 /* SurvayOptionCell.xib */; };
+		1BB356DD20C53CC100247806 /* access.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB356DC20C53CC000247806 /* access.png */; };
 		1BC81B9320B6D0FD00CF7EC7 /* YAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC81B9220B6D0FD00CF7EC7 /* YAxisValueFormatter.swift */; };
 		1BC81B9A20B6DD0400CF7EC7 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC81B9820B6DD0400CF7EC7 /* SettingsCell.swift */; };
 		1BC81B9B20B6DD0400CF7EC7 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC81B9920B6DD0400CF7EC7 /* SettingsCell.xib */; };
@@ -126,6 +131,11 @@
 		1B6DA2E820A9841B00A67E8A /* PASearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PASearch.xib; sourceTree = "<group>"; };
 		1B6DA2ED20A9928A00A67E8A /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		1B6DA2EE20A9928A00A67E8A /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		1BB356D020C5139E00247806 /* PACustomSurvay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PACustomSurvay.swift; sourceTree = "<group>"; };
+		1BB356D120C5139E00247806 /* PACustomSurvay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PACustomSurvay.xib; sourceTree = "<group>"; };
+		1BB356D820C53BCE00247806 /* SurvayOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvayOptionCell.swift; sourceTree = "<group>"; };
+		1BB356D920C53BCE00247806 /* SurvayOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurvayOptionCell.xib; sourceTree = "<group>"; };
+		1BB356DC20C53CC000247806 /* access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = access.png; sourceTree = "<group>"; };
 		1BC81B9220B6D0FD00CF7EC7 /* YAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAxisValueFormatter.swift; sourceTree = "<group>"; };
 		1BC81B9820B6DD0400CF7EC7 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		1BC81B9920B6DD0400CF7EC7 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
@@ -291,6 +301,7 @@
 				3B81A6D120B725A000844703 /* PAContactList.xib */,
 				3BF9483220C0532C00CECBCF /* Corporate.xib */,
 				3BD75AB020A80117007FDD57 /* PALogInVC.xib */,
+				1BB356D120C5139E00247806 /* PACustomSurvay.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 				3BF9483120C0532C00CECBCF /* Corporate.swift */,
 				3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */,
 				3B81A6D020B725A000844703 /* PAContactList.swift */,
+				1BB356D020C5139E00247806 /* PACustomSurvay.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,6 +336,8 @@
 				1BC81B9220B6D0FD00CF7EC7 /* YAxisValueFormatter.swift */,
 				1B6DA2EE20A9928A00A67E8A /* HomeCell.xib */,
 				3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */,
+				1BB356D820C53BCE00247806 /* SurvayOptionCell.swift */,
+				1BB356D920C53BCE00247806 /* SurvayOptionCell.xib */,
 				3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */,
 			);
 			path = Cell;
@@ -438,6 +452,7 @@
 		3BD75AB320A803E5007FDD57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1BB356DC20C53CC000247806 /* access.png */,
 				3BC73F8420C297A9001771A1 /* letter-x.png */,
 				3BC73F8220C29466001771A1 /* UserImage.jpeg */,
 				3B24589820B9AAC3003E31DC /* event.png */,
@@ -605,6 +620,7 @@
 			files = (
 				3B24588A20B991BA003E31DC /* chat_yellow@1x.png in Resources */,
 				3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */,
+				1BB356D320C5139E00247806 /* PACustomSurvay.xib in Resources */,
 				3B24589620B9A3D5003E31DC /* settingsblack.png in Resources */,
 				3B320A5420A8636000E68788 /* PAHomeVC.xib in Resources */,
 				3BC73F8520C297A9001771A1 /* letter-x.png in Resources */,
@@ -612,6 +628,7 @@
 				3B81A67420B5DE6200844703 /* shareBlack.png in Resources */,
 				3BD75AC120A85D02007FDD57 /* user (1).png in Resources */,
 				3B24588020B991BA003E31DC /* home_@2x.png in Resources */,
+				1BB356DB20C53BCE00247806 /* SurvayOptionCell.xib in Resources */,
 				3B24588520B991BA003E31DC /* ic_identity_@1x.png in Resources */,
 				3B81A6DD20B73F8E00844703 /* collaboration.png in Resources */,
 				3BD75AB920A81125007FDD57 /* PAOTPVC.xib in Resources */,
@@ -655,6 +672,7 @@
 				3BD75AB520A80400007FDD57 /* cell.png in Resources */,
 				3B24589920B9AAC3003E31DC /* event.png in Resources */,
 				1B6DA2F020A9928A00A67E8A /* HomeCell.xib in Resources */,
+				1BB356DD20C53CC100247806 /* access.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,6 +879,7 @@
 				3B20FBEE20AC8ECD001E4636 /* UIExtentions.swift in Sources */,
 				3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */,
 				3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */,
+				1BB356DA20C53BCE00247806 /* SurvayOptionCell.swift in Sources */,
 				3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */,
 				1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */,
 				3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */,
@@ -885,6 +904,7 @@
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
+				1BB356D220C5139E00247806 /* PACustomSurvay.swift in Sources */,
 				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,
 				3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */,
 				3BA1389220B34E3700FC8D1A /* ServiceHandler.swift in Sources */,

@@ -49,6 +49,8 @@ class PAEvent: BaseViewController {
          self.txtContactPersonPhone.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
         self.txtEventDuration.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
        
+        
+         datePicker.translatesAutoresizingMaskIntoConstraints = false
     }   
     override func viewWillAppear(_ animated: Bool) {
         showDatePicker()

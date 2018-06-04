@@ -39,7 +39,7 @@ class BasicBarChart: UIView {
                 scrollView.contentSize = CGSize(width: (barWidth + space)*CGFloat(dataEntries.count) - 20, height: self.frame.size.height)
                 mainLayer.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
                 yValue = self.mainLayer.frame.size.height-45
-                drawHorizontalLines()
+               // drawHorizontalLines()
                 drawVerticalLines()
                 
                

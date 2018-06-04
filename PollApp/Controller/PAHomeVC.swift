@@ -94,6 +94,11 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     }
     
 
+    @IBAction func clickToSurvay(_ sender: Any) {
+        
+        let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     

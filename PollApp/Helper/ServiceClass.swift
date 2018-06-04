@@ -302,7 +302,7 @@ class ServiceClass: NSObject {
             
         ]
         
-        print(header)
+        print("~~~~~~~~~~~~~~~~~~~~~~\(headersValue)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         
         
         
