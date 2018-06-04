@@ -16,6 +16,7 @@
                 <outlet property="btnProfile" destination="pKd-D9-Cqg" id="Kda-Wb-NJF"/>
                 <outlet property="btnSearch" destination="uYz-t6-9Am" id="QEK-Sf-Blj"/>
                 <outlet property="btnSetting" destination="MQE-1l-1QM" id="963-Yj-0fQ"/>
+                <outlet property="btnSurvey" destination="Fip-eN-sUR" id="uEy-HV-zOd"/>
                 <outlet property="lblGroup" destination="ef7-qG-pc6" id="514-EB-YWF"/>
                 <outlet property="lblHome" destination="rX0-Fx-DoV" id="dRH-Zl-wuo"/>
                 <outlet property="lblSearch" destination="5rr-o7-bKb" id="8bD-qi-SWW"/>
@@ -86,11 +87,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fip-eN-sUR">
-                    <rect key="frame" x="335" y="567" width="30" height="30"/>
+                    <rect key="frame" x="315" y="547" width="50" height="50"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.63529411759999999" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="LYo-Nz-iIq"/>
-                        <constraint firstAttribute="height" constant="30" id="wce-Gf-DkX"/>
+                        <constraint firstAttribute="width" constant="50" id="1sk-14-H6F"/>
+                        <constraint firstAttribute="height" constant="50" id="aBG-8a-Gvu"/>
                     </constraints>
                     <state key="normal" title="Add"/>
                     <connections>
@@ -194,19 +195,19 @@
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="MuD-X0-Ftq" firstAttribute="top" secondItem="Fip-eN-sUR" secondAttribute="bottom" constant="10" id="2e8-t8-omD"/>
                 <constraint firstItem="MuD-X0-Ftq" firstAttribute="trailing" secondItem="J6q-Hk-20M" secondAttribute="trailing" id="2vb-UN-v6r"/>
                 <constraint firstItem="uQ5-Wt-XGx" firstAttribute="leading" secondItem="J6q-Hk-20M" secondAttribute="leading" id="9wb-Cq-Gba"/>
                 <constraint firstItem="MuD-X0-Ftq" firstAttribute="leading" secondItem="J6q-Hk-20M" secondAttribute="leading" id="GOX-9R-jnw"/>
                 <constraint firstItem="qDv-eU-xSB" firstAttribute="leading" secondItem="TXN-KZ-wCR" secondAttribute="leading" id="Icn-HI-0wD"/>
-                <constraint firstItem="J6q-Hk-20M" firstAttribute="trailing" secondItem="Fip-eN-sUR" secondAttribute="trailing" constant="10" id="UJs-ES-Z7e"/>
                 <constraint firstItem="qDv-eU-xSB" firstAttribute="top" secondItem="TXN-KZ-wCR" secondAttribute="top" id="YYe-Jg-xa1"/>
                 <constraint firstItem="uQ5-Wt-XGx" firstAttribute="top" secondItem="qDv-eU-xSB" secondAttribute="bottom" id="gYt-he-D7o"/>
                 <constraint firstItem="uQ5-Wt-XGx" firstAttribute="trailing" secondItem="J6q-Hk-20M" secondAttribute="trailing" id="h4t-uG-hqJ"/>
                 <constraint firstItem="uQ5-Wt-XGx" firstAttribute="top" secondItem="J6q-Hk-20M" secondAttribute="top" id="lS3-10-uEM"/>
                 <constraint firstItem="MuD-X0-Ftq" firstAttribute="top" secondItem="uQ5-Wt-XGx" secondAttribute="bottom" id="mhl-3B-1RK"/>
+                <constraint firstItem="J6q-Hk-20M" firstAttribute="trailing" secondItem="Fip-eN-sUR" secondAttribute="trailing" constant="10" id="mry-j2-7Sj"/>
                 <constraint firstAttribute="trailing" secondItem="qDv-eU-xSB" secondAttribute="trailing" id="oVx-Gr-1QE"/>
                 <constraint firstItem="MuD-X0-Ftq" firstAttribute="bottom" secondItem="J6q-Hk-20M" secondAttribute="bottom" id="qr3-AB-6g7"/>
-                <constraint firstItem="MuD-X0-Ftq" firstAttribute="top" secondItem="Fip-eN-sUR" secondAttribute="bottom" constant="10" id="wNI-PM-IXe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="J6q-Hk-20M"/>
             <point key="canvasLocation" x="165" y="-328"/>

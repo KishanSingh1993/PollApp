@@ -104,6 +104,9 @@
 		3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482E20BAEB7D00CECBCF /* BarEntry.swift */; };
 		3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9483120C0532C00CECBCF /* Corporate.swift */; };
 		3BF9483420C0532C00CECBCF /* Corporate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF9483220C0532C00CECBCF /* Corporate.xib */; };
+		3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEA8AC20C5A55000A46955 /* PAGroupCreate.swift */; };
+		3BFEA8AF20C5A55000A46955 /* PAGroupCreate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEA8AD20C5A55000A46955 /* PAGroupCreate.xib */; };
+		3BFEA8B120C5AFAC00A46955 /* play-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEA8B020C5AFAC00A46955 /* play-symbol.png */; };
 		D2770C8FFC53A348DA4D867B /* Pods_PollAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BF3394449E501C238C95BA /* Pods_PollAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +233,9 @@
 		3BF9482E20BAEB7D00CECBCF /* BarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
 		3BF9483120C0532C00CECBCF /* Corporate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corporate.swift; sourceTree = "<group>"; };
 		3BF9483220C0532C00CECBCF /* Corporate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Corporate.xib; sourceTree = "<group>"; };
+		3BFEA8AC20C5A55000A46955 /* PAGroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAGroupCreate.swift; sourceTree = "<group>"; };
+		3BFEA8AD20C5A55000A46955 /* PAGroupCreate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAGroupCreate.xib; sourceTree = "<group>"; };
+		3BFEA8B020C5AFAC00A46955 /* play-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-symbol.png"; sourceTree = "<group>"; };
 		62451A328C0185658CB34567 /* Pods-PollApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollApp/Pods-PollApp.debug.xcconfig"; sourceTree = "<group>"; };
 		62BF3394449E501C238C95BA /* Pods_PollAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB5943D43DBEB5DAAFC19B6 /* Pods_PollAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +308,7 @@
 				3BF9483220C0532C00CECBCF /* Corporate.xib */,
 				3BD75AB020A80117007FDD57 /* PALogInVC.xib */,
 				1BB356D120C5139E00247806 /* PACustomSurvay.xib */,
+				3BFEA8AD20C5A55000A46955 /* PAGroupCreate.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +327,7 @@
 				3BF9483120C0532C00CECBCF /* Corporate.swift */,
 				3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */,
 				3B81A6D020B725A000844703 /* PAContactList.swift */,
+				3BFEA8AC20C5A55000A46955 /* PAGroupCreate.swift */,
 				1BB356D020C5139E00247806 /* PACustomSurvay.swift */,
 			);
 			path = Controller;
@@ -452,6 +460,7 @@
 		3BD75AB320A803E5007FDD57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3BFEA8B020C5AFAC00A46955 /* play-symbol.png */,
 				1BB356DC20C53CC000247806 /* access.png */,
 				3BC73F8420C297A9001771A1 /* letter-x.png */,
 				3BC73F8220C29466001771A1 /* UserImage.jpeg */,
@@ -622,6 +631,7 @@
 				3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */,
 				1BB356D320C5139E00247806 /* PACustomSurvay.xib in Resources */,
 				3B24589620B9A3D5003E31DC /* settingsblack.png in Resources */,
+				3BFEA8B120C5AFAC00A46955 /* play-symbol.png in Resources */,
 				3B320A5420A8636000E68788 /* PAHomeVC.xib in Resources */,
 				3BC73F8520C297A9001771A1 /* letter-x.png in Resources */,
 				3B24589520B9A3D5003E31DC /* loupewhite.png in Resources */,
@@ -630,6 +640,7 @@
 				3B24588020B991BA003E31DC /* home_@2x.png in Resources */,
 				1BB356DB20C53BCE00247806 /* SurvayOptionCell.xib in Resources */,
 				3B24588520B991BA003E31DC /* ic_identity_@1x.png in Resources */,
+				3BFEA8AF20C5A55000A46955 /* PAGroupCreate.xib in Resources */,
 				3B81A6DD20B73F8E00844703 /* collaboration.png in Resources */,
 				3BD75AB920A81125007FDD57 /* PAOTPVC.xib in Resources */,
 				3B24588C20B991BA003E31DC /* home_yellow@2x.png in Resources */,
@@ -903,6 +914,7 @@
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
+				3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
 				1BB356D220C5139E00247806 /* PACustomSurvay.swift in Sources */,
 				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,

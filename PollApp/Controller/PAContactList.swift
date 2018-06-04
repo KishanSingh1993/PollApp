@@ -11,6 +11,7 @@ import SVProgressHUD
 
 class PAContactList: BaseViewController {
 
+    @IBOutlet weak var btnAdd: UIButton!
     
     @IBOutlet weak var btnBack: UIButton!
     
@@ -28,8 +29,8 @@ class PAContactList: BaseViewController {
 
         
     
-        
-       
+        self.btnAdd.makeCircular()
+       self.btnAdd.isHidden = true
         btnBack.isHidden = isHome
         
         callContactData()
@@ -91,7 +92,8 @@ class PAContactList: BaseViewController {
     }
     
     
-   
+
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -117,6 +119,9 @@ class PAContactList: BaseViewController {
   
     @IBAction func clickToAdd(_ sender: Any) {
         print(self.arrayPersnonID)
+        
+        let vc =  PAGroupCreate(nibName: "PAGroupCreate", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -155,7 +160,15 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         else{
              cell.btnInvite.isHidden = false
         }
-        cell.accessoryType = .none
+        if self.arrayPersnonID.index(of: obj.id) != nil {
+                cell.accessoryType = .checkmark
+                self.btnAdd.isHidden = false
+            }else{
+                cell.accessoryType = .none
+                self.btnAdd.isHidden = true
+            }
+        
+        
         
         return cell
     }
@@ -166,10 +179,19 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          let obj:ContactList = contactArray[indexPath.section] as! ContactList
         if obj.registered == 1{
-            if let cell = tableView.cellForRow(at: indexPath) {
+            if let index = self.arrayPersnonID.index(of: obj.id) {
+                self.arrayPersnonID.remove(at: index)
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.accessoryType = .none
+                     self.btnAdd.isHidden = true
+                }
+            } else if let cell = tableView.cellForRow(at: indexPath) {
                 cell.accessoryType = .checkmark
+                self.btnAdd.isHidden = false
                 self.arrayPersnonID.append(obj.id)
             }
+            
+            
         }
         else{
             ECSAlert().showAlert(message: "User Not Register With Us", controller: self)
@@ -178,14 +200,9 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-         let obj:ContactList = contactArray[indexPath.section] as! ContactList
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .none
-        }
-        
-        if let index = self.arrayPersnonID.index(of: obj.id) {
-            self.arrayPersnonID.remove(at: index)
-        }
+       //  let obj:ContactList = contactArray[indexPath.section] as! ContactList
+
+       
         
     }
 

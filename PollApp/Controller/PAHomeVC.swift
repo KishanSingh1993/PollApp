@@ -21,6 +21,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     
     @IBOutlet weak var viewSearchBar: UIView!
     
+    @IBOutlet weak var btnSurvey: UIButton!
     
     
     
@@ -239,6 +240,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
    
     @IBAction func clickToChat(_ sender: Any) {
         self.searchBar.isHidden = true
+        self.btnSurvey.isHidden = true
          setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
@@ -261,7 +263,8 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     }
     
     func setHomeData(){
-        
+        self.btnSurvey.makeCircular()
+        self.btnSurvey.isHidden = false
         setButtonImg(btn: btnHome, strActive: "home_yellow.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         self.lblHome.textColor = #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1)
         
@@ -295,7 +298,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     
     @IBAction func clickToSetting(_ sender: Any) {
         self.searchBar.isHidden = true
-        
+        self.btnSurvey.isHidden = true
       setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settingsblack.png")
         
                setLableTextColor(lbl: self.lblSetting, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblprofile, lbl3: lblGroup, lbl4: lblSearch)
