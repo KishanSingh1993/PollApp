@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PollApp/Helper/ServiceClass.swift"
-            timestampString = "549910761.179638"
+            timestampString = "549913595.142583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "getLoginDetails(strUrl:param:completion:)"
-            landmarkType = "7">
+            landmarkName = "ServiceClass"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

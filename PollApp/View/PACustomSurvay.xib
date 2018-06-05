@@ -45,21 +45,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QV0-Ct-dno">
-                            <rect key="frame" x="354" y="15" width="34" height="36"/>
-                            <state key="normal" title="Back"/>
-                            <connections>
-                                <action selector="clickToBack:" destination="-1" eventType="touchUpInside" id="fv1-d7-h0Q"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.61176470589999998" green="0.0" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="QV0-Ct-dno" firstAttribute="centerY" secondItem="t3N-rG-uFq" secondAttribute="centerY" id="0yr-Lf-PZb"/>
-                        <constraint firstAttribute="trailing" secondItem="QV0-Ct-dno" secondAttribute="trailing" constant="26" id="BTK-yC-qdI"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="YJf-3c-39i"/>
                         <constraint firstItem="t3N-rG-uFq" firstAttribute="top" secondItem="tx9-8k-Yy1" secondAttribute="top" constant="20" id="bgb-Qm-VbQ"/>
-                        <constraint firstAttribute="bottom" secondItem="QV0-Ct-dno" secondAttribute="bottom" constant="15" id="lU1-GZ-xPW"/>
                         <constraint firstAttribute="bottom" secondItem="t3N-rG-uFq" secondAttribute="bottom" constant="20" id="low-fE-diJ"/>
                         <constraint firstAttribute="height" constant="66" id="p3b-1p-IWa"/>
                         <constraint firstItem="t3N-rG-uFq" firstAttribute="leading" secondItem="tx9-8k-Yy1" secondAttribute="leading" constant="10" id="vo0-dt-K1d"/>

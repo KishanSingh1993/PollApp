@@ -522,7 +522,7 @@ class ServiceClass: NSObject {
                 
                 if dicData["status"] as! Int == 200 {
                     for rootDic in resJson["data"].array!{
-                        let obj = HomeScreenData(fromJson: rootDic)
+                        let obj = GroupMember(fromJson: rootDic)
                         self.arrIteam.append(obj)
                     }
                     completion(nil,self.arrIteam)

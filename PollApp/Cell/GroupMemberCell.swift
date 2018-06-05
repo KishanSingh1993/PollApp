@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupMember: UICollectionViewCell {
+class GroupMemberCell: UICollectionViewCell {
 
     @IBOutlet weak var lblImage: UILabel!
     @IBOutlet weak var lblName: UILabel!

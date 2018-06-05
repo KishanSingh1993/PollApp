@@ -25,7 +25,7 @@ class PAGroupCreate: BaseViewController, UIImagePickerControllerDelegate , UINav
         self.btnCreateGroup.makeCircular()
         UIView().setShadow(self.viewGroupInfo)
         
-        self.collectionView.register(UINib(nibName: "GroupMember", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        self.collectionView.register(UINib(nibName: "GroupMemberCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
     }
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -78,14 +78,14 @@ class PAGroupCreate: BaseViewController, UIImagePickerControllerDelegate , UINav
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
                     
-                    if "Your session has been expired. Please relogin.".isEqualToString(find: (err?.localizedDescription)!){
-                        
-                        UserDefaults.standard.set(1, forKey: "isLogin")
-                        UserDefaults.standard.synchronize()
-                        let delegate = UIApplication.shared.delegate as! AppDelegate
-                        delegate.setRootcontrooler()
-                        
-                    }
+//                    if "Your session has been expired. Please relogin.".isEqualToString(find: (err?.localizedDescription)!){
+//
+//                        UserDefaults.standard.set(1, forKey: "isLogin")
+//                        UserDefaults.standard.synchronize()
+//                        let delegate = UIApplication.shared.delegate as! AppDelegate
+//                        delegate.setRootcontrooler()
+//
+//                    }
                     
                     
                 })
@@ -107,8 +107,10 @@ class PAGroupCreate: BaseViewController, UIImagePickerControllerDelegate , UINav
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
                     
-                        let  viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
-                        self.navigationController?.pushViewController(viewChat, animated: true)
+                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                    vc.isGroupCreate = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+             
                     
                 })
                 self.present(alertController, animated: true, completion: nil)
@@ -206,7 +208,7 @@ extension PAGroupCreate: UICollectionViewDelegate,UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GroupMember
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GroupMemberCell
         let obj:ContactList = self.arraGroupMember[indexPath.section]
         
         let strName = obj.name

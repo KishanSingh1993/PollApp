@@ -10,8 +10,8 @@
 		000B55F44A2B844E60585D2C /* Pods_PollApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0C47D2CEB12B1ED984F995 /* Pods_PollApp.framework */; };
 		1B2A695120C690A500249AA9 /* group_default_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2A695020C690A500249AA9 /* group_default_user.png */; };
 		1B2A695320C691EA00249AA9 /* photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2A695220C691EA00249AA9 /* photo-camera.png */; };
-		1B2A695620C696D500249AA9 /* GroupMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A695420C696D500249AA9 /* GroupMember.swift */; };
-		1B2A695720C696D500249AA9 /* GroupMember.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2A695520C696D500249AA9 /* GroupMember.xib */; };
+		1B2A695620C696D500249AA9 /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A695420C696D500249AA9 /* GroupMemberCell.swift */; };
+		1B2A695720C696D500249AA9 /* GroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2A695520C696D500249AA9 /* GroupMemberCell.xib */; };
 		1B47B27820AC1363003223E1 /* ServiceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47B27720AC1363003223E1 /* ServiceClass.swift */; };
 		1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6DA2D220A9744000A67E8A /* QueSubmition.swift */; };
 		1B6DA2D520A9744000A67E8A /* QueSubmition.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6DA2D320A9744000A67E8A /* QueSubmition.xib */; };
@@ -32,7 +32,8 @@
 		3B01AB4B20C6F4C200291522 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4920C6F4C200291522 /* ChatCell.swift */; };
 		3B01AB4C20C6F4C200291522 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B01AB4A20C6F4C200291522 /* ChatCell.xib */; };
 		3B01AB4F20C6F7C400291522 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4D20C6F7C300291522 /* Profile.swift */; };
-		3B01AB5020C6F7C400291522 /* GroupMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4E20C6F7C400291522 /* GroupMember.swift */; };
+		3B01AB5320C700BA00291522 /* GroupMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB5120C700B900291522 /* GroupMember.swift */; };
+		3B01AB5420C700BA00291522 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB5220C700B900291522 /* Member.swift */; };
 		3B1A257020A7FF6B00F054E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */; };
 		3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257620A7FF6B00F054E0 /* Assets.xcassets */; };
 		3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */; };
@@ -137,8 +138,8 @@
 /* Begin PBXFileReference section */
 		1B2A695020C690A500249AA9 /* group_default_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = group_default_user.png; sourceTree = "<group>"; };
 		1B2A695220C691EA00249AA9 /* photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-camera.png"; sourceTree = "<group>"; };
-		1B2A695420C696D500249AA9 /* GroupMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMember.swift; sourceTree = "<group>"; };
-		1B2A695520C696D500249AA9 /* GroupMember.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMember.xib; sourceTree = "<group>"; };
+		1B2A695420C696D500249AA9 /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
+		1B2A695520C696D500249AA9 /* GroupMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupMemberCell.xib; sourceTree = "<group>"; };
 		1B47B27720AC1363003223E1 /* ServiceClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceClass.swift; sourceTree = "<group>"; };
 		1B6DA2D220A9744000A67E8A /* QueSubmition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueSubmition.swift; sourceTree = "<group>"; };
 		1B6DA2D320A9744000A67E8A /* QueSubmition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueSubmition.xib; sourceTree = "<group>"; };
@@ -160,7 +161,8 @@
 		3B01AB4920C6F4C200291522 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		3B01AB4A20C6F4C200291522 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		3B01AB4D20C6F7C300291522 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		3B01AB4E20C6F7C400291522 /* GroupMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMember.swift; sourceTree = "<group>"; };
+		3B01AB5120C700B900291522 /* GroupMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMember.swift; sourceTree = "<group>"; };
+		3B01AB5220C700B900291522 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3B1A256C20A7FF6B00F054E0 /* PollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B1A257620A7FF6B00F054E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -353,8 +355,8 @@
 				1B6DA2ED20A9928A00A67E8A /* HomeCell.swift */,
 				3B81A6D420B734CF00844703 /* GroupCell.swift */,
 				3B81A6D520B734CF00844703 /* GroupCell.xib */,
-				1B2A695420C696D500249AA9 /* GroupMember.swift */,
-				1B2A695520C696D500249AA9 /* GroupMember.xib */,
+				1B2A695420C696D500249AA9 /* GroupMemberCell.swift */,
+				1B2A695520C696D500249AA9 /* GroupMemberCell.xib */,
 				1BC81B9820B6DD0400CF7EC7 /* SettingsCell.swift */,
 				1BC81B9920B6DD0400CF7EC7 /* SettingsCell.xib */,
 				1BC81B9220B6D0FD00CF7EC7 /* YAxisValueFormatter.swift */,
@@ -464,7 +466,8 @@
 		3BA1389420B352E800FC8D1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B01AB4E20C6F7C400291522 /* GroupMember.swift */,
+				3B01AB5120C700B900291522 /* GroupMember.swift */,
+				3B01AB5220C700B900291522 /* Member.swift */,
 				3B01AB4D20C6F7C300291522 /* Profile.swift */,
 				3BF9482920BAAA2800CECBCF /* ContactList.swift */,
 				3BF9482A20BAAA2800CECBCF /* ContactListRes.swift */,
@@ -700,7 +703,7 @@
 				1BC81B9F20B6DF3200CF7EC7 /* PASettingVC.xib in Resources */,
 				3B24587F20B991BA003E31DC /* identity_yellow@2x.png in Resources */,
 				3BA138A820B4979B00FC8D1A /* done-tick.png in Resources */,
-				1B2A695720C696D500249AA9 /* GroupMember.xib in Resources */,
+				1B2A695720C696D500249AA9 /* GroupMemberCell.xib in Resources */,
 				3B24588120B991BA003E31DC /* ic_identity_@2x.png in Resources */,
 				3B24588D20B991BA003E31DC /* chat_@1x.png in Resources */,
 				3B81A6D320B725A000844703 /* PAContactList.xib in Resources */,
@@ -915,7 +918,6 @@
 				3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */,
 				3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */,
 				1BB356DA20C53BCE00247806 /* SurvayOptionCell.swift in Sources */,
-				3B01AB5020C6F7C400291522 /* GroupMember.swift in Sources */,
 				3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */,
 				1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */,
 				3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */,
@@ -926,7 +928,7 @@
 				1BC81B9320B6D0FD00CF7EC7 /* YAxisValueFormatter.swift in Sources */,
 				1B47B27820AC1363003223E1 /* ServiceClass.swift in Sources */,
 				1B6DA2EF20A9928A00A67E8A /* HomeCell.swift in Sources */,
-				1B2A695620C696D500249AA9 /* GroupMember.swift in Sources */,
+				1B2A695620C696D500249AA9 /* GroupMemberCell.swift in Sources */,
 				1BC81B9E20B6DF3200CF7EC7 /* PASettingVC.swift in Sources */,
 				3B81A6D620B734CF00844703 /* GroupCell.swift in Sources */,
 				3B20FBF020AC902F001E4636 /* ECSHelper.swift in Sources */,
@@ -936,6 +938,7 @@
 				3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */,
 				3B81A6D220B725A000844703 /* PAContactList.swift in Sources */,
 				3BA1389F20B3E9CB00FC8D1A /* QuestionselfSurvey.swift in Sources */,
+				3B01AB5320C700BA00291522 /* GroupMember.swift in Sources */,
 				3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */,
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
@@ -943,6 +946,7 @@
 				3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */,
 				3B01AB4B20C6F4C200291522 /* ChatCell.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
+				3B01AB5420C700BA00291522 /* Member.swift in Sources */,
 				1BB356D220C5139E00247806 /* PACustomSurvay.swift in Sources */,
 				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,
 				3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */,

@@ -24,7 +24,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     @IBOutlet weak var btnSurvey: UIButton!
     
     
-    
+    var isGroupCreate: Bool!
     @IBOutlet weak var lblSetting: UILabel!
     
     @IBOutlet weak var lblSearch: UILabel!
@@ -212,8 +212,16 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     }
  
     override func viewWillAppear(_ animated: Bool) {
-        setHomeData()
-        callHomeScreenValue()
+        
+        if self.isGroupCreate == true {
+            setChat()
+        }
+        else{
+            setHomeData()
+            callHomeScreenValue()
+        }
+        
+    
     }
     
     
@@ -239,9 +247,15 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
     
    
     @IBAction func clickToChat(_ sender: Any) {
+
+        setChat()
+    }
+    
+  
+    func setChat(){
         self.searchBar.isHidden = true
         self.btnSurvey.isHidden = true
-         setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
+        setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
         // viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
@@ -250,11 +264,10 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
         viewMain.addSubview((viewChat?.view)!)
         viewChat?.view.frame = viewMain.bounds
         viewChat?.willMove(toParentViewController: self)
-             setLableTextColor(lbl: self.lblGroup, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblprofile, lbl4: lblSetting)
-        
+        setLableTextColor(lbl: self.lblGroup, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblprofile, lbl4: lblSetting)
     }
     
-  
+    
     @IBAction func clickToHome(_ sender: Any) {
        
         setHomeData()

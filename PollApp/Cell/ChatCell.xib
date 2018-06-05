@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ees-qP-ujx">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_default_user.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ees-qP-ujx">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Ya4-2L-AFF"/>
@@ -53,4 +53,7 @@
             <point key="canvasLocation" x="34" y="62"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="group_default_user.png" width="252" height="252"/>
+    </resources>
 </document>

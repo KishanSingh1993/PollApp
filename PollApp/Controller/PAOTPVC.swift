@@ -144,6 +144,7 @@ class PAOTPVC: BaseViewController {
                         
                         self.appUserObject?.saveToUserDefault()
                         let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                        vc.isGroupCreate = false
                         self.navigationController?.pushViewController(vc, animated: true)
                         UserDefaults.standard.set(3, forKey: "isLogin")
                         UserDefaults.standard.synchronize()
