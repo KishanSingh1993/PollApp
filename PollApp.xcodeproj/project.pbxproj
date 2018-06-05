@@ -25,6 +25,10 @@
 		1BC81B9E20B6DF3200CF7EC7 /* PASettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC81B9C20B6DF3200CF7EC7 /* PASettingVC.swift */; };
 		1BC81B9F20B6DF3200CF7EC7 /* PASettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC81B9D20B6DF3200CF7EC7 /* PASettingVC.xib */; };
 		2210D81E9B362C45C20D7AA9 /* Pods_PollAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB5943D43DBEB5DAAFC19B6 /* Pods_PollAppTests.framework */; };
+		3B01AB4B20C6F4C200291522 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4920C6F4C200291522 /* ChatCell.swift */; };
+		3B01AB4C20C6F4C200291522 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B01AB4A20C6F4C200291522 /* ChatCell.xib */; };
+		3B01AB4F20C6F7C400291522 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4D20C6F7C300291522 /* Profile.swift */; };
+		3B01AB5020C6F7C400291522 /* GroupMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B01AB4E20C6F7C400291522 /* GroupMember.swift */; };
 		3B1A257020A7FF6B00F054E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */; };
 		3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257620A7FF6B00F054E0 /* Assets.xcassets */; };
 		3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A257820A7FF6B00F054E0 /* LaunchScreen.storyboard */; };
@@ -146,6 +150,10 @@
 		1BC81B9D20B6DF3200CF7EC7 /* PASettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PASettingVC.xib; sourceTree = "<group>"; };
 		1F0C47D2CEB12B1ED984F995 /* Pods_PollApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF7CBFEC34B3CB3F177EA5D /* Pods-PollAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollAppTests/Pods-PollAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B01AB4920C6F4C200291522 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		3B01AB4A20C6F4C200291522 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		3B01AB4D20C6F7C300291522 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3B01AB4E20C6F7C400291522 /* GroupMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMember.swift; sourceTree = "<group>"; };
 		3B1A256C20A7FF6B00F054E0 /* PollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A256F20A7FF6B00F054E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B1A257620A7FF6B00F054E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -347,6 +355,8 @@
 				1BB356D820C53BCE00247806 /* SurvayOptionCell.swift */,
 				1BB356D920C53BCE00247806 /* SurvayOptionCell.xib */,
 				3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */,
+				3B01AB4920C6F4C200291522 /* ChatCell.swift */,
+				3B01AB4A20C6F4C200291522 /* ChatCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -446,6 +456,8 @@
 		3BA1389420B352E800FC8D1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B01AB4E20C6F7C400291522 /* GroupMember.swift */,
+				3B01AB4D20C6F7C300291522 /* Profile.swift */,
 				3BF9482920BAAA2800CECBCF /* ContactList.swift */,
 				3BF9482A20BAAA2800CECBCF /* ContactListRes.swift */,
 				3BF9482520BAA43600CECBCF /* Question.swift */,
@@ -646,6 +658,7 @@
 				3B24588C20B991BA003E31DC /* home_yellow@2x.png in Resources */,
 				3B20FBF220ACB119001E4636 /* back.png in Resources */,
 				3B81A67820B5DEDB00844703 /* viewBlack.png in Resources */,
+				3B01AB4C20C6F4C200291522 /* ChatCell.xib in Resources */,
 				3B81A67A20B5DF7800844703 /* homeblack.png in Resources */,
 				1BC81B9B20B6DD0400CF7EC7 /* SettingsCell.xib in Resources */,
 				3B320A5820A8638200E68788 /* PAChatVC.xib in Resources */,
@@ -891,6 +904,7 @@
 				3BF9483020BAEB7D00CECBCF /* BarEntry.swift in Sources */,
 				3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */,
 				1BB356DA20C53BCE00247806 /* SurvayOptionCell.swift in Sources */,
+				3B01AB5020C6F7C400291522 /* GroupMember.swift in Sources */,
 				3BD75AB120A80117007FDD57 /* PALogInVC.swift in Sources */,
 				1B6DA2D420A9744000A67E8A /* QueSubmition.swift in Sources */,
 				3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */,
@@ -915,11 +929,13 @@
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
 				3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */,
+				3B01AB4B20C6F4C200291522 /* ChatCell.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,
 				1BB356D220C5139E00247806 /* PACustomSurvay.swift in Sources */,
 				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,
 				3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */,
 				3BA1389220B34E3700FC8D1A /* ServiceHandler.swift in Sources */,
+				3B01AB4F20C6F7C400291522 /* Profile.swift in Sources */,
 				3BA138A020B3E9CB00FC8D1A /* HomeScreenData.swift in Sources */,
 				3BD75ABC20A84B4C007FDD57 /* PAProfile.swift in Sources */,
 			);

@@ -352,6 +352,57 @@ class ServiceClass: NSObject {
     
     
     
+    public func getGroupData(strUrl:String,header:String,completion:@escaping (arrayBlock)){
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        print("~~~~~~~~~~~~~~~~~~~~~~\(headersValue)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        
+        
+        
+        
+        
+        
+        
+        Alamofire.request(baseURL+strUrl, headers: headersValue).responseJSON { response in
+            debugPrint(response)
+            
+            if response.result.isSuccess {
+                let resJson = JSON(response.result.value!)
+                
+                let dicData = resJson.dictionaryObject!
+                
+                if dicData["status"] as! Int == 200 {
+                    for rootDic in resJson["data"].array!{
+                        let obj = HomeScreenData(fromJson: rootDic)
+                        self.arrIteam.append(obj)
+                    }
+                    completion(nil,self.arrIteam)
+                }
+                else{
+                    let msg = dicData["userMessage"] as! String
+                    
+                    let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                    
+                    completion(error as Error,[])
+                }
+                
+                
+                
+                
+            }
+            if response.result.isFailure {
+                let error : Error = response.result.error!
+                completion(error,[])
+            }
+            
+            
+        }
+        
+    }
     
     
     
