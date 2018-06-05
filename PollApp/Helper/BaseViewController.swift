@@ -130,6 +130,23 @@ class BaseViewController: UIViewController {
     
     
     
+    public func convertToDictionry(param : [String:Any]) -> String{
+        var utfString: String = ""
+        do {
+            let data = try JSONSerialization.data(withJSONObject: param, options: [])
+            
+            if let utf8 = String(data: data, encoding: .utf8) {
+                print("JSON: \(utf8)")
+                utfString = utf8
+            }
+        } catch {
+            print(error)
+             utfString = ""
+        }
+        
+        return utfString
+    }
+    
     
 //    func settingTopView(_ view: UIView, on controller: UIViewController, andTitle title: String) {
 //     //   let firstFrame = CGRect(x: 0, y: 0, width: Int(self.screenWidth), height: 46)

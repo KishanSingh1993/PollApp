@@ -14,7 +14,7 @@ import SwiftyJSON
 let baseURL = "http://13.232.31.142/api/"
 
 class ServiceClass: NSObject {
-    
+    typealias stringBlock = (_ error: Error?, _ response: String) -> Void
     typealias dictionaryBlock = (_ error: Error?, _ response: [String:Any]) -> Void
     typealias arrayBlock = (_ error: Error?, _ response: [Any]) -> Void
     
@@ -35,6 +35,151 @@ class ServiceClass: NSObject {
             
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public func CreateGroup(strUrl:String,param:[String:Any],header:String,completion:@escaping (stringBlock)){
+        
+        print(param)
+        let headersValue = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+       
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: param, options: [])
+            
+            if let utf8 = String(data: data, encoding: .utf8) {
+                print("JSON: \(utf8)")
+                
+                let json = utf8
+                
+                let url = URL(string: baseURL+strUrl)!
+                let jsonData = json.data(using: .utf8, allowLossyConversion: false)!
+                
+                var request = URLRequest(url: url)
+                request.httpMethod = HTTPMethod.post.rawValue
+                request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                request.httpBody = jsonData
+                request.allHTTPHeaderFields = headersValue
+                
+                Alamofire.request(request).responseJSON {
+                    (response) in
+                    
+                    print(response)
+                    
+                    if response.result.isSuccess {
+                        let resJson = JSON(response.result.value!)
+                        
+                        let dicData = resJson.dictionaryObject!
+                        
+                        if dicData["status"] as! Int == 200 {
+                            print(dicData["data"])
+                              print(dicData["userMessage"])
+                            completion(nil,dicData["userMessage"] as! String)
+                        }
+                        else{
+                            let msg = dicData["userMessage"] as! String
+                            
+                            let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                            
+                            completion(error as Error,"")
+                        }
+                        
+                        
+                        
+                        
+                    }
+                    if response.result.isFailure {
+                        let error : Error = response.result.error!
+                        completion(error,"")
+                    }
+                    
+                    
+                    
+                }
+                
+                
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        
+        
+        
+  
+   
+        
+        
+        
+        
+        
+        
+        
+//      let  value = {param}
+//        print(value)
+//        print(baseURL+strUrl)
+//
+//
+//        print(headersValue)
+//
+//        requestPUTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue , success: {
+//            (JSONResponse) -> Void in
+//            print(JSONResponse)
+//
+//            let dicData = JSONResponse.dictionaryObject!
+//
+//            if dicData["status"] as! Int == 200 {
+//                let jsonData = JSONResponse["data"].dictionaryObject
+//                completion(nil,jsonData!)
+//            }
+//            else{
+//                let msg = dicData["userMessage"] as! String
+//
+//                let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+//
+//                completion(error as Error,[:])
+//            }
+//
+//
+//
+//
+//
+//        }) {
+//            (error) -> Void in
+//
+//            completion(error,[:])
+//
+//        }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -405,7 +550,7 @@ class ServiceClass: NSObject {
     }
     
     
-    
+
     
     
     

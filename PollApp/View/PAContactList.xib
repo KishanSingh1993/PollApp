@@ -89,7 +89,7 @@
                         <constraint firstAttribute="height" constant="60" id="B7l-y3-RNC"/>
                         <constraint firstAttribute="width" constant="60" id="POe-Qc-10c"/>
                     </constraints>
-                    <state key="normal" image="play-symbol.png">
+                    <state key="normal" image="ic_send_white">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -119,6 +119,6 @@
     </objects>
     <resources>
         <image name="back.png" width="32" height="32"/>
-        <image name="play-symbol.png" width="24" height="24"/>
+        <image name="ic_send_white" width="24" height="24"/>
     </resources>
 </document>

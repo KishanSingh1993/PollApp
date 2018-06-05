@@ -19,6 +19,7 @@ class PAContactList: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var arrayPersnonID: [String] = []
+    var arraGroupContact : [ContactList] = []
     
     var isHome: Bool!
     
@@ -118,9 +119,11 @@ class PAContactList: BaseViewController {
     
   
     @IBAction func clickToAdd(_ sender: Any) {
-        print(self.arrayPersnonID)
+        print(self.arraGroupContact)
         
         let vc =  PAGroupCreate(nibName: "PAGroupCreate", bundle: nil)
+        vc.arraGroupMember = self.arraGroupContact
+        vc.arrayPersnonID = self.arrayPersnonID
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -181,6 +184,7 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         if obj.registered == 1{
             if let index = self.arrayPersnonID.index(of: obj.id) {
                 self.arrayPersnonID.remove(at: index)
+                 self.arraGroupContact.remove(at: index)
                 if let cell = tableView.cellForRow(at: indexPath) {
                     cell.accessoryType = .none
                      self.btnAdd.isHidden = true
@@ -189,6 +193,7 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
                 cell.accessoryType = .checkmark
                 self.btnAdd.isHidden = false
                 self.arrayPersnonID.append(obj.id)
+                self.arraGroupContact.append(obj)
             }
             
             
@@ -196,7 +201,8 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         else{
             ECSAlert().showAlert(message: "User Not Register With Us", controller: self)
         }
-        
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
