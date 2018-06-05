@@ -38,6 +38,9 @@
                                     <constraint firstAttribute="width" constant="24" id="acO-Dp-oyz"/>
                                 </constraints>
                                 <state key="normal" image="shareBlack.png"/>
+                                <connections>
+                                    <action selector="clickToShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="baK-y9-75j"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFU-hN-Wv7">
                                 <rect key="frame" x="10" y="157" width="300" height="1"/>

@@ -11,9 +11,15 @@ import UIKit
 import Charts
 
 
+
+protocol HomeCellDelegate: class {
+    func didTapShareButton(_ sender: UIButton)
+}
+
+
 class HomeCell: UITableViewCell  {
 
-    
+    var delegate:HomeCellDelegate?
     @IBOutlet weak var lblNumberOfViews: UILabel!
     weak var axisFormatDelegate: IAxisValueFormatter?
     @IBOutlet weak var lblTimes: UILabel!
@@ -46,6 +52,10 @@ class HomeCell: UITableViewCell  {
         
         
 }
+ 
+    @IBAction func clickToShare(_ sender: Any) {
+        delegate?.didTapShareButton(sender as! UIButton)
+    }
     
     
 //    fileprivate func ChartViewProperty() {

@@ -13,11 +13,11 @@ import SVProgressHUD
 class PAChatVC: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
-    
+    var isShare:Bool!
     @IBOutlet weak var btnGroup: UIButton!
       var arrGroupData : Array<Any> = []
-    
-    
+    var strShareId : String!
+    var strGroupId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,7 @@ class PAChatVC: BaseViewController {
         callHomeScreenValue()
         self.tableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
+        print(strShareId)
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,12 +89,97 @@ class PAChatVC: BaseViewController {
     
     
     
+    
+    
+    func callSharePollInGroup(id:String){
+        SVProgressHUD.show()
+        
+        
+        
+        
+        let dic =
+            [
+             "groupIds": [id,strShareId]
+                ]
+                as [String : Any]
+        
+        
+        print(dic)
+        
+        ServiceClass().sharePollInGroup(strUrl: "surveys/surveyId/share", param: dic, header:(self.appUserObject?.access_token)!, completion: {err , dicData   in
+            
+            if(err != nil){
+                
+                
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+    
+                    
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
+                SVProgressHUD.dismiss()
+                
+            }
+            else{
+                
+                print(dicData)
+                let alertController = UIAlertController(title: "", message: dicData, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                    vc.isGroupCreate = true
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                SVProgressHUD.dismiss()
+            }
+            SVProgressHUD.dismiss()
+            
+        })
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func clickToGroup(_ sender: Any) {
         
-        let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
-        viewController.isHome = false
-        //viewController.contactArray = self.contactArrayChat
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if isShare ==  true{
+            btnGroup.setButtonImage("ic_send_white")
+            self.callSharePollInGroup(id: strGroupId!)
+        }
+        else{
+            btnGroup.setButtonImage("ic_group_add_white")
+            let  viewController = PAContactList(nibName: "PAContactList", bundle: nil)
+            viewController.isHome = false
+            //viewController.contactArray = self.contactArrayChat
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    
         
         
     }
@@ -139,27 +225,24 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
-//
-//        let vc = QueSubmition(nibName: "QueSubmition", bundle: nil)
-//        vc.delegate = self
-//        vc.objectData = obj
-//
-//
-//
-//
-//        vc.index = indexPath.section
-//
-//
-//        // present(vc, animated: true, completion: nil)
-//        guard let myString = self.nullToNil(value: obj.selfSurvey) else{
-//            vc.strSurvay = ""
-//            present(vc, animated: true, completion: nil)
-//            return
-//        }
-//        vc.strSurvay = obj.selfSurvey.questions[0].givenAnswer
-//        present(vc, animated: true, completion: nil)
-//        tableView.deselectRow(at: indexPath, animated: true)
+        let obj:GroupMember = arrGroupData[indexPath.section] as! GroupMember
+        
+     
+        if self.isShare == true {
+            strGroupId =  obj.id
+            
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+               btnGroup.setButtonImage("ic_send_white")
+            }
+            
+            
+        }
+        else{
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        
     }
     
     

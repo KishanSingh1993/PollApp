@@ -15,7 +15,7 @@ import Contacts
     typealias completBlock = (_ error: Error?, _ response: Bool) -> Void
 
 
-class PAHomeVC: BaseViewController, QueSubmitionDelegate {
+class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
 
     
     
@@ -259,7 +259,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
         // viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
-        
+        viewChat?.isShare = false
         addChildViewController(viewChat!)
         viewMain.addSubview((viewChat?.view)!)
         viewChat?.view.frame = viewMain.bounds
@@ -350,6 +350,33 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate {
         let indexSet = IndexSet(integer: index)
         //self.tableView.reloadSections(indexSet, with: .automatic)
     }
+    
+    
+    func didTapShareButton(_ sender: UIButton) {
+        if let indexPath = getCurrentCellIndexPath(sender) {
+            
+            print(indexPath.section)
+            
+            let Object =  self.arrHomeProductData[indexPath.section] as! HomeScreenData
+            viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
+            viewChat?.isShare = true
+            viewChat?.strShareId = Object.id
+            self.navigationController?.pushViewController(viewChat!, animated: true)
+        }
+    }
+    
+   
+    
+    func getCurrentCellIndexPath(_ sender: UIButton) -> IndexPath? {
+        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
+        if let indexPath: IndexPath = tableView.indexPathForRow(at: buttonPosition) {
+            return indexPath
+        }
+        return nil
+    }
+    
+    
+    
 }
 
 extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
@@ -365,6 +392,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
         cell.lblName.text = obj.name
+        cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         cell.lblTimes.text = "remains"
         if let ques = obj.questions {

@@ -86,14 +86,14 @@
                         <constraint firstAttribute="trailing" secondItem="XhG-F7-P0s" secondAttribute="trailing" constant="20" id="tZN-bN-okg"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fip-eN-sUR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fip-eN-sUR">
                     <rect key="frame" x="315" y="547" width="50" height="50"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.63529411759999999" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="1sk-14-H6F"/>
                         <constraint firstAttribute="height" constant="50" id="aBG-8a-Gvu"/>
                     </constraints>
-                    <state key="normal" title="Add"/>
+                    <state key="normal" image="barchart"/>
                     <connections>
                         <action selector="clickToSurvay:" destination="-1" eventType="touchUpInside" id="pfl-kT-83r"/>
                     </connections>
@@ -214,6 +214,7 @@
         </view>
     </objects>
     <resources>
+        <image name="barchart" width="18" height="18"/>
         <image name="chatwhite.png" width="32" height="32"/>
         <image name="home_" width="30" height="30"/>
         <image name="loupewhite.png" width="32" height="32"/>
