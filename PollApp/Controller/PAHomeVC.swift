@@ -269,9 +269,32 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
     
     
     @IBAction func clickToHome(_ sender: Any) {
-       
-        setHomeData()
-        self.tableView.reloadData()
+    
+        if self.isGroupCreate == true {
+            self.isGroupCreate = false
+            setHomeData()
+            callHomeScreenValue()
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+                
+                self.getContact()
+                self.sendContact()
+            }
+        }
+        else{
+          
+         
+            setHomeData()
+            self.tableView.reloadData()
+            
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+                
+                self.getContact()
+                self.sendContact()
+            }
+        }
+        
         
     }
     
