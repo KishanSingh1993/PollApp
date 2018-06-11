@@ -240,6 +240,8 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
         }
         else{
             tableView.deselectRow(at: indexPath, animated: true)
+            let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         

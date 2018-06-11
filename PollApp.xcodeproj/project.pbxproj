@@ -71,6 +71,8 @@
 		3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320A5520A8638200E68788 /* PAChatVC.swift */; };
 		3B320A5820A8638200E68788 /* PAChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B320A5620A8638200E68788 /* PAChatVC.xib */; };
 		3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320A5920A863CC00E68788 /* PASearch.swift */; };
+		3B3306C220CD1C7A0038E6AD /* HomeCellBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3306C020CD1C790038E6AD /* HomeCellBar.xib */; };
+		3B3306C320CD1C7A0038E6AD /* HomeCellBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3306C120CD1C7A0038E6AD /* HomeCellBar.swift */; };
 		3B81A67420B5DE6200844703 /* shareBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67320B5DE6200844703 /* shareBlack.png */; };
 		3B81A67820B5DEDB00844703 /* viewBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67720B5DEDB00844703 /* viewBlack.png */; };
 		3B81A67A20B5DF7800844703 /* homeblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67920B5DF7800844703 /* homeblack.png */; };
@@ -208,6 +210,8 @@
 		3B320A5520A8638200E68788 /* PAChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAChatVC.swift; sourceTree = "<group>"; };
 		3B320A5620A8638200E68788 /* PAChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAChatVC.xib; sourceTree = "<group>"; };
 		3B320A5920A863CC00E68788 /* PASearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PASearch.swift; sourceTree = "<group>"; };
+		3B3306C020CD1C790038E6AD /* HomeCellBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCellBar.xib; sourceTree = "<group>"; };
+		3B3306C120CD1C7A0038E6AD /* HomeCellBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellBar.swift; sourceTree = "<group>"; };
 		3B81A67320B5DE6200844703 /* shareBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareBlack.png; sourceTree = "<group>"; };
 		3B81A67720B5DEDB00844703 /* viewBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewBlack.png; sourceTree = "<group>"; };
 		3B81A67920B5DF7800844703 /* homeblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeblack.png; path = ../../../../Downloads/homeblack.png; sourceTree = "<group>"; };
@@ -352,6 +356,8 @@
 		1B6DA2EC20A9926100A67E8A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				3B3306C120CD1C7A0038E6AD /* HomeCellBar.swift */,
+				3B3306C020CD1C790038E6AD /* HomeCellBar.xib */,
 				1B6DA2ED20A9928A00A67E8A /* HomeCell.swift */,
 				3B81A6D420B734CF00844703 /* GroupCell.swift */,
 				3B81A6D520B734CF00844703 /* GroupCell.xib */,
@@ -685,6 +691,7 @@
 				3B24588920B991BA003E31DC /* chat_@2x.png in Resources */,
 				3B24589020B991BA003E31DC /* home_yellow@3x.png in Resources */,
 				3B24588720B991BA003E31DC /* home_@3x.png in Resources */,
+				3B3306C220CD1C7A0038E6AD /* HomeCellBar.xib in Resources */,
 				1B6DA2E920A9841B00A67E8A /* PASearch.xib in Resources */,
 				3B81A6D720B734CF00844703 /* GroupCell.xib in Resources */,
 				3BD75ABF20A85C18007FDD57 /* user.png in Resources */,
@@ -941,6 +948,7 @@
 				3B01AB5320C700BA00291522 /* GroupMember.swift in Sources */,
 				3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */,
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
+				3B3306C320CD1C7A0038E6AD /* HomeCellBar.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
 				3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */,

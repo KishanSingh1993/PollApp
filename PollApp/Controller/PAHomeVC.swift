@@ -79,12 +79,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
         
         
         
-        DispatchQueue.global(qos: .background).async {
-            print("This is run on the background queue")
-            
-            self.getContact()
-            self.sendContact()
-        }
+     
        
         
     }
@@ -97,27 +92,18 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
 
     @IBAction func clickToSurvay(_ sender: Any) {
         
-        let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
+        let vc = PAChatVC(nibName: "PAChatVC", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
     
     func sendContact(){
-                            print(self.arrayContract)
+        
+        print(self.arrayContract)
+        print("---------In Send Part ------------")
         
         
-                            DispatchQueue.global(qos: .background).async {
-                                print("This is run on the background queue")
-        
-                                let dic = ["users":self.arrayContract]
-        
-        
-                                ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
-        
-                                })
-        
-                            }
         
         
     }
@@ -125,12 +111,17 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
     
     
     @objc  func getContact(){
+        
+        let dispatchGroup = DispatchGroup()
+        
+        
         let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
         do {
             try contactStore.enumerateContacts(with: request){
                 (contact, stop) in
                 // Array containing all unified contacts from everywhere
-               
+                dispatchGroup.enter()
+                 print("---------In Frist Part ------------")
                    self.contacts.append(contact)
                 
                 for phoneNumber in contact.phoneNumbers {
@@ -147,14 +138,38 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
                     }
                     
                     print(self.arrayContract)
+                   
                     
-         
+                   
+                    
                 }
                 
                 
                 
                 
             }
+                dispatchGroup.leave()
+            
+            dispatchGroup.notify(queue: DispatchQueue.main) {
+                
+                DispatchQueue.global(qos: .background).async {
+                    
+                    print("---------In Second Part ------------")
+                    
+                    print("This is run on the background queue")
+                    
+                    let dic = ["users":self.arrayContract]
+                    
+                    
+                    ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
+                        
+                    })
+                    
+                }
+            }
+            //
+
+            
             print(contacts)
         } catch {
             
@@ -221,6 +236,13 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
             callHomeScreenValue()
         }
         
+        
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            
+            self.getContact()
+            self.sendContact()
+        }
     
     }
     
@@ -274,12 +296,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
             self.isGroupCreate = false
             setHomeData()
             callHomeScreenValue()
-            DispatchQueue.global(qos: .background).async {
-                print("This is run on the background queue")
-                
-                self.getContact()
-                self.sendContact()
-            }
+      
         }
         else{
           
@@ -287,12 +304,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
             setHomeData()
             self.tableView.reloadData()
             
-            DispatchQueue.global(qos: .background).async {
-                print("This is run on the background queue")
-                
-                self.getContact()
-                self.sendContact()
-            }
+   
         }
         
         
