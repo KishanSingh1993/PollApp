@@ -41,7 +41,7 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
         setShadow(viewPersonal)
         setShadow(viewCorporate)
         setShadow(viewEvent)
-        self.imgUser.image = UIImage(named: "UserImage.jpeg");
+        self.imgUser.image = UIImage(named: "group_default_user.png");
         lblPersonal.numberOfLines = 0
         lblPersonal.text = "Personal\nProfile"
         lblCorporates.text = "Corporate\nProfile"
@@ -65,7 +65,7 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
         self.viewTop.applyGradient(colours: [self.color1,self.color2])
         print(self.viewPersonal.frame.size)
          print(self.viewPersonal.bounds.size)
-        self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
+      //  self.viewPersonal.applyGradient(colours: [self.btnColor1,self.btnColor2])
        // self.btnDone.applyGradient(colours: [self.btnColor1,self.btnColor2])
           self.viewFacebookProfile.frame =  CGRect(x: 10, y: 10, width: CGFloat(self.viewMain.frame.size.width-20), height:CGFloat(320))
     }
@@ -194,15 +194,12 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
             else
             {
                 print("fetched user: \(result)")
-//                let userName : NSString = result.valueForKey("name") as! NSString
-//                print("User Name is: \(userName)")
-//                let userEmail : NSString = result.valueForKey("email") as! NSString
-//                print("User Email is: \(userEmail)")
-                
-                
-                let dict = result as! [String : AnyObject]
-                                                        print(result!)
-                                                        print(dict)
+                  let dict = result as! [String : AnyObject]
+                let userName : NSString = dict["name"] as! NSString
+                print("User Name is: \(userName)")
+                let userEmail : NSString = dict["email"] as! NSString
+                print("User Email is: \(userEmail)")
+                print(dict)
             }
         })
     }

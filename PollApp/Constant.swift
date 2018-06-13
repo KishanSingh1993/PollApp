@@ -87,3 +87,55 @@ extension UIColor{
         }
     
 }
+
+
+
+
+ /*Search Api
+ 
+ 1. survey?search= "text"
+ 
+ 
+ 2. social/login
+ 
+ Request :
+ 
+ TECHNOBHARDWAJ@GMAIL.COM
+ deepsingh.0708
+ 
+ 
+ 
+ {
+ 
+     "userId":"",
+ 
+     "name":"",
+ 
+     "email":"",
+ 
+     "avatar":"",
+ 
+     "source":"",
+ 
+     "deviceId":"",
+ 
+     "pushToken":"",
+ 
+     "mobileNumber":""
+ 
+ }
+ 
+ 
+ 3. Remove Group Member
+ 
+ groups/{groupId}/member?userId="ID TO REMOVE"
+ 
+ replace groupId with actual groupId and send userId in the query
+ 
+ 
+ 4. Get survey by id
+ 
+ surveys/{surveyId}/details
+ 
+ replace surveyId by acutal survey id*/
+ 
