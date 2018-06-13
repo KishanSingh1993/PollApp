@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PASearch" customModule="PollApp" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="P0i-GB-sUD" id="tab-RO-kwA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Kue-Os-NJV"/>
             </connections>
         </placeholder>
@@ -18,8 +19,46 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.066666666669999999" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wez-EL-a0l">
+                    <rect key="frame" x="0.0" y="20" width="375" height="46"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="P0i-GB-sUD">
+                            <rect key="frame" x="20" y="3" width="335" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Bic-Zp-Csf"/>
+                            </connections>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.5568627451" green="0.12941176469999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="P0i-GB-sUD" firstAttribute="leading" secondItem="wez-EL-a0l" secondAttribute="leading" constant="20" id="2nf-Ze-NSH"/>
+                        <constraint firstAttribute="height" constant="46" id="Cz3-FO-J37"/>
+                        <constraint firstAttribute="bottom" secondItem="P0i-GB-sUD" secondAttribute="bottom" constant="3" id="Svv-4L-tGu"/>
+                        <constraint firstItem="P0i-GB-sUD" firstAttribute="top" secondItem="wez-EL-a0l" secondAttribute="top" constant="3" id="W98-WR-y0e"/>
+                        <constraint firstAttribute="trailing" secondItem="P0i-GB-sUD" secondAttribute="trailing" constant="20" id="k5o-BO-c6X"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhb-Dv-x1s">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.27450980392156865" green="0.043137254901960784" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="wez-EL-a0l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3ML-Kj-JUV"/>
+                <constraint firstItem="Uhb-Dv-x1s" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CIQ-MD-sQn"/>
+                <constraint firstItem="wez-EL-a0l" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="CpJ-wC-L5Q"/>
+                <constraint firstItem="wez-EL-a0l" firstAttribute="top" secondItem="Uhb-Dv-x1s" secondAttribute="bottom" id="bZS-ge-p8g"/>
+                <constraint firstAttribute="trailing" secondItem="Uhb-Dv-x1s" secondAttribute="trailing" id="dNE-6j-r1u"/>
+                <constraint firstItem="Uhb-Dv-x1s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mph-dx-Aqf"/>
+                <constraint firstItem="wez-EL-a0l" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="p0m-z5-PAq"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
