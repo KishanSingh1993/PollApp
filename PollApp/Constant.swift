@@ -91,7 +91,7 @@ extension UIColor{
 
 
 
- Search Api
+ /*Search Api
  
  1. survey?search= "text"
  
@@ -133,5 +133,5 @@ extension UIColor{
  
  surveys/{surveyId}/details
  
- replace surveyId by acutal survey id
+ replace surveyId by acutal survey id*/
  
