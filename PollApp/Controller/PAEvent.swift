@@ -190,6 +190,8 @@ class PAEvent: BaseViewController {
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
                     vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
+                    self.appUserObject?.userType = "2"
+                    self.appUserObject?.saveToUserDefault()
                     
                     
                 })

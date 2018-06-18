@@ -15,7 +15,7 @@ import Contacts
     typealias completBlock = (_ error: Error?, _ response: Bool) -> Void
 
 
-class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
+class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISearchBarDelegate{
 
     
     
@@ -69,6 +69,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
       
         self.searchBar.layer.masksToBounds = true;
         self.searchBar.layer.cornerRadius = 20.0
+        self.searchBar.delegate = self
         
         btnHome .setButtonImage("homeblack.png")
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
@@ -82,6 +83,39 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
      
        
         
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+       
+        //searchBar.endEditing(true)
+      
+       // searchBar.showsCancelButton = true
+     
+    
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let vc = PASearch(nibName: "PASearch", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.searchBar.resignFirstResponder()
+        searchBar.text = ""
+        return false
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.showsCancelButton = false
+        
+        // Remove focus from the search bar.
+        searchBar.endEditing(true)
+        
+        // Perform any necessary work.  E.g., repopulating a table view
+        // if the search bar performs filtering.
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+         self.searchBar.resignFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
@@ -243,7 +277,9 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
             self.getContact()
             self.sendContact()
         }
-    
+//        self.searchBar.resignFirstResponder()
+//        searchBar.endEditing(true)
+//        self.view.endEditing(true)
     }
     
     
@@ -436,10 +472,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         cell.lblName.text = obj.name
         cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
-//        let cerateDate = Date().getDateFromeString(strDate: obj.createdAt)
-//        let expireAt = Date().getDateFromeString(strDate: obj.expireAt)
-//       let strTime  = NSDate().getTimeFrom(dateFrom: cerateDate, dateTo: expireAt)
-//        print("-------------------------------------" + strTime + "--------------------")
+
         
         cell.lblTimes.text = "remains"
         if let ques = obj.questions {

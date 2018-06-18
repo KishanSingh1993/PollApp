@@ -141,6 +141,7 @@ class PAOTPVC: BaseViewController {
                         self.appUserObject?.userName = user["name"] as! String
                         self.appUserObject?.access_token = data["authToken"] as! String
                         self.appUserObject?.device_id = user["deviceId"] as! String
+                        self.appUserObject?.email = user["email"] as! String
                         self.appUserObject?.source = "source"
                             //user["source"] as! String
                         self.appUserObject?.token = user["pushToken"] as! String
@@ -151,38 +152,77 @@ class PAOTPVC: BaseViewController {
                         self.appUserObject?.userType = String(typeUser)
                         let id = user["profileType"] as! Int
                         
+                        
                         self.appUserObject?.profileId = String(id)
                         self.appUserObject?.saveToUserDefault()
                         
-                 
+                         let isSetProfile = user["profileSetup"] as! Bool
                         
-                        if typeUser == 0  {
-                  
-                            let proficDic = user["profile"] as! [String : String]
+                        if isSetProfile == false{
+                            let vc = PAProfile(nibName: "PAProfile", bundle: nil)
                             
-                            self.nextController(key: "socialProfile", proficDic: proficDic)
-                            
-                       
-                        }else if typeUser == 1  {
-                            
-                            let proficDic = user["profile"] as! [String : String]
-                            
-                            self.nextController(key: "corporateProfile", proficDic: proficDic)
-                            
-                            
-                        }else if typeUser == 2  {
-                            
-                            let proficDic = user["profile"] as! [String : String]
-                            
-                            self.nextController(key: "eventProfile", proficDic: proficDic)
-                            
+                            self.navigationController?.pushViewController(vc, animated: true)
                             
                         }else{
-                            let vc = PAProfile(nibName: "PAProfile", bundle: nil)
-                         
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                            if typeUser == 0  {
+                                
+                                if   let proficDic = data["user"]  {
+                                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                                    vc.isGroupCreate = false
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                    UserDefaults.standard.set(3, forKey: "isLogin")
+                                    UserDefaults.standard.synchronize()
+                                }else{
+                                    let vc = PAProfile(nibName: "PAProfile", bundle: nil)
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                
+                                
+                                
+                                
+                                
+                            }else if typeUser == 1  {
+                                
+                                if   let proficDic = user["profile"]  {
+                                    self.nextController(key: "corporateProfile", proficDic: proficDic as! [String : String])
+                                }else{
+                                    let vc = PAProfile(nibName: "PAProfile", bundle: nil)
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                
+                                
+                                
+                                
+                            }else if typeUser == 2  {
+                                
+                                if   let proficDic = user["profile"]  {
+                                    self.nextController(key: "eventProfile", proficDic: proficDic as! [String : String])
+                                }else{
+                                    let vc = PAProfile(nibName: "PAProfile", bundle: nil)
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                
+                                
+                                
+                                
+                            }else{
+                                let vc = PAProfile(nibName: "PAProfile", bundle: nil)
+                                
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                            
+                            
                         }
+                 
                         
+                        
+                        
+                        
+                       
                    
                        
                     

@@ -44,18 +44,14 @@ class PAProfleDetails: BaseViewController {
             self.lblTitle.text = "Social Profile"
             
             if dicData != nil {
-                self.customArray.add(dicData?["event_name"] ?? "")
-                self.customArray.add(dicData?["event_date"] ?? "")
-                self.customArray.add(dicData?["event_title"] ?? "")
-                self.customArray.add(dicData?["contact_person"] ?? "")
-                self.customArray.add(dicData?["contact_person_email"] ?? "")
-                self.customArray.add(dicData?["contact_person_mobile"] ?? "")
-                self.customArrayTittle.add("Event Name")
-                self.customArrayTittle.add("Event Date")
-                self.customArrayTittle.add("Event Tittle")
-                self.customArrayTittle.add("Contact Person")
-                self.customArrayTittle.add("Contact Person Email")
-                self.customArrayTittle.add("Contact Person Mobile")
+                self.customArray.add((self.appUserObject?.userName)!)
+                self.customArray.add((self.appUserObject?.email)!)
+                self.customArray.add((self.appUserObject?.mobile)!)
+         
+                self.customArrayTittle.add("Name")
+                self.customArrayTittle.add("Email")
+                self.customArrayTittle.add("Mobile")
+          
             } else{
                 setProfile()
             }

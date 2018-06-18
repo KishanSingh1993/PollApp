@@ -277,8 +277,8 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
                 { action -> Void in
                     
                     
-                    let proficDic = dicData["profile"] as! [String : String]
-                    UserDefaults.standard.setValue(proficDic, forKey: "socialProfile")
+                  
+                    UserDefaults.standard.setValue(dicData , forKey: "socialProfile")
                     UserDefaults.standard.synchronize()
                     
                     UserDefaults.standard.set(3, forKey: "isLogin")

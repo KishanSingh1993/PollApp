@@ -180,14 +180,20 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
          let obj:ContactList = contactArray[indexPath.section] as! ContactList
+        print(indexPath.section)
+        
         if obj.registered == 1{
             if let index = self.arrayPersnonID.index(of: obj.id) {
                 self.arrayPersnonID.remove(at: index)
                  self.arraGroupContact.remove(at: index)
                 if let cell = tableView.cellForRow(at: indexPath) {
                     cell.accessoryType = .none
-                     self.btnAdd.isHidden = true
+                    if self.arraGroupContact.count == 0{
+                        self.btnAdd.isHidden = true
+                    }
+                    
                 }
             } else if let cell = tableView.cellForRow(at: indexPath) {
                 cell.accessoryType = .checkmark
@@ -201,8 +207,8 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         else{
             ECSAlert().showAlert(message: "User Not Register With Us", controller: self)
         }
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundColor = UIColor.clear
+//        let cell = tableView.cellForRow(at: indexPath)
+//        cell?.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

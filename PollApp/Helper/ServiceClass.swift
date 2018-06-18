@@ -647,6 +647,7 @@ class ServiceClass: NSObject {
                 let dicData = resJson.dictionaryObject!
                 
                 if dicData["status"] as! Int == 200 {
+                    print(resJson["data"].array!)
                     for rootDic in resJson["data"].array!{
                         let obj = GroupMember(fromJson: rootDic)
                         self.arrIteam.append(obj)

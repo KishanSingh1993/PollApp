@@ -142,6 +142,8 @@ class Corporate: BaseViewController {
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
                     vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
+                    self.appUserObject?.userType = "1"
+                    self.appUserObject?.saveToUserDefault()
                     
                     
                 })
@@ -171,11 +173,11 @@ extension Corporate: UITextFieldDelegate{
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.setLeftPaddingPoints(10)
-        self.moveTextField(textField: textField, moveDistance: -150, up: true)
+        self.moveTextField(textField: textField, moveDistance: -100, up: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.moveTextField(textField: textField, moveDistance: -150, up: false)
+        self.moveTextField(textField: textField, moveDistance: -100, up: false)
     }
     
     

@@ -23,7 +23,7 @@ class PAChatVC: BaseViewController {
         super.viewDidLoad()
 
         self.btnGroup.makeCircular()
-        callHomeScreenValue()
+      
         self.tableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
         print(strShareId)
@@ -34,6 +34,9 @@ class PAChatVC: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+          callHomeScreenValue()
+    }
     
     
     func callHomeScreenValue(){

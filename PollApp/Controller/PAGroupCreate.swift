@@ -209,7 +209,7 @@ extension PAGroupCreate: UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! GroupMemberCell
-        let obj:ContactList = self.arraGroupMember[indexPath.section]
+        let obj:ContactList = self.arraGroupMember[indexPath.row]
         
         let strName = obj.name
         cell.lblName?.text = strName

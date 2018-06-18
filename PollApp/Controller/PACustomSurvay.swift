@@ -148,6 +148,9 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func clickToSubmit(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     func didTapButton(_ sender: UIButton) {
         if let indexPath = getCurrentCellIndexPath(sender) {
