@@ -31,11 +31,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qch-up-seB">
-                                <rect key="frame" x="281" y="5" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qch-up-seB">
+                                <rect key="frame" x="255" y="5" width="50" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="KGE-F9-CTq"/>
-                                    <constraint firstAttribute="width" constant="24" id="acO-Dp-oyz"/>
+                                    <constraint firstAttribute="width" constant="50" id="acO-Dp-oyz"/>
                                 </constraints>
                                 <state key="normal" image="shareBlack.png"/>
                                 <connections>
@@ -72,7 +72,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-ex-4ct">
-                        <rect key="frame" x="281" y="173" width="24" height="20"/>
+                        <rect key="frame" x="255" y="173" width="50" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ZB8-pq-uD8"/>
                         </constraints>
@@ -91,7 +91,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="0bR-fh-3IC">
-                        <rect key="frame" x="257" y="171" width="24" height="24"/>
+                        <rect key="frame" x="231" y="171" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="fLP-gm-WBb"/>
                             <constraint firstAttribute="width" constant="24" id="xK4-Od-Khf"/>

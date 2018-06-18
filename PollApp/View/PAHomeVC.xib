@@ -127,7 +127,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYz-t6-9Am">
                                     <rect key="frame" x="231" y="0.0" width="67" height="40"/>
-                                    <state key="normal" image="loupewhite.png"/>
+                                    <state key="normal" image="barchart"/>
                                     <connections>
                                         <action selector="clickToSearch:" destination="-1" eventType="touchUpInside" id="IZY-1D-hGe"/>
                                     </connections>
@@ -165,7 +165,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rr-o7-bKb">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Polls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rr-o7-bKb">
                                     <rect key="frame" x="231" y="0.0" width="67" height="14"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,7 +217,6 @@
         <image name="barchart" width="18" height="18"/>
         <image name="chatwhite.png" width="32" height="32"/>
         <image name="home_" width="30" height="30"/>
-        <image name="loupewhite.png" width="32" height="32"/>
         <image name="settingswhite.png" width="32" height="32"/>
         <image name="userWhite.png" width="32" height="32"/>
     </resources>

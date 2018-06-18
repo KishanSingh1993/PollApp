@@ -23,6 +23,17 @@ class UIExtensions: NSObject {
 
     
 
+
+}
+
+
+extension UIView {
+    func addShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    }
 }
 
 extension UITextField {
@@ -87,8 +98,8 @@ extension UIView {
 public extension Date {
     public  func ISOStringFromDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT") as TimeZone!
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT") as TimeZone?
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter.string(from:date)
     }
@@ -98,6 +109,14 @@ public extension Date {
         let date = Date()
         return ISOStringFromDate(date: date)
     }
+    
+//    func getDateFromeString(strDate:String) -> Date{
+////        let dateFormatter = DateFormatter()
+////        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+////
+////        return dateFormatter.date(from: strDate)!
+//    }
+    
 }
 
 extension UIButton {
@@ -260,7 +279,28 @@ extension UITextView {
 }
     
     
+extension NSDate {
     
+    func getTimeFrom(dateFrom : Date , dateTo: Date) -> String {
+        
+       
+        let difference = NSCalendar.current.dateComponents([.day, .hour, .minute, .second], from: dateTo)
+        
+        let seconds = "\(String(describing: difference.second))s"
+        let minutes = "\(String(describing: difference.minute))m" + " " + seconds
+        let hours = "\(String(describing: difference.hour))h" + " " + minutes
+        let days = "\(String(describing: difference.day))d" + " " + hours
+        
+        if difference.day!    > 0 { return days }
+        if difference.hour!   > 0 { return hours }
+        if difference.minute! > 0 { return minutes }
+        if difference.second! > 0 { return seconds }
+        return ""
+    }
+    
+   
+    
+}
     
     
     

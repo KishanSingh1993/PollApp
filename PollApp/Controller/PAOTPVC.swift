@@ -135,19 +135,57 @@ class PAOTPVC: BaseViewController {
  
                 if let data = dicData["data"] as? [String : Any] {
                     if let user = data["user"] as? [String : Any] {
-                        print(data["authToken"])
+                       
                         self.appUserObject = AppUserObject.instance(from: dicData)
                         self.appUserObject?.userId = user["_id"] as! String
                         self.appUserObject?.userName = user["name"] as! String
                         self.appUserObject?.access_token = data["authToken"] as! String
                         self.appUserObject?.device_id = user["deviceId"] as! String
+                        self.appUserObject?.source = "source"
+                            //user["source"] as! String
+                        self.appUserObject?.token = user["pushToken"] as! String
+                        self.appUserObject?.userImageUrl = "avatar"
+                            //user["avatar"] as! String
+                        self.appUserObject?.mobile = user["mobileNumber"] as! String
+                        let typeUser = user["profileType"] as! Int
+                        self.appUserObject?.userType = String(typeUser)
+                        let id = user["profileType"] as! Int
                         
+                        self.appUserObject?.profileId = String(id)
                         self.appUserObject?.saveToUserDefault()
-                        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
-                        vc.isGroupCreate = false
-                        self.navigationController?.pushViewController(vc, animated: true)
-                        UserDefaults.standard.set(3, forKey: "isLogin")
-                        UserDefaults.standard.synchronize()
+                        
+                 
+                        
+                        if typeUser == 0  {
+                  
+                            let proficDic = user["profile"] as! [String : String]
+                            
+                            self.nextController(key: "socialProfile", proficDic: proficDic)
+                            
+                       
+                        }else if typeUser == 1  {
+                            
+                            let proficDic = user["profile"] as! [String : String]
+                            
+                            self.nextController(key: "corporateProfile", proficDic: proficDic)
+                            
+                            
+                        }else if typeUser == 2  {
+                            
+                            let proficDic = user["profile"] as! [String : String]
+                            
+                            self.nextController(key: "eventProfile", proficDic: proficDic)
+                            
+                            
+                        }else{
+                            let vc = PAProfile(nibName: "PAProfile", bundle: nil)
+                         
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
+                        
+                   
+                       
+                    
                         
                     }
                    
@@ -179,6 +217,18 @@ class PAOTPVC: BaseViewController {
             }
         }
    }
+    
+    func nextController(key :String ,proficDic: [String : String]){
+        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+        vc.isGroupCreate = false
+        self.navigationController?.pushViewController(vc, animated: true)
+        UserDefaults.standard.set(3, forKey: "isLogin")
+        UserDefaults.standard.synchronize()
+        
+        UserDefaults.standard.setValue(proficDic, forKey: key)
+        UserDefaults.standard.synchronize()
+    }
+    
 }
 
 extension PAOTPVC: UITextFieldDelegate{

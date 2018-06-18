@@ -122,11 +122,32 @@ class Corporate: BaseViewController {
             }
             else{
                 
-                print(dicData)
-                 ECSAlert().showAlert(message: "user profile updated", controller: self)
-                let proficDic = dicData["profile"] as! [String : String]
-                UserDefaults.standard.setValue(proficDic, forKey: "corporateProfile")
-                UserDefaults.standard.synchronize()
+             
+               
+              
+              
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+                    let proficDic = dicData["profile"] as! [String : String]
+                    UserDefaults.standard.setValue(proficDic, forKey: "corporateProfile")
+                    UserDefaults.standard.synchronize()
+                    UserDefaults.standard.set(3, forKey: "isLogin")
+                    UserDefaults.standard.synchronize()
+                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                    vc.isGroupCreate = false
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
                 
                 SVProgressHUD.dismiss()
             }

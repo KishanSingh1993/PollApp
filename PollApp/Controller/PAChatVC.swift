@@ -119,7 +119,9 @@ class PAChatVC: BaseViewController {
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
                     
-    
+                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                    vc.isGroupCreate = false
+                    self.navigationController?.pushViewController(vc, animated: true)
                     
                     
                 })

@@ -45,13 +45,72 @@ class QueSubmition: BaseViewController {
             btnCheck.isHidden = false
         }
        
-        
+        print(objectData.id)
        
         
     
         
         
     }
+    
+    
+    
+    
+    func callServayID(){
+        
+        
+        
+       
+        
+        let str = "surveys/" + objectData.id + "/details"
+        
+        
+        ServiceClass().getSurvayId(strUrl: str, param: [:], header: (self.appUserObject?.access_token)!, completion: {err , dicData   in
+            
+            if(err != nil){
+                
+             
+                
+                
+                let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+            else{
+                print(dicData)
+              
+            }
+           
+            
+            
+        })
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     @IBAction func clickToBack(_ sender: Any) {
        dismiss(animated: true, completion: nil)
@@ -102,8 +161,9 @@ class QueSubmition: BaseViewController {
                 
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
-                    self.delegate?.setDataWithQuestion(index: self.index, arrQuestion: arrQue)
-                    
+                   
+                        self.callServayID()
+                     self.delegate?.setDataWithQuestion(index: self.index, arrQuestion: arrQue)
                     self.dismiss(animated: true, completion: nil)
                 })
                 self.present(alertController, animated: true, completion: nil)
@@ -115,6 +175,8 @@ class QueSubmition: BaseViewController {
             }
             
         }
+        
+        
     }
     
     

@@ -10,6 +10,7 @@ import UIKit
 import Contacts
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SVProgressHUD
 
 
 class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
@@ -200,10 +201,105 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate{
                 let userEmail : NSString = dict["email"] as! NSString
                 print("User Email is: \(userEmail)")
                 print(dict)
+                self.callSocialScreenValue(name: userName as String, email: userEmail as String)
+                
+                
             }
         })
     }
 
-    
+    func callSocialScreenValue(name: String , email: String){
+        SVProgressHUD.show()
+        
+        
+        
+        
+        let dic = ["userId": (self.appUserObject?.userId)!,
+                   "name": name,
+                   "email":email,
+                   "avatar":(self.appUserObject?.userImageUrl)!,
+                   "source": (self.appUserObject?.source)!,
+                   "deviceId": (self.appUserObject?.device_id)!,
+                   "pushToken": (self.appUserObject?.token)!,
+                   "mobileNumber":(self.appUserObject?.mobile)!,
+                   "profileType":"0"] as [String : Any]
+        
+        
+        
+        
+        ServiceClass().socialLogin(strUrl: "social/login", param: dic, header:(self.appUserObject?.access_token)!, completion: {err , dicData   in
+            
+            if(err != nil){
+                
+                
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+                    if "Your session has been expired. Please relogin.".isEqualToString(find: (err?.localizedDescription)!){
+                        
+                        UserDefaults.standard.set(1, forKey: "isLogin")
+                        UserDefaults.standard.synchronize()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        delegate.setRootcontrooler()
+                        
+                    }
+                    
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
+                SVProgressHUD.dismiss()
+                
+            }
+            else{
+                
+                print(dicData)
+                
+                
+ 
+                
+                
+                
+                
+                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                { action -> Void in
+                    
+                    
+                    let proficDic = dicData["profile"] as! [String : String]
+                    UserDefaults.standard.setValue(proficDic, forKey: "socialProfile")
+                    UserDefaults.standard.synchronize()
+                    
+                    UserDefaults.standard.set(3, forKey: "isLogin")
+                    UserDefaults.standard.synchronize()
+                    
+                    let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                    vc.isGroupCreate = false
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    
+                })
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+                
+                SVProgressHUD.dismiss()
+            }
+            SVProgressHUD.dismiss()
+            
+        })
+        
+    }
     
 }
