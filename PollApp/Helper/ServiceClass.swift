@@ -316,6 +316,61 @@ class ServiceClass: NSObject {
     
     
     
+    public func socialLogin(strUrl:String,param:[String:Any],header:String,completion:@escaping (dictionaryBlock)){
+        
+        print(param)
+        
+        print(param)
+        print(baseURL+strUrl)
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        requestPOSTURL(baseURL+strUrl, params: param as [String : AnyObject], headers: headersValue, success: {
+            (JSONResponse) -> Void in
+            print(JSONResponse)
+            
+            
+            let dicData = JSONResponse.dictionaryObject!
+            
+            if dicData["status"] as! Int == 200 {
+             
+                //let msg = dicData["userMessage"] as! String
+               
+                
+                
+                completion(nil,dicData["data"] as! [String : Any])
+            }
+                
+            else{
+                let msg = dicData["userMessage"] as! String
+                
+                let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                
+                completion(error as Error,[:])
+            }
+            
+            
+            
+            
+            
+            
+        }) {
+            (error) -> Void in
+            
+            completion(error,[:])
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     public func getProfileEventDetails(strUrl:String,param:[String:Any],header:String,completion:@escaping (dictionaryBlock)){
         
         print(param)

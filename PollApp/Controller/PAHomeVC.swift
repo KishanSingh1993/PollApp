@@ -40,7 +40,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
     var arrHomeProductData : Array<Any> = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewMain: UIView!
-    var viewProfile: PAProfile?
+    var viewProfile: PAProfleDetails?
     var viewChat: PAChatVC?
     var viewSearch: PASearch?
     var viewSetting:PASettingVC?
@@ -86,7 +86,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
     
     override func viewDidLayoutSubviews() {
         self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
-      self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
+        self.viewSearchBar.applyGradient(colours: [self.color1,self.color2])
     }
     
 
@@ -249,21 +249,23 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate {
     
     
     @IBAction func clickToProfile(_ sender: Any) {
+        
         self.searchBar.isHidden = true
-    setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"identity_yellow.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
+        self.btnSurvey.isHidden =  true
+        setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"identity_yellow.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
-        viewProfile = PAProfile(nibName: "PAProfile", bundle: nil)
+        viewProfile = PAProfleDetails(nibName: "PAProfleDetails", bundle: nil)
         
-//        addChildViewController(viewProfile!)
-//        viewMain.addSubview((viewProfile?.view)!)
-//        viewProfile?.view.frame = viewMain.bounds
-//        viewProfile?.willMove(toParentViewController: self)
-        
-        
-        
+        addChildViewController(viewProfile!)
+        viewMain.addSubview((viewProfile?.view)!)
+        viewProfile?.view.frame = viewMain.bounds
+        viewProfile?.willMove(toParentViewController: self)
         
         
-        self.navigationController?.pushViewController(viewProfile!, animated: true)
+        
+        
+        
+        //self.navigationController?.pushViewController(viewProfile!, animated: true)
            setLableTextColor(lbl: self.lblprofile, colorActive: #colorLiteral(red: 0.9568627451, green: 0.6196078431, blue: 0.007843137255, alpha: 1), lbl1: lblHome, colorUnactive: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), lbl2: lblSearch, lbl3: lblGroup, lbl4: lblSetting)
     }
     

@@ -73,6 +73,8 @@
 		3B320A5A20A863CC00E68788 /* PASearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B320A5920A863CC00E68788 /* PASearch.swift */; };
 		3B3306C220CD1C7A0038E6AD /* HomeCellBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B3306C020CD1C790038E6AD /* HomeCellBar.xib */; };
 		3B3306C320CD1C7A0038E6AD /* HomeCellBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3306C120CD1C7A0038E6AD /* HomeCellBar.swift */; };
+		3B79273D20D542F8002CBE8E /* PAProfleDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B79273C20D542F8002CBE8E /* PAProfleDetails.xib */; };
+		3B79273F20D5445D002CBE8E /* PAProfleDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79273E20D5445D002CBE8E /* PAProfleDetails.swift */; };
 		3B81A67420B5DE6200844703 /* shareBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67320B5DE6200844703 /* shareBlack.png */; };
 		3B81A67820B5DEDB00844703 /* viewBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67720B5DEDB00844703 /* viewBlack.png */; };
 		3B81A67A20B5DF7800844703 /* homeblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B81A67920B5DF7800844703 /* homeblack.png */; };
@@ -212,6 +214,8 @@
 		3B320A5920A863CC00E68788 /* PASearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PASearch.swift; sourceTree = "<group>"; };
 		3B3306C020CD1C790038E6AD /* HomeCellBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCellBar.xib; sourceTree = "<group>"; };
 		3B3306C120CD1C7A0038E6AD /* HomeCellBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellBar.swift; sourceTree = "<group>"; };
+		3B79273C20D542F8002CBE8E /* PAProfleDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAProfleDetails.xib; sourceTree = "<group>"; };
+		3B79273E20D5445D002CBE8E /* PAProfleDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAProfleDetails.swift; sourceTree = "<group>"; };
 		3B81A67320B5DE6200844703 /* shareBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareBlack.png; sourceTree = "<group>"; };
 		3B81A67720B5DEDB00844703 /* viewBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viewBlack.png; sourceTree = "<group>"; };
 		3B81A67920B5DF7800844703 /* homeblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeblack.png; path = ../../../../Downloads/homeblack.png; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 		1B6DA2EA20A98DAF00A67E8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B79273C20D542F8002CBE8E /* PAProfleDetails.xib */,
 				3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */,
 				1B6DA2E820A9841B00A67E8A /* PASearch.xib */,
 				1B6DA2D320A9744000A67E8A /* QueSubmition.xib */,
@@ -349,6 +354,7 @@
 				3B81A6D020B725A000844703 /* PAContactList.swift */,
 				3BFEA8AC20C5A55000A46955 /* PAGroupCreate.swift */,
 				1BB356D020C5139E00247806 /* PACustomSurvay.swift */,
+				3B79273E20D5445D002CBE8E /* PAProfleDetails.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 				3B24588220B991BA003E31DC /* identity_yellow@3x.png in Resources */,
 				3B24589120B991BA003E31DC /* chat_yellow@2x.png in Resources */,
 				1B2A695120C690A500249AA9 /* group_default_user.png in Resources */,
+				3B79273D20D542F8002CBE8E /* PAProfleDetails.xib in Resources */,
 				3B1A257A20A7FF6B00F054E0 /* LaunchScreen.storyboard in Resources */,
 				3BD75ABD20A84B4C007FDD57 /* PAProfile.xib in Resources */,
 				3BC73F7B20C1A2B7001771A1 /* PAEvent.xib in Resources */,
@@ -951,6 +958,7 @@
 				3B3306C320CD1C7A0038E6AD /* HomeCellBar.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
+				3B79273F20D5445D002CBE8E /* PAProfleDetails.swift in Sources */,
 				3BFEA8AE20C5A55000A46955 /* PAGroupCreate.swift in Sources */,
 				3B01AB4B20C6F4C200291522 /* ChatCell.swift in Sources */,
 				3B320A5720A8638200E68788 /* PAChatVC.swift in Sources */,

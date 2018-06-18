@@ -41,7 +41,7 @@
         self.address=[decoder decodeObjectForKey:@"address"];
         self.contactpersonName=[decoder decodeObjectForKey:@"contactperson"];
         self.Date_employment=[decoder decodeObjectForKey:@"date_employment"];
-        self.weekoff=[decoder decodeObjectForKey:@"week_off"];
+        self.source=[decoder decodeObjectForKey:@"source"];
         self.UserImageUrl=[decoder decodeObjectForKey:@"image"];
          self.entityId = [decoder decodeObjectForKey:@"entityId"];
         
@@ -76,7 +76,7 @@
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.contactpersonName forKey:@"contactperson"];
     [encoder encodeObject:self.Date_employment forKey:@"date_employment"];
-    [encoder encodeObject:self.weekoff forKey:@"week_off"];
+    [encoder encodeObject:self.source forKey:@"source"];
     [encoder encodeObject:self.UserImageUrl forKey:@"image"];
 
 }
