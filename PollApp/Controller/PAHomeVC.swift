@@ -127,6 +127,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
     @IBAction func clickToSurvay(_ sender: Any) {
         
         let vc = PAChatVC(nibName: "PAChatVC", bundle: nil)
+        vc.isMySurvey = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -316,7 +317,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
         setButtonImg(btn: btnHome, strActive: "home_.png",btn1: btnProfile, strUnactive1:"ic_identity_.png", btn2: btnChat, strUnactive2: "chat_yellow.png", btn3: btnSearch, strUnactive3: "loupewhite.png", btn4: btnSetting, strUnactive4: "settings_.png")
         
         viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
-        // viewChat?.contactArrayChat = self.arrayContract as! [[String : Any]]
+        viewChat?.isMySurvey = false
         viewChat?.isShare = false
         addChildViewController(viewChat!)
         viewMain.addSubview((viewChat?.view)!)

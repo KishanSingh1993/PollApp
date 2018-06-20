@@ -14,10 +14,12 @@ class PAChatVC: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
     var isShare:Bool!
+    var isMySurvey:Bool!
     @IBOutlet weak var btnGroup: UIButton!
-      var arrGroupData : Array<Any> = []
+    var arrGroupData : Array<Any> = []
     var strShareId : String!
     var strGroupId: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,27 @@ class PAChatVC: BaseViewController {
         self.tableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
         print(strShareId)
+        
+        if self.isMySurvey == true{
+            self.btnGroup.isHidden = true
+        }else{
+            
+            if isShare ==  true{
+                self.btnGroup.isHidden = true
+                btnGroup.setButtonImage("ic_send_white")
+                
+            }
+            else{
+                self.btnGroup.isHidden = false
+                btnGroup.setButtonImage("ic_group_add_white")
+                
+            }
+        }
+        
+        
+        
+       
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,8 +112,13 @@ class PAChatVC: BaseViewController {
     
     
     
+    @IBOutlet weak var clickToBack: UIButton!
     
     
+    @IBAction func clickToBack(_ sender: Any) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     
@@ -234,6 +262,7 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
         
      
         if self.isShare == true {
+            self.btnGroup.isHidden = false
             strGroupId =  obj.id
             
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -243,7 +272,7 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
             
             
         }
-        else{
+        else if self.isMySurvey == true {
             tableView.deselectRow(at: indexPath, animated: true)
             let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
