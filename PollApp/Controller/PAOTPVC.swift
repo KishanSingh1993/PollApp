@@ -170,6 +170,8 @@ class PAOTPVC: BaseViewController {
                                 if   let proficDic = data["user"]  {
                                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
                                     vc.isGroupCreate = false
+                                    UserDefaults.standard.setValue(proficDic , forKey: "socialProfile")
+                                    UserDefaults.standard.synchronize()
                                     self.navigationController?.pushViewController(vc, animated: true)
                                     UserDefaults.standard.set(3, forKey: "isLogin")
                                     UserDefaults.standard.synchronize()
