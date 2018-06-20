@@ -132,11 +132,27 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
     
     
     
-    func sendContact(){
+    @objc func sendContact(){
         
         print(self.arrayContract)
         print("---------In Send Part ------------")
         
+      
+            
+            DispatchQueue.global(qos: .background).async {
+                
+                print("---------In Second Part ------------")
+                
+                print("This is run on the background queue")
+                
+                let dic = ["users":self.arrayContract]
+                
+                
+                ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
+                    
+                })
+                
+            }
         
         
         
@@ -184,23 +200,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
             }
                 dispatchGroup.leave()
             
-            dispatchGroup.notify(queue: DispatchQueue.main) {
-                
-                DispatchQueue.global(qos: .background).async {
-                    
-                    print("---------In Second Part ------------")
-                    
-                    print("This is run on the background queue")
-                    
-                    let dic = ["users":self.arrayContract]
-                    
-                    
-                    ServiceClass().ContactsSend(strUrl: "users/sync", param: dic, header: (self.appUserObject?.access_token)!, completion: {err , arrData   in
-                        
-                    })
-                    
-                }
-            }
+  
             //
 
             
@@ -277,9 +277,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
             self.getContact()
             self.sendContact()
         }
-//        self.searchBar.resignFirstResponder()
-//        searchBar.endEditing(true)
-//        self.view.endEditing(true)
+
     }
     
     

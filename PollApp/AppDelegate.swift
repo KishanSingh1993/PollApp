@@ -8,8 +8,8 @@
 
 import UIKit
 import FBSDKLoginKit
-
-
+import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        // IQKeyboardManager.shared.enable = true
-      
-        setRootcontrooler()
+            Fabric.with([Crashlytics.self])
+            setRootcontrooler()
          return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         //return true
     }

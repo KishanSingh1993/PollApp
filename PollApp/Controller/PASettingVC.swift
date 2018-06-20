@@ -64,6 +64,8 @@ extension PASettingVC:UITableViewDelegate,UITableViewDataSource{
         }
         else{
             cell.btnSwitch.isHidden = true
+//            let vc = PALogInVC(nibName: "", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
        
         

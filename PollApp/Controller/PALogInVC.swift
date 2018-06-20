@@ -9,7 +9,7 @@
 import UIKit
 import TextFieldEffects
 import SVProgressHUD
-
+import Crashlytics
 
 
 class PALogInVC: BaseViewController {
@@ -74,6 +74,8 @@ class PALogInVC: BaseViewController {
             ECSAlert().showAlert(message: "Please Enter Your Phone Number", controller: self)
         }
         else{
+           
+                //Crashlytics.sharedInstance().crash()
             
             callLogingServiec()
 

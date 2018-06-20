@@ -47,42 +47,42 @@
                         <constraint firstAttribute="bottom" secondItem="8Yu-vh-SOe" secondAttribute="bottom" constant="20" id="eb9-WZ-NZQ"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jG1-eJ-K4B">
-                    <rect key="frame" x="354" y="676" width="40" height="40"/>
-                    <color key="backgroundColor" red="0.90980392160000001" green="0.59215686270000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="9KE-D1-3Zi"/>
-                        <constraint firstAttribute="width" constant="40" id="T0b-Ma-3jB"/>
-                    </constraints>
-                    <state key="normal" image="ic_group_add_white"/>
-                    <connections>
-                        <action selector="clickToGroup:" destination="-1" eventType="touchUpInside" id="mD6-fK-hMj"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s1T-Mi-gJc">
-                    <rect key="frame" x="0.0" y="86" width="414" height="590"/>
+                    <rect key="frame" x="0.0" y="86" width="414" height="650"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="acL-R0-Err"/>
                         <outlet property="delegate" destination="-1" id="Gfk-eP-oyi"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jG1-eJ-K4B">
+                    <rect key="frame" x="354" y="676" width="40" height="40"/>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.59215686270000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7f5-Oq-5hG"/>
+                        <constraint firstAttribute="width" constant="40" id="LbI-0K-goJ"/>
+                    </constraints>
+                    <state key="normal" image="ic_group_add_white"/>
+                    <connections>
+                        <action selector="clickToGroup:" destination="-1" eventType="touchUpInside" id="mD6-fK-hMj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="s1T-Mi-gJc" firstAttribute="top" secondItem="gxG-77-cDo" secondAttribute="bottom" id="4Cx-9T-I5o"/>
                 <constraint firstItem="zYr-Pu-Vjc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Vm-tZ-eXr"/>
-                <constraint firstItem="s1T-Mi-gJc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4pL-k7-w6P"/>
+                <constraint firstItem="s1T-Mi-gJc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8IT-Uo-dxg"/>
+                <constraint firstItem="s1T-Mi-gJc" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="A2L-Rv-MBb"/>
                 <constraint firstItem="gxG-77-cDo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BHF-Mm-fQc"/>
                 <constraint firstItem="gxG-77-cDo" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FUT-WU-SR0"/>
-                <constraint firstItem="jG1-eJ-K4B" firstAttribute="top" secondItem="s1T-Mi-gJc" secondAttribute="bottom" id="JSQ-zt-SUq"/>
                 <constraint firstItem="gxG-77-cDo" firstAttribute="top" secondItem="zYr-Pu-Vjc" secondAttribute="bottom" id="QsU-iW-OyW"/>
                 <constraint firstItem="zYr-Pu-Vjc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U05-mc-xnG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jG1-eJ-K4B" secondAttribute="bottom" constant="20" id="U0N-FB-AyC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jG1-eJ-K4B" secondAttribute="trailing" constant="20" id="ZRz-T3-Jlm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s1T-Mi-gJc" secondAttribute="trailing" id="pDC-ME-xYG"/>
+                <constraint firstItem="s1T-Mi-gJc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="om9-7N-60I"/>
                 <constraint firstAttribute="trailing" secondItem="zYr-Pu-Vjc" secondAttribute="trailing" id="pY2-GH-SW0"/>
-                <constraint firstItem="s1T-Mi-gJc" firstAttribute="top" secondItem="gxG-77-cDo" secondAttribute="bottom" id="vXp-Ju-QKs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jG1-eJ-K4B" secondAttribute="trailing" constant="20" id="wk8-jv-pZS"/>
                 <constraint firstItem="gxG-77-cDo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="x0y-YE-g1s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jG1-eJ-K4B" secondAttribute="bottom" constant="20" id="xak-sq-lM8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="12" y="61"/>

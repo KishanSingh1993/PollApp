@@ -16,7 +16,10 @@ pod 'Toast-Swift'
  pod 'FacebookLogin'
  pod 'FacebookShare'
  pod 'IQKeyboardManagerSwift'
+ 
 
+ pod 'Fabric'
+ pod 'Crashlytics'
   target 'PollAppTests' do
     inherit! :search_paths
     # Pods for testing

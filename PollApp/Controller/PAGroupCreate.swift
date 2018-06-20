@@ -78,14 +78,7 @@ class PAGroupCreate: BaseViewController, UIImagePickerControllerDelegate , UINav
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
                 { action -> Void in
                     
-//                    if "Your session has been expired. Please relogin.".isEqualToString(find: (err?.localizedDescription)!){
-//
-//                        UserDefaults.standard.set(1, forKey: "isLogin")
-//                        UserDefaults.standard.synchronize()
-//                        let delegate = UIApplication.shared.delegate as! AppDelegate
-//                        delegate.setRootcontrooler()
-//
-//                    }
+
                     
                     
                 })

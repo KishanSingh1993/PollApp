@@ -498,6 +498,9 @@ class ServiceClass: NSObject {
                 
                 let dicData = resJson.dictionaryObject!
                 
+                print(resJson["data"].array!)
+                
+                
                 if dicData["status"] as! Int == 200 {
                     for rootDic in resJson["data"].array!{
                         let obj = ContactList(fromJson: rootDic)
