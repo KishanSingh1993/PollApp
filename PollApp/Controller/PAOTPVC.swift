@@ -285,11 +285,11 @@ extension PAOTPVC: UITextFieldDelegate{
         
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.moveTextField(textField: textField, moveDistance: -100, up: true)
+        self.moveTextField(textField: textField, moveDistance: -150, up: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.moveTextField(textField: textField, moveDistance: -100, up: false)
+        self.moveTextField(textField: textField, moveDistance: -150, up: false)
     }
     
 }

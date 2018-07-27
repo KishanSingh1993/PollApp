@@ -84,7 +84,7 @@ class BasicBarChart: UIView {
         
         drawBar(xPos: xPos, yPos: yPos, color: entry.color)
         
-        drawline(xPos: xPos+barWidth+15, yPos: yPos, color: UIColor.black)
+      //  drawline(xPos: xPos+barWidth+15, yPos: yPos, color: UIColor.black)
         
         /// Draw text above the bar
         drawTextValue(xPos: xPos - space/2, yPos: yPos - 30, textValue: entry.textValue, color: entry.color)
@@ -95,7 +95,7 @@ class BasicBarChart: UIView {
         
         
         drawTitleYPos(xPos: 0, yPos: yValue, title: entry.yAxis, color: UIColor.red)
-        yValue = yValue - 15
+        yValue = yValue - 25
     }
     
     private func drawBar(xPos: CGFloat, yPos: CGFloat, color: UIColor) {
@@ -208,7 +208,7 @@ class BasicBarChart: UIView {
         print("-------------\(xPos)-----")
         
         let textLayer = CATextLayer()
-        textLayer.frame = CGRect(x: 1, y: yPos, width: 20, height: 20)
+        textLayer.frame = CGRect(x: 0, y: yPos, width: 28, height: 20)
         textLayer.foregroundColor = UIColor.black.cgColor
     
         textLayer.alignmentMode = kCAAlignmentCenter

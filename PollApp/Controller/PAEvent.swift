@@ -32,6 +32,7 @@ class PAEvent: BaseViewController {
         super.viewDidLoad()
         self.btnSubmit.layer.cornerRadius = 5.0
          let eventProfile = UserDefaults.standard.dictionary(forKey: "eventProfile")
+        
         if eventProfile != nil {
             print(eventProfile)
             
@@ -176,26 +177,28 @@ class PAEvent: BaseViewController {
              
                 
                 
+//
+//                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
+//
+//                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+//                { action -> Void in
                 
-                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
-                
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                { action -> Void in
-                    
                     let proficDic = dicData["profile"] as! [String : String]
                     UserDefaults.standard.setValue(proficDic, forKey: "eventProfile")
+                    UserDefaults.standard.setValue(nil, forKey: "corporateProfile")
                     UserDefaults.standard.synchronize()
                     UserDefaults.standard.set(3, forKey: "isLogin")
                     UserDefaults.standard.synchronize()
+                self.appUserObject?.userType = "2"
+                self.appUserObject?.saveToUserDefault()
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
                     vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
-                    self.appUserObject?.userType = "2"
-                    self.appUserObject?.saveToUserDefault()
-                    
-                    
-                })
-                self.present(alertController, animated: true, completion: nil)
+                
+                    self.logOut()
+//
+//                })
+//                self.present(alertController, animated: true, completion: nil)
                 
                 
                 

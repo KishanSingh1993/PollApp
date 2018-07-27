@@ -101,7 +101,7 @@ class PAGroupCreate: BaseViewController, UIImagePickerControllerDelegate , UINav
                 { action -> Void in
                     
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
-                    vc.isGroupCreate = true
+                    vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
              
                     

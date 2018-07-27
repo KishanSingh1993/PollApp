@@ -6,6 +6,14 @@
 //  Copyright © 2018 Ankleshwar. All rights reserved.
 //
 
+
+
+
+
+
+
+
+
 import UIKit
 import SVProgressHUD
 
@@ -32,14 +40,19 @@ class PAChatVC: BaseViewController {
         
         if self.isMySurvey == true{
             self.btnGroup.isHidden = true
+            self.clickToBack.isHidden = false
         }else{
             
+            
             if isShare ==  true{
+                self.clickToBack.isHidden = false
                 self.btnGroup.isHidden = true
                 btnGroup.setButtonImage("ic_send_white")
                 
             }
             else{
+                self.clickToBack.isHidden = true
+                 self.btnGroup.isHidden = false
                 self.btnGroup.isHidden = false
                 btnGroup.setButtonImage("ic_group_add_white")
                 
@@ -130,14 +143,15 @@ class PAChatVC: BaseViewController {
         
         let dic =
             [
-             "groupIds": [id,strShareId]
+             "groupIds": [id]
                 ]
                 as [String : Any]
         
         
         print(dic)
+        let strUrl = "surveys/" + "\(strShareId!)" + "/share"
         
-        ServiceClass().sharePollInGroup(strUrl: "surveys/surveyId/share", param: dic, header:(self.appUserObject?.access_token)!, completion: {err , dicData   in
+        ServiceClass().sharePollInGroup(strUrl: strUrl, param: dic, header:(self.appUserObject?.access_token)!, completion: {err , dicData   in
             
             if(err != nil){
                 
@@ -175,7 +189,7 @@ class PAChatVC: BaseViewController {
                 { action -> Void in
                     
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
-                    vc.isGroupCreate = true
+                    vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
                     
                     
@@ -276,6 +290,10 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
             tableView.deselectRow(at: indexPath, animated: true)
             let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            let vc = GroupPoll(nibName: "GroupPoll", bundle: nil)
+            vc.objeGroup = obj
+           self.navigationController?.pushViewController(vc, animated: true)
         }
         
         

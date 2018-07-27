@@ -24,7 +24,7 @@ class MyPollVC: BaseViewController , QueSubmitionDelegate,HomeCellDelegate {
         self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.separatorStyle = .none
-        self.viewTable.addShadow()
+       // self.viewTable.addShadow()
     }
 
 
@@ -147,26 +147,50 @@ extension MyPollVC: UITableViewDelegate,UITableViewDataSource{
             cell.cellConfig(arrOption: option!)
             // print(option)
         }
+        let dicTime = self.dateDiff(dateStr: obj.expireAt)
+        var time = ""
+        if  let day = dicTime["DD"]{
+            time = "\(day)  days remains"
+            cell.lblTimes.text = time
+        }else if let hour = dicTime["HH"] {
+            
+            time = "\(hour) hour remains"
+            cell.lblTimes.text = time
+        }else if let minute = dicTime["MM"] {
+            
+            time =  "\(minute) minute remains"
+            cell.lblTimes.text = time
+        }else if let second = dicTime["SS"]{
+            
+            time = "\(second) second Remains"
+            cell.lblTimes.text = time
+        }
         
         
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0
+        return 300.0
     }
     
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        if section == arrHomeProductData.count-1 {
+//            return 5.0
+//        }else{
+//            return 20.0
+//        }
+//
+//    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+                        return 0.0
+                    }else{
+                        return 20.0
+                    }
+    }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20.0
-    }
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let viewFooter = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 10))
-        
-        viewFooter.backgroundColor = UIColor(rgb: 0xF2F2F2)
-        
-        return viewFooter
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -183,7 +207,7 @@ extension MyPollVC: UITableViewDelegate,UITableViewDataSource{
         
         
         // present(vc, animated: true, completion: nil)
-        guard let myString = self.nullToNil(value: obj.selfSurvey) else{
+        guard self.nullToNil(value: obj.selfSurvey) != nil else{
             vc.strSurvay = ""
             present(vc, animated: true, completion: nil)
             return

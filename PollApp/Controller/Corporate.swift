@@ -129,25 +129,27 @@ class Corporate: BaseViewController {
                 
                 
                 
-                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
+//                let alertController = UIAlertController(title: "", message: "user profile updated", preferredStyle:UIAlertControllerStyle.alert)
                 
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                { action -> Void in
-                    
+//                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+//                { action -> Void in
+//
                     let proficDic = dicData["profile"] as! [String : String]
                     UserDefaults.standard.setValue(proficDic, forKey: "corporateProfile")
+                    UserDefaults.standard.setValue(nil, forKey: "eventProfile")
                     UserDefaults.standard.synchronize()
                     UserDefaults.standard.set(3, forKey: "isLogin")
                     UserDefaults.standard.synchronize()
+                    self.appUserObject?.userType = "1"
+                    self.appUserObject?.saveToUserDefault()
                     let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
                     vc.isGroupCreate = false
                     self.navigationController?.pushViewController(vc, animated: true)
-                    self.appUserObject?.userType = "1"
-                    self.appUserObject?.saveToUserDefault()
+                    self.logOut()
                     
                     
-                })
-                self.present(alertController, animated: true, completion: nil)
+//                })
+//                self.present(alertController, animated: true, completion: nil)
                 
                 
                 

@@ -39,6 +39,59 @@ class ServiceClass: NSObject {
     
     
     
+    public func customSurvey(strUrl:String,param:[String:AnyObject],img : UIImage,header:String,completion:@escaping (dictionaryBlock)){
+        
+        let headersValue = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        print(param)
+        
+        Alamofire.upload(multipartFormData:
+            {
+                (multipartFormData) in
+                multipartFormData.append(UIImageJPEGRepresentation(img, 0.1)!, withName: "image", fileName: "file.jpeg", mimeType: "image/jpeg")
+                for (key, value) in param
+                {
+                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+                }
+        }, to:baseURL+strUrl,headers:headersValue)
+        { (result) in
+            switch result {
+            case .success(let upload,_,_ ):
+                upload.uploadProgress(closure: { (progress) in
+                    
+                })
+                upload.responseJSON
+                    { response in
+                        print(response)
+                        
+                        if response.result.value != nil
+                        {
+                            let dict :NSDictionary = response.result.value! as! [String : Any] as NSDictionary
+                            completion(nil, dict as! [String : Any])
+                        }
+                        else{
+                            let error : Error = response.result.error!
+                            completion(error, [:])
+                        }
+                }
+            case .failure(let encodingError):
+                
+                completion(encodingError, [:])
+                break
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
    
     public func sharePollInGroup(strUrl:String,param:[String:Any],header:String,completion:@escaping (stringBlock)){
         
@@ -564,6 +617,61 @@ class ServiceClass: NSObject {
             completion(error,[:])
             
         }
+    }
+    
+    
+    public func groupDataSurvay(strUrl:String,header:String,completion:@escaping (arrayBlock)){
+        
+        let headersValue: HTTPHeaders = [
+            "Authorization": "Bearer \(header)",
+            
+        ]
+        
+        print("~~~~~~~~~~~~~~~~~~~~~~\(headersValue)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        
+        
+        
+        
+        
+        
+        
+        Alamofire.request(baseURL+strUrl, headers: headersValue).responseJSON { response in
+            debugPrint(response)
+            
+            if response.result.isSuccess {
+                let resJson = JSON(response.result.value!)
+                
+                let dicData = resJson.dictionaryObject!
+                
+                if dicData["status"] as! Int == 200 {
+                    let dicSubData = resJson["data"]
+                    
+                    for rootDic in dicSubData["surveys"].array!{
+                        let obj = HomeScreenData(fromJson: rootDic)
+                        self.arrIteam.append(obj)
+                    }
+                    completion(nil,self.arrIteam)
+                }
+                else{
+                    let msg = dicData["userMessage"] as! String
+                    
+                    let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
+                    
+                    completion(error as Error,[])
+                }
+                
+                
+                
+                
+            }
+            if response.result.isFailure {
+                let error : Error = response.result.error!
+                completion(error,[])
+            }
+            
+            
+        }
+        
     }
     
     

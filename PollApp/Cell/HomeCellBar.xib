@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="24" id="KGE-F9-CTq"/>
                                     <constraint firstAttribute="width" constant="24" id="acO-Dp-oyz"/>
                                 </constraints>
-                                <state key="normal" image="shareBlack.png"/>
+                                <state key="normal" image="share"/>
                                 <connections>
                                     <action selector="clickToShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="baK-y9-75j"/>
                                 </connections>
@@ -90,7 +90,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewBlack.png" translatesAutoresizingMaskIntoConstraints="NO" id="0bR-fh-3IC">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="0bR-fh-3IC">
                         <rect key="frame" x="257" y="171" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="fLP-gm-WBb"/>
@@ -127,7 +127,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="shareBlack.png" width="24" height="24"/>
-        <image name="viewBlack.png" width="32" height="32"/>
+        <image name="eye" width="18" height="18"/>
+        <image name="share" width="18" height="18"/>
     </resources>
 </document>

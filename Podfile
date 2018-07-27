@@ -16,10 +16,11 @@ pod 'Toast-Swift'
  pod 'FacebookLogin'
  pod 'FacebookShare'
  pod 'IQKeyboardManagerSwift'
- 
-
  pod 'Fabric'
  pod 'Crashlytics'
+ pod 'GooglePlaces'
+ pod 'GooglePlacePicker'
+ pod 'GoogleMaps'
   target 'PollAppTests' do
     inherit! :search_paths
     # Pods for testing

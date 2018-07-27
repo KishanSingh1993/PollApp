@@ -23,27 +23,32 @@ class PAProfleDetails: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
-       setValue()
-
-        
-        
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.backgroundColor = UIColor.white
         self.tableView.register(UINib(nibName: "ProfileDetailsCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.viewTable.addShadow()
+      
         
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setValue()
+      
     }
 
     
     func setValue(){
+        
+        
         if (self.appUserObject?.userType)! == "0"{
             self.customArray.removeAllObjects()
             self.customArrayTittle.removeAllObjects()
             dicData = UserDefaults.standard.dictionary(forKey: "socialProfile")
-            self.lblTitle.text = "Social Profile"
+            self.lblTitle.text = "Personal Profile"
             
             if dicData != nil {
+                
                 self.customArray.add((self.appUserObject?.userName)!)
                 self.customArray.add((self.appUserObject?.email)!)
                 self.customArray.add((self.appUserObject?.mobile)!)
@@ -51,6 +56,7 @@ class PAProfleDetails: BaseViewController {
                 self.customArrayTittle.add("Name")
                 self.customArrayTittle.add("Email")
                 self.customArrayTittle.add("Mobile")
+                self.tableView.reloadData()
           
             } else{
                 setProfile()
@@ -61,7 +67,7 @@ class PAProfleDetails: BaseViewController {
             self.customArray.removeAllObjects()
             self.customArrayTittle.removeAllObjects()
             dicData = UserDefaults.standard.dictionary(forKey: "corporateProfile")
-            self.lblTitle.text = "Corporate Profile"
+           self.lblTitle.text = "Corporate Profile"
             
             if dicData != nil {
                 self.customArray.add(dicData?["company_name"] ?? "")
@@ -76,6 +82,7 @@ class PAProfleDetails: BaseViewController {
                 self.customArrayTittle.add("Company Email Address")
                 self.customArrayTittle.add("Company Website")
                 self.customArrayTittle.add("Company Phone Number")
+                self.tableView.reloadData()
             } else{
                 setProfile()
             }
@@ -101,6 +108,7 @@ class PAProfleDetails: BaseViewController {
                 self.customArrayTittle.add("Contact Person")
                 self.customArrayTittle.add("Contact Person Email")
                 self.customArrayTittle.add("Contact Person Mobile")
+                self.tableView.reloadData()
             }
             else{
                     setProfile()
@@ -124,7 +132,7 @@ class PAProfleDetails: BaseViewController {
 
 
     override func viewDidLayoutSubviews() {
-        self.topView.applyGradient(colours: [self.color1,self.color2])
+     //   self.topView.applyGradient(colours: [self.color1,self.color2])
       
        
     }

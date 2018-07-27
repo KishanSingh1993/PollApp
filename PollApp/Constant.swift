@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-
+let googleApi = "AIzaSyAANvKFBElLm3fukIklWWPxe_tAXqJjKF8"
 
 
    public extension UIView {

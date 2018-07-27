@@ -7,44 +7,128 @@
 //
 
 import UIKit
+import SVProgressHUD
+import GoogleMaps
+import GooglePlaces
+import GooglePlacePicker
 
 class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate , SurvayOptionCellDelegate{
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var txtCity: UITextField!
+    @IBOutlet weak var txtAge: UITextField!
+     var arrIteam :Array<Any>?
     @IBOutlet weak var tableViewHieght: NSLayoutConstraint!
-    
+    @IBOutlet weak var txtGender: UITextField!
+     var arrQuestion = [[String: Any]]()
     @IBOutlet weak var txtQuestion: UITextField!
     @IBOutlet weak var txtSurveyTittle: UITextField!
     @IBOutlet weak var txtOtptionsValue: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
-    
+    @IBOutlet var pickerView: UIPickerView!
+     var strValue: String?
     @IBOutlet weak var txtExpireDate: UITextField!
     @IBOutlet weak var txtImagepath: UITextField!
     @IBOutlet weak var lblTextHieght: UILabel!
     @IBOutlet weak var viewquition: UIView!
-    
+    var strType = "10"
+    var imageUser = UIImage()
     var numberOfRow: Int = 0
     var arrayOptions: [String] = []
-    
+    var lat : String = ""
+    var lng : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.imageUser = UIImage(named: "user.png")!
       
         
-          self.tableView.register(UINib(nibName:"SurvayOptionCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        self.tableView.register(UINib(nibName:"SurvayOptionCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         self.tableViewHieght.constant = 0.0
         self.txtImagepath.isEnabled = false
-      datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+       
+        arrQuestion = (setDataWithLocalJson("NextVersion") as NSArray as? Array<Dictionary<String, Any>>)!
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.pickerView.translatesAutoresizingMaskIntoConstraints = false
+        showDatePicker()
+
+       // showPicker()
+        
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    
+    func showDatePicker(){
+        
+        self.strType = "2"
+        self.txtExpireDate.inputView = self.datePicker
+        
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.donedatePicker))
+        
+        txtExpireDate.inputAccessoryView = toolBar
+        
+        
     }
+    
+    func callApiCustumSurvey(){
+        
+        SVProgressHUD.show()
+        
+        let strJson = self.json(from: arrayOptions)
+     
+    
+        let dic = ["name": self.txtSurveyTittle.text ?? "",
+                   "question": self.txtQuestion.text ?? "",
+                   "options": strJson ?? "",
+                   "expireAt":self.txtExpireDate.text ?? "",
+                   "groupIds":"",
+                   "age": self.txtAge.text ?? "" ,
+                   "gender":self.txtGender.text ?? "" ,
+                   "city":"Delhi",
+                   "lat":self.lat,
+                   "lng": self.lng] as! [String : AnyObject]
+        
+    
+        print(dic)
+        
+        
+        ServiceClass().customSurvey(strUrl: "survey", param: dic , img: imageUser, header: (self.appUserObject?.access_token)!, completion: { err, dicdata in
+            
+            if err != nil{
+                 SVProgressHUD.dismiss()
+            }
+            else{
+                
+                print(dicdata)
+                if dicdata["status"] as! Int == 200 {
+                    let alertController = UIAlertController(title: "", message: dicdata["userMessage"] as! String, preferredStyle:UIAlertControllerStyle.alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                    { action -> Void in
+                        
+                        let vc = PAHomeVC(nibName: "PAHomeVC", bundle: nil)
+                       
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        
+                        
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                }
+             
+                SVProgressHUD.dismiss()
+            }
+            
+            
+        })
+    }
+    
+    
+    
+
     
     @IBAction func clickToAddOptions(_ sender: Any) {
         
@@ -97,6 +181,7 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.imageUser = image
         if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
             let imgName = imgUrl.lastPathComponent
             let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
@@ -118,25 +203,23 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
 
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        showDatePicker()
-    }
-    func showDatePicker(){
+  
 
-        self.txtExpireDate.inputView = self.datePicker
-        
-        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.donedatePicker))
-        
-        txtExpireDate.inputAccessoryView = toolBar
-        
-        
-    }
     
     @objc func donedatePicker(){
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        txtExpireDate.text = formatter.string(from: datePicker.date)
+        if strType == "0" {
+            self.txtGender.text = strValue
+        }else if strType == "1" {
+            self.txtAge.text = strValue
+        }
+        else{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/YYYY"
+            txtExpireDate.text = formatter.string(from: datePicker.date)
+        }
+        
+        
         self.view.endEditing(true)
     }
     
@@ -149,7 +232,20 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if self.txtSurveyTittle.text?.count == 0{
+            ECSAlert().showAlert(message: "Please select tittle", controller: self)
+        }
+        else if self.txtQuestion.text?.count == 0{
+            ECSAlert().showAlert(message: "Please enter the Question", controller: self)
+        }  else if self.arrayOptions.count == 0{
+            ECSAlert().showAlert(message: "Please enter the options", controller: self)
+        }else if self.txtExpireDate.text?.count == 0{
+            ECSAlert().showAlert(message: "Please enter the survey expire date", controller: self)
+        }
+        else{
+            callApiCustumSurvey()
+        }
+       
     }
     
     func didTapButton(_ sender: UIButton) {
@@ -183,11 +279,49 @@ extension PACustomSurvay: UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.setLeftPaddingPoints(10)
-        self.moveTextField(textField: textField, moveDistance: -120, up: true)
+       // self.moveTextField(textField: textField, moveDistance: 50, up: true)
+        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        // Set a filter to return only addresses.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .address
+        autocompleteController.autocompleteFilter = filter
+        
+        
+        if textField == self.txtGender {
+          
+            self.strType = "0"
+            self.arrIteam = arrQuestion[0]["value"] as? Array
+            self.txtGender.inputView = self.pickerView
+            let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.donedatePicker))
+            txtGender.inputAccessoryView = toolBar
+            self.pickerView.selectRow(0, inComponent: 0, animated: true)
+            self.pickerView(pickerView, didSelectRow: 0, inComponent: 0)
+            
+        }else if textField == self.txtAge{
+           
+            self.strType = "1"
+            self.arrIteam = arrQuestion[1]["value"] as? Array
+            self.txtAge.inputView = self.pickerView
+            let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(self.donedatePicker))
+            txtAge.inputAccessoryView = toolBar
+            self.pickerView.selectRow(0, inComponent: 0, animated: true)
+            self.pickerView(pickerView, didSelectRow: 0, inComponent: 0)
+            
+        }else if textField == self.txtCity {
+      
+            textField.resignFirstResponder()
+            present(autocompleteController, animated: true, completion: nil)
+        }else if textField == self.txtExpireDate {
+            self.strType = "2"
+        }
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.moveTextField(textField: textField, moveDistance: -120, up: false)
+       // self.moveTextField(textField: textField, moveDistance: -50, up: false)
     }
 }
 
@@ -220,5 +354,94 @@ extension PACustomSurvay:UITableViewDelegate,UITableViewDataSource{
     
     
     
+    
+}
+
+
+extension PACustomSurvay : UIPickerViewDelegate,UIPickerViewDataSource{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+     
+            return 1
+        
+        
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+ 
+            return arrIteam!.count
+        
+        
+        
+        
+        
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+
+            return arrIteam?[row] as? String
+        
+        
+        
+        
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        
+ 
+            self.strValue = arrIteam?[row] as? String
+        
+        
+        
+    }
+}
+extension PACustomSurvay: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        // Print place info to the console.
+        print("Place name: \(place.name)")
+//        print("Place address: \(place.formattedAddress)")
+//        print("Place attributions: \(place.attributions)")
+        let lat = place.coordinate.latitude
+        let lon = place.coordinate.longitude
+        self.lat = String(lat)
+        self.lng = String(lon)
+        
+        print("lat lon",lat,lon)
+
+        self.txtCity.text = place.name
+        
+        // TODO: Add code to get address components from the selected place.
+        
+        // Close the autocomplete widget.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Show the network activity indicator.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    // Hide the network activity indicator.
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
     
 }

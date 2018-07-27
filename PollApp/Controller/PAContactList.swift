@@ -154,8 +154,21 @@ extension PAContactList:UITableViewDelegate,UITableViewDataSource{
         cell.lblName?.text = strName
         cell.lblPhone?.text = strPhone
         
-        cell.lblImage.text = String(strName![(strName?.startIndex)!])
-        cell.lblImage.backgroundColor = pickColor(alphabet: strName![(strName?.startIndex)!])
+        if strName == "" {
+            if strPhone == "" {
+                
+            }else{
+                cell.lblImage.text = String(strPhone![(strPhone?.startIndex)!])
+                cell.lblImage.backgroundColor = pickColor(alphabet: strPhone![(strPhone?.startIndex)!])
+            }
+          
+        }else{
+            cell.lblImage.text = String(strName![(strName?.startIndex)!])
+             cell.lblImage.backgroundColor = pickColor(alphabet: strName![(strName?.startIndex)!])
+        }
+        
+        
+       
         cell.lblImage.isEnabled = true
         if obj.registered == 1{
             cell.btnInvite.isHidden = true

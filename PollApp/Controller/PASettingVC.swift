@@ -11,18 +11,40 @@ import UIKit
 class PASettingVC: BaseViewController {
     var arrValue: Array<Dictionary<String,Any>>?
     @IBOutlet weak var tablView: UITableView!
+    @IBOutlet weak var btnSwitch: UIButton!
+    @IBOutlet weak var viewTop: UIView!
+    
+    @IBOutlet weak var lblProfileType: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         arrValue = setDataWithLocalJson("Setting") as NSArray as? Array<Dictionary<String, Any>>
           self.tablView.register(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        if (self.appUserObject?.userType)! == "0"{
+             self.lblProfileType.text = "Personal"
+        }else  if (self.appUserObject?.userType)! == "1"{
+            self.lblProfileType.text = "Corporate"
+        }else {
+            self.lblProfileType.text = "Event"
+        }
+        self.btnSwitch.layer.cornerRadius = 5.0
+        
+       
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidLayoutSubviews() {
+        self.viewTop.applyGradient(colours: [self.color1,self.color2])
+        self.btnSwitch.applyGradient(colours: [self.btnColor1,self.btnColor2])
     }
     
 
+    @IBAction func clickToSwitch(_ sender: Any) {
+        let vc = PAProfile(nibName:"PAProfile", bundle: nil)
+        vc.isSwitchProfile = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 
 }

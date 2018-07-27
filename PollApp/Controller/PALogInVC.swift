@@ -21,36 +21,31 @@ class PALogInVC: BaseViewController {
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var viewSecond: UIView!
     
-  
+    
     
     
     var strOTP : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         UIView().setShadow(self.viewLogin)
         
         
         self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
- 
-        
-       // createGradientLayer(viewGradent: self.btnNext, color1: "#ffa200",color2:"#c28110", alphaValue: 1)
         
         
-        //self.viewBackgound.applyGradient(colours: [self.color1,self.color2])
-      //  self.btnNext.applyGradient(colours: [self.btnColor1,self.btnColor2])
-
+   
         
     }
     
     override func viewDidLayoutSubviews() {
-        //btnNext.setTranslatesAutoresizingMaskIntoConstraints(false)
+ 
         self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
         self.btnNext.applyGradient(colours: [self.btnColor1,self.btnColor2])
     }
-
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.txtPhone.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
         
@@ -59,29 +54,50 @@ class PALogInVC: BaseViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-       
+        
     }
     
     
     
-
     
     
     
-
+    
+    
     @IBAction func clickToNext(_ sender: Any) {
         if txtPhone.text?.count == 0 {
             ECSAlert().showAlert(message: "Please Enter Your Phone Number", controller: self)
         }
         else{
-           
-                //Crashlytics.sharedInstance().crash()
             
-            callLogingServiec()
-
+            let str = self.txtPhone.text! + "," + " " + "Is this correct or would you like  to change the phone number "
+            
+            let alertController = UIAlertController(title: "We will be verifing the phone number", message:str, preferredStyle:UIAlertControllerStyle.alert)
+            
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)
+            { action -> Void in
+                
+                
+                self.callLogingServiec()
+                
+            })
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default)
+            { action -> Void in
+                
+                
+                // self.callLogingServiec()
+                
+            })
+            self.present(alertController, animated: true, completion: nil)
+            
+            
+            
+            
+            
+            
         }
         
-      
+        
     }
     
     func callLogingServiec(){
@@ -89,7 +105,7 @@ class PALogInVC: BaseViewController {
         SVProgressHUD.show()
         
         
-        let dic = ["mobileNumber": self.txtPhone.text,
+        let dic = ["mobileNumber": self.txtPhone.text ?? "",
                    "pushToken":"fsafsafsafsadfdas",
                    "deviceId":ECSHelper().getDeviceId()] as [String : Any]
         
@@ -99,7 +115,7 @@ class PALogInVC: BaseViewController {
             
             if error != nil {
                 
-                 SVProgressHUD.dismiss()
+                SVProgressHUD.dismiss()
                 ECSAlert().showAlert(message:
                     (error?.localizedDescription)!, controller: self)
             }
@@ -138,13 +154,13 @@ class PALogInVC: BaseViewController {
             }
             
             
-   
-        
-  }
-}
+            
+            
+        }
+    }
     
-
-
+    
+    
 }
 
 extension PALogInVC: UITextFieldDelegate{
