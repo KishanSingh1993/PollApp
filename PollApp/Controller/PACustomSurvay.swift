@@ -291,7 +291,7 @@ extension PACustomSurvay: UITextFieldDelegate {
         
         
         if textField == self.txtGender {
-          
+           self.pickerView.reloadAllComponents()
             self.strType = "0"
             self.arrIteam = arrQuestion[0]["value"] as? Array
             self.txtGender.inputView = self.pickerView
@@ -301,7 +301,7 @@ extension PACustomSurvay: UITextFieldDelegate {
             self.pickerView(pickerView, didSelectRow: 0, inComponent: 0)
             
         }else if textField == self.txtAge{
-           
+           self.pickerView.reloadAllComponents()
             self.strType = "1"
             self.arrIteam = arrQuestion[1]["value"] as? Array
             self.txtAge.inputView = self.pickerView

@@ -118,6 +118,8 @@
 		3BE1C9BE20FFBC070030BC9A /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE1C9A220FFBC060030BC9A /* Icon-App-29x29@2x.png */; };
 		3BEA1C3C2108E3F300150F4D /* PAPersonalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA1C3A2108E3F300150F4D /* PAPersonalProfile.swift */; };
 		3BEA1C3D2108E3F300150F4D /* PAPersonalProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEA1C3B2108E3F300150F4D /* PAPersonalProfile.xib */; };
+		3BF68679211C9E620065DE16 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BF68677211C9E610065DE16 /* Nunito-SemiBold.ttf */; };
+		3BF6867A211C9E620065DE16 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BF68678211C9E610065DE16 /* Nunito-Bold.ttf */; };
 		3BF9482720BAA43700CECBCF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482520BAA43600CECBCF /* Question.swift */; };
 		3BF9482820BAA43700CECBCF /* SelfSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482620BAA43700CECBCF /* SelfSurvey.swift */; };
 		3BF9482B20BAAA2800CECBCF /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9482920BAAA2800CECBCF /* ContactList.swift */; };
@@ -270,6 +272,8 @@
 		3BEA1C392108D86300150F4D /* PollApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PollApp.entitlements; sourceTree = "<group>"; };
 		3BEA1C3A2108E3F300150F4D /* PAPersonalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPersonalProfile.swift; sourceTree = "<group>"; };
 		3BEA1C3B2108E3F300150F4D /* PAPersonalProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PAPersonalProfile.xib; sourceTree = "<group>"; };
+		3BF68677211C9E610065DE16 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		3BF68678211C9E610065DE16 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		3BF9482520BAA43600CECBCF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3BF9482620BAA43700CECBCF /* SelfSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSurvey.swift; sourceTree = "<group>"; };
 		3BF9482920BAAA2800CECBCF /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 		3B1A256320A7FF6A00F054E0 = {
 			isa = PBXGroup;
 			children = (
+				3BF68678211C9E610065DE16 /* Nunito-Bold.ttf */,
+				3BF68677211C9E610065DE16 /* Nunito-SemiBold.ttf */,
 				3B1A256E20A7FF6B00F054E0 /* PollApp */,
 				3BD75AB320A803E5007FDD57 /* Images */,
 				3B1A258320A7FF6B00F054E0 /* PollAppTests */,
@@ -762,6 +768,7 @@
 				3BE1C9B920FFBC070030BC9A /* Icon-Small-50x50@1x.png in Resources */,
 				3BD75ABF20A85C18007FDD57 /* user.png in Resources */,
 				3BF9483420C0532C00CECBCF /* Corporate.xib in Resources */,
+				3BF68679211C9E620065DE16 /* Nunito-SemiBold.ttf in Resources */,
 				3B1A257720A7FF6B00F054E0 /* Assets.xcassets in Resources */,
 				3B81A6CF20B708A800844703 /* LocalText.json in Resources */,
 				3BE1C9B620FFBC070030BC9A /* Icon-App-40x40@2x.png in Resources */,
@@ -775,6 +782,7 @@
 				1BC81B9F20B6DF3200CF7EC7 /* PASettingVC.xib in Resources */,
 				3BE1C9B020FFBC070030BC9A /* Icon-App-83.5x83.5@2x.png in Resources */,
 				3BE1C9B220FFBC070030BC9A /* ItunesArtwork@2x.png in Resources */,
+				3BF6867A211C9E620065DE16 /* Nunito-Bold.ttf in Resources */,
 				3BA138A820B4979B00FC8D1A /* done-tick.png in Resources */,
 				3BE1C9B720FFBC070030BC9A /* Icon-App-72x72@2x.png in Resources */,
 				1B2A695720C696D500249AA9 /* GroupMemberCell.xib in Resources */,

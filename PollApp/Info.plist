@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Lets Vote</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -60,6 +62,11 @@
 	<string>Poll App Wants To access your Contacts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You can select photo</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-SemiBold.ttf</string>
+		<string>Nunito-Bold.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

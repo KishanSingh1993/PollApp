@@ -134,15 +134,10 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
     
     @IBAction func clickToSurvay(_ sender: Any) {
         
-        if (self.appUserObject?.userType)! == "0" {
-            let vc = PAChatVC(nibName: "PAChatVC", bundle: nil)
-            vc.isMySurvey = true
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else
-        {
+    
             let vc = PACustomSurvay(nibName: "PACustomSurvay", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+        
         
        
     }
@@ -316,7 +311,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
             else{
                 self.arrHomeProductData = arrData
                 self.tableHeight.constant = CGFloat((self.arrHomeProductData.count)*300)
-                 self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count-1)*300 - 180)
+                 self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count)*300 - 200)
               //  self.viewScrollHeight.constant = CGFloat(self.tableView.frame.size.height + 140 + CGFloat((self.arrHomeProductData.count)*15))
                 self.tableView.reloadData()
                 SVProgressHUD.dismiss()
@@ -406,7 +401,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
             
             
             setHomeData()
-            self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count-1)*300 - 180)
+            self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count)*300 - 200)
             self.tableView.reloadData()
             
             

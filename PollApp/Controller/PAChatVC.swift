@@ -260,7 +260,7 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20.0
+        return 2.0
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let viewFooter = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 10))

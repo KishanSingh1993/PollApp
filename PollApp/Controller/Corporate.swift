@@ -24,20 +24,20 @@ class Corporate: BaseViewController {
         super.viewDidLoad()
         self.btnSubmit.layer.cornerRadius = 5.0
         
-        let corporateProfile = UserDefaults.standard.dictionary(forKey: "corporateProfile")
-        if corporateProfile != nil {
-            print(corporateProfile)
-            
-            self.txtCompanyName.text = corporateProfile?["company_name"] as! String
-             self.txtPersonName.text = corporateProfile?["company_contact_person"]as! String
-             self.txtCompanyAddress.text = corporateProfile?["company_address"]as! String
-             self.txtPhoneNumber.text = corporateProfile?["company_phone_number"]as! String
-             self.txtEmailAddress.text = corporateProfile?["company_email_address"] as! String
-             self.txtCompanyWebsite.text = corporateProfile?["company_website"] as! String
-        }
-        else{
-            print("Nill")
-        }
+//        let corporateProfile = UserDefaults.standard.dictionary(forKey: "corporateProfile")
+//        if corporateProfile != nil {
+//            print(corporateProfile)
+//            
+//            self.txtCompanyName.text = corporateProfile?["company_name"] as! String
+//             self.txtPersonName.text = corporateProfile?["company_contact_person"]as! String
+//             self.txtCompanyAddress.text = corporateProfile?["company_address"]as! String
+//             self.txtPhoneNumber.text = corporateProfile?["company_phone_number"]as! String
+//             self.txtEmailAddress.text = corporateProfile?["company_email_address"] as! String
+//             self.txtCompanyWebsite.text = corporateProfile?["company_website"] as! String
+//        }
+//        else{
+//            print("Nill")
+//        }
          self.txtPhoneNumber.setNumberKeybord(self, withLeftTitle: "Cancel", andRightTitle: "Done")
        
     }
