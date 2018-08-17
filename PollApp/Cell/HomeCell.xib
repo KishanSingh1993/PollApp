@@ -58,7 +58,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-bE-tNh" customClass="BasicBarChart" customModule="PollApp" customModuleProvider="target">
-                                <rect key="frame" x="10" y="38.999999999999986" width="300" height="220.66666666666663"/>
+                                <rect key="frame" x="10" y="38.999999999999986" width="300" height="218.66666666666663"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -70,7 +70,7 @@
                             <constraint firstItem="mbX-Vi-Kbe" firstAttribute="leading" secondItem="5cm-Xs-82X" secondAttribute="leading" constant="15" id="ODR-6M-YWk"/>
                             <constraint firstAttribute="trailing" secondItem="Qch-up-seB" secondAttribute="trailing" constant="15" id="PHg-Y0-PZp"/>
                             <constraint firstAttribute="trailing" secondItem="GFU-hN-Wv7" secondAttribute="trailing" constant="10" id="Vje-i8-QpA"/>
-                            <constraint firstAttribute="bottom" secondItem="xcV-bE-tNh" secondAttribute="bottom" id="ZXU-j3-c5b"/>
+                            <constraint firstAttribute="bottom" secondItem="xcV-bE-tNh" secondAttribute="bottom" constant="2" id="ZXU-j3-c5b"/>
                             <constraint firstItem="mbX-Vi-Kbe" firstAttribute="top" secondItem="5cm-Xs-82X" secondAttribute="top" constant="5" id="dYL-my-I7w"/>
                             <constraint firstItem="Qch-up-seB" firstAttribute="top" secondItem="5cm-Xs-82X" secondAttribute="top" constant="5" id="eMs-fu-dvs"/>
                             <constraint firstItem="xcV-bE-tNh" firstAttribute="top" secondItem="Qch-up-seB" secondAttribute="bottom" constant="10" id="uA1-dF-U1B"/>
@@ -129,7 +129,7 @@
                 <outlet property="lblTimes" destination="gGn-dR-aY7" id="bPq-je-OvH"/>
                 <outlet property="viewChart" destination="xcV-bE-tNh" id="8GX-dC-sOe"/>
             </connections>
-            <point key="canvasLocation" x="-243" y="-97"/>
+            <point key="canvasLocation" x="-177" y="-199"/>
         </tableViewCell>
     </objects>
     <resources>

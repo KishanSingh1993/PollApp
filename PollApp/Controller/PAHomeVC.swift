@@ -78,7 +78,7 @@ class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISe
         self.searchBar.delegate = self
         
         btnHome .setButtonImage("homeblack.png")
-        self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        self.tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell")
         
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.separatorStyle = .none
@@ -530,10 +530,10 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCellBar
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
         cell.lblName.text = obj.name
-        cell.delegate = self
+       // cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         
         
