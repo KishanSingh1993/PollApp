@@ -15,6 +15,7 @@
                 <outlet property="topView" destination="n1D-yH-3Ud" id="Wtg-gz-4Dh"/>
                 <outlet property="txtCompanyAddress" destination="WZH-ff-Dhn" id="YQt-B3-AbU"/>
                 <outlet property="txtCompanyName" destination="3RO-a9-ZfI" id="4C3-oi-f2b"/>
+                <outlet property="txtCompanyWebsite" destination="XSD-FX-K8S" id="5nQ-ex-vbb"/>
                 <outlet property="txtEmailAddress" destination="nxp-Ho-Pf4" id="9BE-1F-L7g"/>
                 <outlet property="txtPersonName" destination="I1p-oE-MhI" id="a5G-LS-7sF"/>
                 <outlet property="txtPhoneNumber" destination="UVk-cD-jX1" id="4Md-O8-nXT"/>
@@ -270,6 +271,42 @@
                                         <constraint firstItem="nxp-Ho-Pf4" firstAttribute="top" secondItem="PNa-3U-His" secondAttribute="bottom" constant="10" id="vqM-wJ-ofc"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ef-cK-V0A">
+                                    <rect key="frame" x="0.0" y="500" width="414" height="100"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campany Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDT-au-RXN">
+                                            <rect key="frame" x="20" y="15" width="374" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="d8w-bC-jfz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Enter campany website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSD-FX-K8S">
+                                            <rect key="frame" x="20" y="55" width="374" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="Iu9-83-Zoc"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="hgA-6I-kXE"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="PDT-au-RXN" secondAttribute="trailing" constant="20" id="5e1-WP-GK4"/>
+                                        <constraint firstAttribute="height" constant="100" id="8sn-dg-ZGp"/>
+                                        <constraint firstItem="XSD-FX-K8S" firstAttribute="top" secondItem="PDT-au-RXN" secondAttribute="bottom" constant="10" id="C0w-mP-w54"/>
+                                        <constraint firstItem="PDT-au-RXN" firstAttribute="top" secondItem="8Ef-cK-V0A" secondAttribute="top" constant="15" id="Jfx-gP-tOh"/>
+                                        <constraint firstAttribute="trailing" secondItem="XSD-FX-K8S" secondAttribute="trailing" constant="20" id="eib-Gg-VKF"/>
+                                        <constraint firstItem="PDT-au-RXN" firstAttribute="leading" secondItem="8Ef-cK-V0A" secondAttribute="leading" constant="20" id="rIe-Y0-9yZ"/>
+                                        <constraint firstItem="XSD-FX-K8S" firstAttribute="leading" secondItem="8Ef-cK-V0A" secondAttribute="leading" constant="20" id="v3P-Qe-BqK"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -278,12 +315,16 @@
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="leading" secondItem="1wy-9W-8L6" secondAttribute="leading" id="7rX-pV-z1T"/>
                                 <constraint firstItem="jdk-ro-h96" firstAttribute="top" secondItem="iru-fN-WXM" secondAttribute="bottom" id="CMg-aZ-G4G"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="leading" secondItem="jdk-ro-h96" secondAttribute="leading" id="EL1-8e-4gy"/>
+                                <constraint firstItem="8Ef-cK-V0A" firstAttribute="leading" secondItem="Vtr-nW-jIx" secondAttribute="leading" id="Hcy-L4-lZw"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="trailing" secondItem="jdk-ro-h96" secondAttribute="trailing" id="Mq3-KQ-RT1"/>
+                                <constraint firstAttribute="trailing" secondItem="8Ef-cK-V0A" secondAttribute="trailing" id="SHT-Y8-Uop"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="trailing" secondItem="iru-fN-WXM" secondAttribute="trailing" id="XHC-ep-12x"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="leading" secondItem="iru-fN-WXM" secondAttribute="leading" id="c13-cK-Ysd"/>
+                                <constraint firstItem="8Ef-cK-V0A" firstAttribute="top" secondItem="jdk-ro-h96" secondAttribute="bottom" id="irB-Wa-izS"/>
                                 <constraint firstItem="1wy-9W-8L6" firstAttribute="top" secondItem="0aN-fi-fY9" secondAttribute="bottom" id="kBh-Mi-Udx"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="trailing" secondItem="1wy-9W-8L6" secondAttribute="trailing" id="mH5-R8-EeQ"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="top" secondItem="MSv-FS-gcE" secondAttribute="bottom" id="mby-OP-ndp"/>
+                                <constraint firstAttribute="bottom" secondItem="8Ef-cK-V0A" secondAttribute="bottom" id="ndL-hL-Edc"/>
                                 <constraint firstAttribute="trailing" secondItem="0aN-fi-fY9" secondAttribute="trailing" id="t0F-F4-9Wc"/>
                                 <constraint firstItem="0aN-fi-fY9" firstAttribute="trailing" secondItem="MSv-FS-gcE" secondAttribute="trailing" id="uDd-gU-zwd"/>
                                 <constraint firstItem="iru-fN-WXM" firstAttribute="top" secondItem="1wy-9W-8L6" secondAttribute="bottom" id="vfK-VW-zjn"/>

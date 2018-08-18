@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class PASearch: BaseViewController, UISearchBarDelegate , QueSubmitionDelegate,HomeCellDelegate {
+class PASearch: BaseViewController, UISearchBarDelegate , QueSubmitionDelegate,HomeCellBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,7 +17,7 @@ class PASearch: BaseViewController, UISearchBarDelegate , QueSubmitionDelegate,H
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        self.tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.separatorStyle = .none
        
@@ -147,10 +147,10 @@ extension PASearch: UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCellBar
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
         cell.lblName.text = obj.name
-        cell.delegate = self as? HomeCellDelegate
+        cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         cell.lblTimes.text = "remains"
         if let ques = obj.questions {

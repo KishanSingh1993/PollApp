@@ -86,8 +86,7 @@ extension PASettingVC:UITableViewDelegate,UITableViewDataSource{
         }
         else{
             cell.btnSwitch.isHidden = true
-//            let vc = PALogInVC(nibName: "", bundle: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
        
         
@@ -95,6 +94,14 @@ extension PASettingVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 7 {
+            let vc = PALogInVC(nibName: "PALogInVC", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+            UserDefaults.standard.set(0, forKey: "isLogin")
+            UserDefaults.standard.synchronize()
+        }
     }
 
 }

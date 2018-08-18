@@ -20,6 +20,7 @@ pod 'Toast-Swift'
  pod 'Crashlytics'
  pod 'GooglePlaces'
  pod 'GooglePlacePicker'
+ pod 'Kingfisher'
  pod 'GoogleMaps'
   target 'PollAppTests' do
     inherit! :search_paths

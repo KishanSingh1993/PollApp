@@ -214,17 +214,20 @@ class PAProfile: BaseViewController , FBSDKLoginButtonDelegate {
             else
             {
                 print("fetched user: \(result)")
-                  let dict = result as! [String : AnyObject]
+                 guard let dict = result as? [String: Any] else { return }
+                 // let dict = result as! [String : AnyObject]
                 let userName : NSString = dict["name"] as! NSString
                 print("User Name is: \(userName)")
                 let userEmail : NSString = dict["email"] as! NSString
                 print("User Email is: \(userEmail)")
                 print(dict)
                 
+                guard let imageURL = ((dict["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String else { return }
+                
                 let vc = PAPersonalProfile(nibName: "PAPersonalProfile", bundle: nil)
                 vc.name = userName as String
                 vc.email = userEmail as String
-               
+                vc.imgUrl = imageURL
                 self.navigationController?.pushViewController(vc, animated: true)
                 
                

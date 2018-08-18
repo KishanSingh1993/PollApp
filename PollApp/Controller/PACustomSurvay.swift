@@ -37,6 +37,20 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
     var lat : String = ""
     var lng : String = ""
     
+    @IBOutlet weak var lblCityHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnGenderHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewGenderHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewAgeHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var lblGenderHeight: NSLayoutConstraint!
+    @IBOutlet weak var lblAgeHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewCityHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var btnCityHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnAgeHeight: NSLayoutConstraint!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageUser = UIImage(named: "user.png")!
@@ -49,6 +63,28 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
         datePicker.translatesAutoresizingMaskIntoConstraints = false
        
         arrQuestion = (setDataWithLocalJson("NextVersion") as NSArray as? Array<Dictionary<String, Any>>)!
+        if (self.appUserObject?.userType)! == "0"{
+            self.viewGenderHeight.constant = 0
+            self.viewAgeHeight.constant = 0
+            self.viewCityHeight.constant = 0
+            self.btnAgeHeight.constant = 0
+             self.btnGenderHeight.constant = 0
+             self.btnCityHeight.constant = 0
+            lblCityHeight.constant = 0
+            lblAgeHeight.constant = 0
+            lblGenderHeight.constant = 0
+        }else{
+            self.viewGenderHeight.constant = 100
+            self.viewAgeHeight.constant = 100
+            self.viewCityHeight.constant = 100
+            lblCityHeight.constant = 30
+            lblAgeHeight.constant = 30
+            lblGenderHeight.constant = 30
+            self.btnAgeHeight.constant = 40
+            self.btnGenderHeight.constant = 40
+            self.btnCityHeight.constant = 40
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

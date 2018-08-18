@@ -55,6 +55,8 @@ class PAOTPVC: BaseViewController {
     override func viewDidLayoutSubviews() {
         self.viewGradent.applyGradient(colours: [self.color1,self.color2])
         self.btnOtp.applyGradient(colours: [self.btnColor1,self.btnColor2])
+        self.btnOtp.layer.cornerRadius = 5.0;
+        self.btnOtp.layer.masksToBounds = true;
     }
     
     

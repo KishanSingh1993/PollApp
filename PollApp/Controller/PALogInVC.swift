@@ -43,6 +43,8 @@ class PALogInVC: BaseViewController {
  
         self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
         self.btnNext.applyGradient(colours: [self.btnColor1,self.btnColor2])
+        self.btnNext.layer.cornerRadius = 5.0;
+        self.btnNext.layer.masksToBounds = true;
     }
     
     

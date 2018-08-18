@@ -79,15 +79,20 @@ weak var axisFormatDelegate: IAxisValueFormatter?
 //        xaxis.drawLabelsEnabled = false
 //        xaxis.enabled = false
         
-        viewChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        viewChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
+        viewChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        viewChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
 
         
       
         
         
 }
- 
+    
+    
+    @IBAction func clickToShare(_ sender: Any) {
+         delegate?.didTapShareButton(sender as! UIButton)
+    }
+    
    
     
     func  cellConfig(arrOption : [Option]) {

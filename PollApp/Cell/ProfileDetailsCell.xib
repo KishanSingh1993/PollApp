@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-hg-OCI">
-                        <rect key="frame" x="10" y="5" width="300" height="30"/>
+                        <rect key="frame" x="16" y="5" width="294" height="30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Lm4-sA-ZnF"/>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC5-y1-XPq">
-                        <rect key="frame" x="10" y="40" width="300" height="30"/>
+                        <rect key="frame" x="16" y="40" width="294" height="30"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="7po-vz-J6z"/>
@@ -45,9 +45,9 @@
                     <constraint firstItem="sC5-y1-XPq" firstAttribute="top" secondItem="bjT-hg-OCI" secondAttribute="bottom" constant="5" id="KLp-Kv-CSc"/>
                     <constraint firstItem="bjT-hg-OCI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="QzX-Dx-rIb"/>
                     <constraint firstAttribute="trailing" secondItem="bjT-hg-OCI" secondAttribute="trailing" constant="10" id="bQt-xQ-QeP"/>
-                    <constraint firstItem="sC5-y1-XPq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gXO-NN-3b8"/>
+                    <constraint firstItem="sC5-y1-XPq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="gXO-NN-3b8"/>
                     <constraint firstAttribute="trailing" secondItem="sC5-y1-XPq" secondAttribute="trailing" constant="10" id="iLw-Ck-AYi"/>
-                    <constraint firstItem="bjT-hg-OCI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sq5-2h-3J1"/>
+                    <constraint firstItem="bjT-hg-OCI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="sq5-2h-3J1"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -8,13 +8,20 @@
 
 import UIKit
 
-class QuestionCellTableViewCell: UITableViewCell {
 
+protocol QuestionCellTableViewCellDelegate {
+    func didToggleRadioButton(_ indexPath: IndexPath)
+}
+
+
+class QuestionCellTableViewCell: UITableViewCell {
+    @IBOutlet weak var btnRadio: UIButton!
+    var delegate: QuestionCellTableViewCellDelegate?
     @IBOutlet weak var lblText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     
-         lblText.layer.borderWidth = 1.0
+//         lblText.layer.borderWidth = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,85 +30,45 @@ class QuestionCellTableViewCell: UITableViewCell {
        
     }
     
+    
+    
+    
+//    func initCellItem() {
+//        
+////        let deselectedImage = UIImage(named: "off.png")?.withRenderingMode(.alwaysTemplate)
+////        let selectedImage = UIImage(named: "on.png")?.withRenderingMode(.alwaysTemplate)
+//        btnRadio.setButtonImage( "off.png")
+//         btnRadio.setButtonImage( "on.png")
+//        //btnRadio.setImage(selectedImage, for: .selected)
+//        btnRadio.addTarget(self, action: #selector(self.radioButtonTapped), for: .touchUpInside)
+//    }
+//    
+//    @objc func radioButtonTapped(_ radioButton: UIButton) {
+//        print("radio button tapped")
+//        let isSelected = !self.btnRadio.isSelected
+//        self.btnRadio.isSelected = isSelected
+//        if isSelected {
+//            deselectOtherButton()
+//        }
+//        let tableView = self.superview as! UITableView
+//        let tappedCellIndexPath = tableView.indexPath(for: self)!
+//        delegate?.didToggleRadioButton(tappedCellIndexPath)
+//    }
+//    
+//    func deselectOtherButton() {
+//        
+//        let tableView = self.superview as! UITableView
+//        let tappedCellIndexPath = tableView.indexPath(for: self)!
+//        let indexPaths = tableView.indexPathsForVisibleRows
+//        for indexPath in indexPaths! {
+//            if indexPath.row != tappedCellIndexPath.row && indexPath.section == tappedCellIndexPath.section {
+//                let cell = tableView.cellForRow(at: IndexPath(row: indexPath.row, section: indexPath.section)) as! QuestionCellTableViewCell
+//                cell.btnRadio.isSelected = false
+//            }
+//        }
+//    }
+
+    
+    
+    
 }
-/*//
- //  HomeCell.swift
- //  PollApp
- //
- //  Created by Opiant tech Solutions Pvt. Ltd. on 14/05/18.
- //  Copyright © 2018 Ankleshwar. All rights reserved.
- //
- 
- import UIKit
- import SwiftCharts
- import Charts
- 
- 
- class HomeCell: UITableViewCell {
- @IBOutlet weak var lblNumberOfViews: UILabel!
- weak var axisFormatDelegate: IAxisValueFormatter?
- @IBOutlet weak var lblTimes: UILabel!
- @IBOutlet weak var viewChart: BarChartView!
- var chart: BarsChart!
- var months: [String]!
- var dataEntries: [BarChartDataEntry] = []
- let sideSelectorHeight: CGFloat = 50
- 
- @IBOutlet weak var btnShare: UIButton!
- @IBOutlet weak var lblName: UILabel!
- override func awakeFromNib() {
- super.awakeFromNib()
- 
- UIView().setShadow(self.contentView)
- 
- 
- 
- 
- 
- months = ["Jan", "Feb", "Mar", "Apr"]
- let unitsSold = [0.2,0.4,0.6,0.8]
- 
- viewChart.xAxis.labelPosition = .bottom
- 
- setChart(dataPoints: months, values: unitsSold)
- 
- 
- 
- 
- }
- 
- override func setSelected(_ selected: Bool, animated: Bool) {
- super.setSelected(selected, animated: animated)
- 
- 
- }
- 
- func configChart(value: CGFloat , index: Int){
- 
- }
- 
- 
- func setChart(dataPoints: [String], values: [Double]) {
- //viewChart.noDataText = "You need to provide data for the chart."
- 
- 
- for i in 0..<dataPoints.count {
- print(values[i])
- let dataEntry = BarChartDataEntry(x: values[i], y: Double(i))
- dataEntries.append(dataEntry)
- }
- 
- let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
- viewChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
- 
- viewChart.xAxis.granularity = 1
- 
- 
- let chartData = BarChartData(dataSets: [chartDataSet])
- viewChart.data = chartData
- 
- }
- 
- 
- }
-*/

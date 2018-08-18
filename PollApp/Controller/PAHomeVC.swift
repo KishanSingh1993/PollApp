@@ -15,7 +15,7 @@ import Contacts
 typealias completBlock = (_ error: Error?, _ response: Bool) -> Void
 
 
-class PAHomeVC: BaseViewController, QueSubmitionDelegate ,HomeCellDelegate ,UISearchBarDelegate,UIScrollViewDelegate{
+class PAHomeVC: BaseViewController,QueSubmitionDelegate ,HomeCellBarDelegate ,UISearchBarDelegate,UIScrollViewDelegate{
     @IBOutlet weak var viewScroll: UIView!
     
     
@@ -533,7 +533,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCellBar
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
         cell.lblName.text = obj.name
-       // cell.delegate = self
+        cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         
         
@@ -610,6 +610,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
             present(vc, animated: true, completion: nil)
             return
         }
+        print(obj.selfSurvey.questions[0].givenAnswer)
         vc.strSurvay = obj.selfSurvey.questions[0].givenAnswer
         present(vc, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)

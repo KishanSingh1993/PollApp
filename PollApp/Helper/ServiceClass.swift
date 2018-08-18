@@ -805,7 +805,7 @@ class ServiceClass: NSObject {
             
             if response.result.isSuccess {
                 let resJson = JSON(response.result.value!)
-                
+                print(resJson)
                 let dicData = resJson.dictionaryObject!
                 
                 if dicData["status"] as! Int == 200 {

@@ -28,6 +28,7 @@ class PAPersonalProfile: BaseViewController {
     var strValue: String?
     var lat : String = ""
     var lng : String = ""
+    var imgUrl: String = ""
     var name = ""
     var email = ""
     @IBOutlet weak var txtEmail: UITextField!
@@ -55,6 +56,9 @@ class PAPersonalProfile: BaseViewController {
         
     }
     
+    @IBAction func clickToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
     @objc func donedatePicker(){
@@ -72,7 +76,18 @@ class PAPersonalProfile: BaseViewController {
     
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        self.callSocialScreenValue(age: self.txtAge.text ?? "", city: self.txtCity.text ?? "", gender: self.txtGender.text ?? "", lat: self.lat, lng: self.lng, name: self.txtName.text ?? "" , email: self.txtEmail.text ?? "")
+        if self.txtGender.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please select gender", controller: self)
+        }else if self.txtAge.text?.count == 0 {
+            ECSAlert().showAlert(message: "Please select age", controller: self)
+        }else if self.txtCity.text?.count == 0 {
+              ECSAlert().showAlert(message: "Please select city", controller: self)
+        }else{
+            self.callSocialScreenValue(age: self.txtAge.text ?? "", city: self.txtCity.text ?? "", gender: self.txtGender.text ?? "", lat: self.lat, lng: self.lng, name: self.txtName.text ?? "" , email: self.txtEmail.text ?? "")
+        }
+        
+        
+        
     }
     
     
@@ -145,6 +160,7 @@ class PAPersonalProfile: BaseViewController {
                 self.appUserObject?.userName = dicData["name"] as! String
                 self.appUserObject?.email = dicData["email"] as! String
                 self.appUserObject?.mobile = dicData["mobileNumber"] as! String
+                self.appUserObject?.userImageUrl = self.imgUrl
                 self.appUserObject?.saveToUserDefault()
                 UserDefaults.standard.setValue(dicData , forKey: "socialProfile")
                 UserDefaults.standard.synchronize()

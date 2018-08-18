@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class MyPollVC: BaseViewController , QueSubmitionDelegate,HomeCellDelegate {
+class MyPollVC: BaseViewController , QueSubmitionDelegate,HomeCellBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: UIView!
      var arrHomeProductData : Array<Any> = []
@@ -21,7 +21,7 @@ class MyPollVC: BaseViewController , QueSubmitionDelegate,HomeCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         callThePollData()
-        self.tableView.register(UINib(nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        self.tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.separatorStyle = .none
        // self.viewTable.addShadow()
@@ -136,10 +136,10 @@ extension MyPollVC: UITableViewDelegate,UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCellBar
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
         cell.lblName.text = obj.name
-        cell.delegate = self as? HomeCellDelegate
+        cell.delegate = self
         cell.lblNumberOfViews.text = String(obj.attemptedCount)
         cell.lblTimes.text = "remains"
         if let ques = obj.questions {

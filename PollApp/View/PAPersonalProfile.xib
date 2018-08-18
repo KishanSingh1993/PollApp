@@ -39,6 +39,9 @@
                                 <constraint firstAttribute="height" constant="30" id="peu-cY-2lo"/>
                             </constraints>
                             <state key="normal" image="back.png"/>
+                            <connections>
+                                <action selector="clickToBack:" destination="-1" eventType="touchUpInside" id="iiW-2E-aZA"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iM1-5A-3ac">
                             <rect key="frame" x="90" y="21" width="304" height="25"/>

@@ -16,9 +16,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PAProfleDetails">
             <connections>
+                <outlet property="imgView" destination="pAQ-h0-gCJ" id="fBp-Qg-aYo"/>
                 <outlet property="lblTitle" destination="NOE-zZ-ocg" id="0as-Lk-VU9"/>
                 <outlet property="tableView" destination="Xa4-TL-AxP" id="Nye-lh-SYh"/>
                 <outlet property="view" destination="NJ2-nS-TT9" id="muu-uj-ABi"/>
+                <outlet property="viewHeight" destination="syJ-i5-ybJ" id="Nex-V8-9dN"/>
                 <outlet property="viewTable" destination="0hl-Oc-98c" id="Xm9-1Y-FQ0"/>
             </connections>
         </placeholder>
@@ -28,10 +30,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOQ-uZ-Xqr">
-                    <rect key="frame" x="0.0" y="20" width="375" height="150"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="230"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOE-zZ-ocg">
-                            <rect key="frame" x="20" y="50" width="335" height="30"/>
+                            <rect key="frame" x="20" y="120" width="335" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="7fX-cf-c3h"/>
                             </constraints>
@@ -39,20 +41,34 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcY-lS-rjD">
+                            <rect key="frame" x="320" y="20" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="guR-MB-GM4"/>
+                                <constraint firstAttribute="width" constant="30" id="ilj-Jt-tNy"/>
+                            </constraints>
+                            <state key="normal" image="edit"/>
+                            <connections>
+                                <action selector="clickToEdit:" destination="-1" eventType="touchUpInside" id="p8z-AP-QdT"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.5568627451" green="0.12941176469999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="NOE-zZ-ocg" firstAttribute="top" secondItem="wOQ-uZ-Xqr" secondAttribute="top" constant="50" id="BCS-nd-3g5"/>
+                        <constraint firstItem="NOE-zZ-ocg" firstAttribute="centerX" secondItem="wOQ-uZ-Xqr" secondAttribute="centerX" id="5q1-ut-Exr"/>
+                        <constraint firstItem="NOE-zZ-ocg" firstAttribute="top" secondItem="wOQ-uZ-Xqr" secondAttribute="top" constant="120" id="BCS-nd-3g5"/>
                         <constraint firstAttribute="trailing" secondItem="NOE-zZ-ocg" secondAttribute="trailing" constant="20" id="OGd-UQ-KZm"/>
+                        <constraint firstItem="rcY-lS-rjD" firstAttribute="top" secondItem="wOQ-uZ-Xqr" secondAttribute="top" constant="20" id="T7O-gC-aGI"/>
                         <constraint firstItem="NOE-zZ-ocg" firstAttribute="leading" secondItem="wOQ-uZ-Xqr" secondAttribute="leading" constant="20" id="dTj-N5-1fm"/>
-                        <constraint firstAttribute="height" constant="150" id="iQU-lf-yhz"/>
+                        <constraint firstAttribute="height" constant="230" id="iQU-lf-yhz"/>
+                        <constraint firstAttribute="trailing" secondItem="rcY-lS-rjD" secondAttribute="trailing" constant="25" id="qe5-TT-ovw"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hl-Oc-98c">
-                    <rect key="frame" x="20" y="120" width="335" height="447"/>
+                    <rect key="frame" x="20" y="200" width="335" height="447"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-TL-AxP">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="447"/>
+                            <rect key="frame" x="0.0" y="8" width="335" height="439"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="VeF-QZ-ljO"/>
@@ -62,25 +78,38 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Xa4-TL-AxP" secondAttribute="trailing" id="BSB-pD-Qxr"/>
-                        <constraint firstItem="Xa4-TL-AxP" firstAttribute="leading" secondItem="0hl-Oc-98c" secondAttribute="leading" id="Q4e-4p-q5e"/>
-                        <constraint firstAttribute="bottom" secondItem="Xa4-TL-AxP" secondAttribute="bottom" id="h7Y-ek-2xW"/>
-                        <constraint firstItem="Xa4-TL-AxP" firstAttribute="top" secondItem="0hl-Oc-98c" secondAttribute="top" id="zKH-WH-U4D"/>
+                        <constraint firstAttribute="bottom" secondItem="Xa4-TL-AxP" secondAttribute="bottom" id="4Zs-1Q-B5K"/>
+                        <constraint firstItem="Xa4-TL-AxP" firstAttribute="top" secondItem="0hl-Oc-98c" secondAttribute="top" constant="8" id="ShK-kK-lug"/>
+                        <constraint firstItem="Xa4-TL-AxP" firstAttribute="leading" secondItem="0hl-Oc-98c" secondAttribute="leading" id="TDW-ma-dK1"/>
+                        <constraint firstAttribute="trailing" secondItem="Xa4-TL-AxP" secondAttribute="trailing" id="k2k-Qx-QOP"/>
+                        <constraint firstAttribute="height" constant="447" id="syJ-i5-ybJ"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="group_default_user.png" translatesAutoresizingMaskIntoConstraints="NO" id="pAQ-h0-gCJ">
+                    <rect key="frame" x="137" y="80" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="1fu-wd-sAg"/>
+                        <constraint firstAttribute="height" constant="100" id="Y9q-fW-RAN"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0hl-Oc-98c" firstAttribute="leading" secondItem="dwj-3l-XH3" secondAttribute="leading" constant="20" id="1dw-bN-0sZ"/>
-                <constraint firstItem="0hl-Oc-98c" firstAttribute="top" secondItem="dwj-3l-XH3" secondAttribute="top" constant="100" id="Ccd-ZX-Qxu"/>
+                <constraint firstItem="pAQ-h0-gCJ" firstAttribute="top" secondItem="dwj-3l-XH3" secondAttribute="top" constant="60" id="9uj-t8-aHB"/>
+                <constraint firstItem="dwj-3l-XH3" firstAttribute="trailing" secondItem="0hl-Oc-98c" secondAttribute="trailing" constant="20" id="Bl3-hZ-cQY"/>
                 <constraint firstItem="dwj-3l-XH3" firstAttribute="trailing" secondItem="wOQ-uZ-Xqr" secondAttribute="trailing" id="Lng-Sy-cZr"/>
-                <constraint firstItem="dwj-3l-XH3" firstAttribute="bottom" secondItem="0hl-Oc-98c" secondAttribute="bottom" constant="100" id="Po7-p0-gY1"/>
                 <constraint firstItem="wOQ-uZ-Xqr" firstAttribute="leading" secondItem="dwj-3l-XH3" secondAttribute="leading" id="QZ1-Pa-bmD"/>
-                <constraint firstItem="dwj-3l-XH3" firstAttribute="trailing" secondItem="0hl-Oc-98c" secondAttribute="trailing" constant="20" id="YRV-Ba-5Zi"/>
+                <constraint firstItem="0hl-Oc-98c" firstAttribute="top" secondItem="pAQ-h0-gCJ" secondAttribute="bottom" constant="20" id="gso-yx-zac"/>
+                <constraint firstItem="pAQ-h0-gCJ" firstAttribute="centerX" secondItem="NJ2-nS-TT9" secondAttribute="centerX" id="n17-jR-3yV"/>
                 <constraint firstItem="wOQ-uZ-Xqr" firstAttribute="top" secondItem="dwj-3l-XH3" secondAttribute="top" id="nPf-tL-lcR"/>
+                <constraint firstItem="0hl-Oc-98c" firstAttribute="leading" secondItem="dwj-3l-XH3" secondAttribute="leading" constant="20" id="r8j-Kn-Hp0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="dwj-3l-XH3"/>
-            <point key="canvasLocation" x="-2" y="195"/>
+            <point key="canvasLocation" x="-97" y="157"/>
         </view>
     </objects>
+    <resources>
+        <image name="edit" width="24" height="24"/>
+        <image name="group_default_user.png" width="252" height="252"/>
+    </resources>
 </document>
