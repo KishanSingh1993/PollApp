@@ -250,7 +250,7 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="xrq-xv-h7E" secondAttribute="bottom" constant="100" id="48J-Z8-znA"/>
+                        <constraint firstAttribute="bottom" secondItem="xrq-xv-h7E" secondAttribute="bottom" constant="150" id="48J-Z8-znA"/>
                         <constraint firstItem="xrq-xv-h7E" firstAttribute="top" secondItem="eEC-Ok-Bj7" secondAttribute="top" id="GJ1-jG-Vpi"/>
                         <constraint firstItem="xrq-xv-h7E" firstAttribute="centerY" secondItem="eEC-Ok-Bj7" secondAttribute="centerY" id="Lez-xG-PKU"/>
                         <constraint firstItem="xrq-xv-h7E" firstAttribute="leading" secondItem="eEC-Ok-Bj7" secondAttribute="leading" id="M17-Nd-T5H"/>

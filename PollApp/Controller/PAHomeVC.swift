@@ -351,7 +351,12 @@ class PAHomeVC: BaseViewController,QueSubmitionDelegate ,HomeCellBarDelegate ,UI
         setButtonImg(btn: btnHome, strActive: "home_white.png",btn1: btnProfile, strUnactive1:"identity_yellow.png", btn2: btnChat, strUnactive2: "chat_.png", btn3: btnSearch, strUnactive3: "poll_white.png", btn4: btnSetting, strUnactive4: "settings_white.png")
         
         viewProfile = PAProfleDetails(nibName: "PAProfleDetails", bundle: nil)
-         self.viewScrollHeight.constant = 0
+        if (self.appUserObject?.userType)! == "0"{
+             self.viewScrollHeight.constant = 0
+        }else{
+             self.viewScrollHeight.constant = 150
+        }
+        
         addChildViewController(viewProfile!)
         viewMain.addSubview((viewProfile?.view)!)
         viewProfile?.view.frame = viewMain.bounds

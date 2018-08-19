@@ -49,6 +49,7 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
     @IBOutlet weak var btnCityHeight: NSLayoutConstraint!
     @IBOutlet weak var btnAgeHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var viewforScrollheight: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -57,22 +58,39 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
       
         
         self.tableView.register(UINib(nibName:"SurvayOptionCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        
+         self.tableView.separatorStyle = .none
         self.tableViewHieght.constant = 0.0
         self.txtImagepath.isEnabled = false
         datePicker.translatesAutoresizingMaskIntoConstraints = false
        
         arrQuestion = (setDataWithLocalJson("NextVersion") as NSArray as? Array<Dictionary<String, Any>>)!
+        
+        
+    }
+    
+    
+    
+    override func viewLayoutMarginsDidChange() {
+       
+    }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.pickerView.translatesAutoresizingMaskIntoConstraints = false
+        showDatePicker()
+
         if (self.appUserObject?.userType)! == "0"{
             self.viewGenderHeight.constant = 0
             self.viewAgeHeight.constant = 0
             self.viewCityHeight.constant = 0
             self.btnAgeHeight.constant = 0
-             self.btnGenderHeight.constant = 0
-             self.btnCityHeight.constant = 0
+            self.btnGenderHeight.constant = 0
+            self.btnCityHeight.constant = 0
             lblCityHeight.constant = 0
             lblAgeHeight.constant = 0
             lblGenderHeight.constant = 0
+            viewforScrollheight.constant = 600
+            
         }else{
             self.viewGenderHeight.constant = 100
             self.viewAgeHeight.constant = 100
@@ -83,15 +101,8 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
             self.btnAgeHeight.constant = 40
             self.btnGenderHeight.constant = 40
             self.btnCityHeight.constant = 40
+            viewforScrollheight.constant = 1000
         }
-        
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.pickerView.translatesAutoresizingMaskIntoConstraints = false
-        showDatePicker()
-
-       // showPicker()
         
         
     }
@@ -179,7 +190,13 @@ class PACustomSurvay: BaseViewController, UIImagePickerControllerDelegate , UINa
             
             self.tableView.reloadData()
             self.txtOtptionsValue.text = ""
-            self.resignFirstResponder() 
+            self.resignFirstResponder()
+           
+            if (self.appUserObject?.userType)! == "0"{
+                viewforScrollheight.constant = 600 + CGFloat(10 + numberOfRow * 40)
+            }else{
+                viewforScrollheight.constant = 1000 + CGFloat(10 + numberOfRow * 40)
+            }
         }
         
         

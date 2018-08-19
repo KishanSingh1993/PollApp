@@ -37,7 +37,7 @@ class PAContactList: BaseViewController {
         callContactData()
         self.tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
-      
+       self.tableView.separatorStyle = .none
     
        
     }

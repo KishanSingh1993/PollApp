@@ -36,6 +36,7 @@ class PAChatVC: BaseViewController {
       
         self.tableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.tableView.backgroundColor = UIColor.clear
+        self.tableView.separatorStyle = .none
         print(strShareId)
         
         if self.isMySurvey == true{

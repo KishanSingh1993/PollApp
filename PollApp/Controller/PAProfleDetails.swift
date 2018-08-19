@@ -37,7 +37,7 @@ class PAProfleDetails: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setValue()
-       self.viewHeight.constant = CGFloat(self.customArray.count * 80)
+       self.viewHeight.constant = CGFloat(self.customArray.count * 80 + 30)
     }
 
     
@@ -55,6 +55,8 @@ class PAProfleDetails: BaseViewController {
             self.imgView.clipsToBounds = true
             print((self.appUserObject?.userImageUrl)!)
             imgView.kf.indicatorType = .activity
+            
+          
             
             let url = URL(string: (self.appUserObject?.userImageUrl)!)
             imgView.kf.setImage(with: url)

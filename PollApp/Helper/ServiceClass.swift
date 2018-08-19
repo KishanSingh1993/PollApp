@@ -12,12 +12,13 @@ import SwiftyJSON
 
 
 let baseURL = "http://13.232.31.142/api/"
+let serverPath = "http://13.232.31.142"
 
 class ServiceClass: NSObject {
     typealias stringBlock = (_ error: Error?, _ response: String) -> Void
     typealias dictionaryBlock = (_ error: Error?, _ response: [String:Any]) -> Void
     typealias arrayBlock = (_ error: Error?, _ response: [Any]) -> Void
-    
+    typealias jsonBlock = (_ error: Error?, _ response: JSON) -> Void
 
     
     var headers: [String: String] = [:]
@@ -790,7 +791,7 @@ class ServiceClass: NSObject {
     
 
     
-    public func getSurvayId(strUrl:String,param:[String:Any],header:String,completion:@escaping (dictionaryBlock)){
+    public func getSurvayId(strUrl:String,param:[String:Any],header:String,completion:@escaping (jsonBlock)){
         
         print(param)
         print(baseURL+strUrl)
@@ -810,7 +811,7 @@ class ServiceClass: NSObject {
                 
                 if dicData["status"] as! Int == 200 {
                    
-                    completion(nil,dicData["data"] as! [String : Any] )
+                    completion(nil,resJson)
                 }
                 else{
                     let msg = dicData["userMessage"] as! String

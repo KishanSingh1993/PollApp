@@ -53,7 +53,6 @@
 		3B0C4D162128377E00437166 /* ic_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C4D092128377D00437166 /* ic_placeholder.png */; };
 		3B0C4D172128377E00437166 /* ic_send_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C4D0A2128377D00437166 /* ic_send_white@3x.png */; };
 		3B0C4D182128377E00437166 /* ic_arrow_forward_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B0C4D0B2128377E00437166 /* ic_arrow_forward_white@3x.png */; };
-		3B0C4D20212840D800437166 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C4D1F212840D700437166 /* Data.swift */; };
 		3B0C4D222128416400437166 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C4D212128416400437166 /* Location.swift */; };
 		3B12EC5F20F7991D00936F90 /* GroupPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B12EC5E20F7991C00936F90 /* GroupPoll.swift */; };
 		3B12EC6120F7992700936F90 /* GroupPoll.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B12EC6020F7992700936F90 /* GroupPoll.xib */; };
@@ -97,6 +96,8 @@
 		3BA138A320B4782200FC8D1A /* QuestionCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */; };
 		3BA138A420B4782200FC8D1A /* QuestionCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */; };
 		3BA138A820B4979B00FC8D1A /* done-tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA138A720B4979A00FC8D1A /* done-tick.png */; };
+		3BAE16582129723900A66F12 /* PollDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE16562129723800A66F12 /* PollDetails.swift */; };
+		3BAE16592129723900A66F12 /* DataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAE16572129723900A66F12 /* DataVC.swift */; };
 		3BC73F7B20C1A2B7001771A1 /* PAEvent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */; };
 		3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */; };
 		3BC73F8520C297A9001771A1 /* letter-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BC73F8420C297A9001771A1 /* letter-x.png */; };
@@ -215,7 +216,6 @@
 		3B0C4D092128377D00437166 /* ic_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_placeholder.png; sourceTree = "<group>"; };
 		3B0C4D0A2128377D00437166 /* ic_send_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_send_white@3x.png"; sourceTree = "<group>"; };
 		3B0C4D0B2128377E00437166 /* ic_arrow_forward_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_arrow_forward_white@3x.png"; sourceTree = "<group>"; };
-		3B0C4D1F212840D700437166 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3B0C4D212128416400437166 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3B12EC5E20F7991C00936F90 /* GroupPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPoll.swift; sourceTree = "<group>"; };
 		3B12EC6020F7992700936F90 /* GroupPoll.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPoll.xib; sourceTree = "<group>"; };
@@ -267,6 +267,8 @@
 		3BA138A120B4782200FC8D1A /* QuestionCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellTableViewCell.swift; sourceTree = "<group>"; };
 		3BA138A220B4782200FC8D1A /* QuestionCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCellTableViewCell.xib; sourceTree = "<group>"; };
 		3BA138A720B4979A00FC8D1A /* done-tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done-tick.png"; sourceTree = "<group>"; };
+		3BAE16562129723800A66F12 /* PollDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollDetails.swift; sourceTree = "<group>"; };
+		3BAE16572129723900A66F12 /* DataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataVC.swift; sourceTree = "<group>"; };
 		3BC73F7A20C1A2B7001771A1 /* PAEvent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PAEvent.xib; sourceTree = "<group>"; };
 		3BC73F7C20C1A2C0001771A1 /* PAEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAEvent.swift; sourceTree = "<group>"; };
 		3BC73F8420C297A9001771A1 /* letter-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "letter-x.png"; sourceTree = "<group>"; };
@@ -530,8 +532,9 @@
 		3BA1389420B352E800FC8D1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3BAE16572129723900A66F12 /* DataVC.swift */,
+				3BAE16562129723800A66F12 /* PollDetails.swift */,
 				3B0C4D212128416400437166 /* Location.swift */,
-				3B0C4D1F212840D700437166 /* Data.swift */,
 				3B01AB5120C700B900291522 /* GroupMember.swift */,
 				3B01AB5220C700B900291522 /* Member.swift */,
 				3B01AB4D20C6F7C300291522 /* Profile.swift */,
@@ -1118,7 +1121,7 @@
 				3BC73F7D20C1A2C0001771A1 /* PAEvent.swift in Sources */,
 				3BA1389E20B3E9CB00FC8D1A /* Option.swift in Sources */,
 				3B3306C320CD1C7A0038E6AD /* HomeCellBar.swift in Sources */,
-				3B0C4D20212840D800437166 /* Data.swift in Sources */,
+				3BAE16592129723900A66F12 /* DataVC.swift in Sources */,
 				3BD75AAE20A800F6007FDD57 /* Constant.swift in Sources */,
 				3BF9483320C0532C00CECBCF /* Corporate.swift in Sources */,
 				3B79273F20D5445D002CBE8E /* PAProfleDetails.swift in Sources */,
@@ -1132,6 +1135,7 @@
 				3BF9482720BAA43700CECBCF /* Question.swift in Sources */,
 				3B320A5320A8636000E68788 /* PAHomeVC.swift in Sources */,
 				3BA1389220B34E3700FC8D1A /* ServiceHandler.swift in Sources */,
+				3BAE16582129723900A66F12 /* PollDetails.swift in Sources */,
 				3B01AB4F20C6F7C400291522 /* Profile.swift in Sources */,
 				3BA138A020B3E9CB00FC8D1A /* HomeScreenData.swift in Sources */,
 				3BD75ABC20A84B4C007FDD57 /* PAProfile.swift in Sources */,

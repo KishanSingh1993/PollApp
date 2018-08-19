@@ -23,6 +23,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
     var StartedAt: String!
     var index: Int!
     var objectData : HomeScreenData!
+    var objePollDetails: PollDetails!
     var objectSurvey: SelfSurvey!
     var optionName: String!
     var isSelected : Bool!
@@ -36,34 +37,32 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
     var strSurvay : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.arrQueOption = objectData.questions[0].options
+        callServayID()
+        
+        
         
         StartedAt = Date().toDay
          self.isSelected = false
 
         self.btnCheck.makeCircular()
-        self.lblQue.text = objectData.questions[0].question
+       
         
         if isSubmited == true{
+            tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell");
+            self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
             btnCheck.isHidden = true
         }else{
             btnCheck.isHidden = false
-        }
-       
-        print(objectData.id)
-        
-        callServayID()
-        
-       
-        if strSurvay != "" {
-            tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell");
-            self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
-        }else{
             tableView.register(UINib(nibName: "QuestionCellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell");
             self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 + 20)
         }
-    
+       
+       
+        
+        
+        
+       
+   
         
         
     }
@@ -75,7 +74,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
         
         
         
-       
+       SVProgressHUD.show()
         
         let str = "surveys/" + objectData.id + "/details"
         
@@ -85,7 +84,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
             if(err != nil){
                 
              
-                
+                 SVProgressHUD.dismiss()
                 
                 let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
                 
@@ -105,6 +104,28 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
             }
             else{
                 print(dicData)
+                self.objePollDetails = PollDetails(fromJson: dicData)
+                let img = self.objePollDetails.data.image
+                if let imgurl = img , img != "" {
+                    
+                     let url = URL(string:serverPath+imgurl)
+                    self.imgView.kf.setImage(with: url)
+                    SVProgressHUD.dismiss()
+                }else{
+                    self.imgView.image = UIImage(named: "ic_placeholder.png")
+                     SVProgressHUD.dismiss()
+                }
+                 self.lblQue.text = self.objePollDetails.data.questions[0].question
+               
+                self.arrQueOption = self.objePollDetails.data.questions[0].options
+                if self.isSubmited == true{
+                   
+                    self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
+                    
+                }else{
+                  
+                    self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 + 20)
+                }
                 self.tableView.reloadData()
               
             }
@@ -139,8 +160,8 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
         
         let strUrl = "users/" + (self.appUserObject?.userId)!+"/survey"
         
-        let dic = ["surveyId": objectData.id,
-                   "name": objectData.name,
+        let dic = ["surveyId": self.objePollDetails.data.id,
+                   "name": self.objePollDetails.data.name,
                    "questions":QueArray,
                    "startedAt" : StartedAt] as [String : Any]
         
@@ -203,7 +224,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
             ECSAlert().showAlert(message: "Please Select Option", controller: self)
         }
         else{
-            let queArray = [["questionId": objectData.questions[0].id,"givenAnswer":optionName]]
+            let queArray = [["questionId": self.objePollDetails.data.questions[0].id,"givenAnswer":optionName]]
             
             callServiceForQue(QueArray: queArray as! [[String : String]])
         }
@@ -221,7 +242,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
            
             let viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
             viewChat.isShare = true
-            viewChat.strShareId = objectData.id
+            viewChat.strShareId = self.objePollDetails.data.id
             self.navigationController?.pushViewController(viewChat, animated: true)
         }
     }
@@ -296,19 +317,19 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
             optionName = arrQueOption[indexPath.section].option
              self.btnCheck.isHidden = true
          
-            cell.lblName.text = objectData.name
+            cell.lblName.text = self.objePollDetails.data.name
             cell.delegate = self
-            cell.lblNumberOfViews.text = String(objectData.attemptedCount)
+            cell.lblNumberOfViews.text = String(self.objePollDetails.data.attemptedCount)
             
             
             cell.lblTimes.text = "remains"
-            if let ques = objectData.questions {
+            if let ques = self.objePollDetails.data.questions {
                 let option = ques[0].options
                 cell.cellConfig(arrOption: option!)
                 // print(option)
             }
             
-            let dicTime = self.dateDiff(dateStr: objectData.expireAt)
+            let dicTime = self.dateDiff(dateStr: self.objePollDetails.data.expireAt)
             var time = ""
             if  let day = dicTime["DD"]{
                 time = "\(day)  days remains"
