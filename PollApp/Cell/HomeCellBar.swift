@@ -81,7 +81,7 @@ weak var axisFormatDelegate: IAxisValueFormatter?
         
         viewChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         viewChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInBounce)
-
+        
         
       
         

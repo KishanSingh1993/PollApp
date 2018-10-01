@@ -24,6 +24,7 @@ class GroupCell: UITableViewCell {
 
         lblImage.layer.masksToBounds = true;
         lblImage.layer.cornerRadius = lblImage.frame.width/2;
+        
     }
     
 }

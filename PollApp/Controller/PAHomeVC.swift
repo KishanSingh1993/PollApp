@@ -311,8 +311,8 @@ class PAHomeVC: BaseViewController,QueSubmitionDelegate ,HomeCellBarDelegate ,UI
             else{
                 self.arrHomeProductData = arrData
                 self.tableHeight.constant = CGFloat((self.arrHomeProductData.count)*300)
-                 self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count)*300 - 200)
-              //  self.viewScrollHeight.constant = CGFloat(self.tableView.frame.size.height + 140 + CGFloat((self.arrHomeProductData.count)*15))
+                 self.viewScrollHeight.constant = self.tableHeight.constant - 160
+         
                 self.tableView.reloadData()
                 SVProgressHUD.dismiss()
             }
@@ -406,7 +406,7 @@ class PAHomeVC: BaseViewController,QueSubmitionDelegate ,HomeCellBarDelegate ,UI
             
             
             setHomeData()
-            self.viewScrollHeight.constant = CGFloat((self.arrHomeProductData.count)*300 - 200)
+           self.viewScrollHeight.constant = self.tableHeight.constant - 160
             self.tableView.reloadData()
             
             
@@ -504,10 +504,10 @@ class PAHomeVC: BaseViewController,QueSubmitionDelegate ,HomeCellBarDelegate ,UI
             print(indexPath.section)
             
             let Object =  self.arrHomeProductData[indexPath.section] as! HomeScreenData
-            viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
-            viewChat?.isShare = true
-            viewChat?.strShareId = Object.id
-            self.navigationController?.pushViewController(viewChat!, animated: true)
+            let  viewChat = PAShareVC(nibName: "PAShareVC", bundle: nil)
+            viewChat.isShare = true
+            viewChat.strShareId = Object.id
+            self.navigationController?.pushViewController(viewChat, animated: true)
         }
     }
     
@@ -587,14 +587,7 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
     }
 
     
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let viewFooter = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 20))
-//
-//        viewFooter.backgroundColor = 
-//
-//        return viewFooter
-//    }
-//    
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let obj:HomeScreenData = arrHomeProductData[indexPath.section] as! HomeScreenData
@@ -612,11 +605,13 @@ extension PAHomeVC: UITableViewDelegate,UITableViewDataSource{
         // present(vc, animated: true, completion: nil)
         guard let myString = self.nullToNil(value: obj.selfSurvey) else{
             vc.strSurvay = ""
+            vc.isSubmited = false
             present(vc, animated: true, completion: nil)
             return
         }
         print(obj.selfSurvey.questions[0].givenAnswer)
         vc.strSurvay = obj.selfSurvey.questions[0].givenAnswer
+        
         present(vc, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }

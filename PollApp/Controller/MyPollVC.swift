@@ -53,7 +53,7 @@ class MyPollVC: BaseViewController , QueSubmitionDelegate,HomeCellBarDelegate {
             print(indexPath.section)
             
             let Object =  self.arrHomeProductData[indexPath.section] as! HomeScreenData
-            let  viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
+            let  viewChat = PAShareVC(nibName: "PAShareVC", bundle: nil)
             viewChat.isShare = true
             viewChat.strShareId = Object.id
             self.navigationController?.pushViewController(viewChat, animated: true)

@@ -8,20 +8,23 @@
 
 import UIKit
 import SVProgressHUD
+import Kingfisher
 
 protocol QueSubmitionDelegate {
     func setDataWithQuestion(index : Int,arrQuestion: Any)
 }
 
 
-class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCellBarDelegate {
+class QueSubmition: BaseViewController,HomeCellBarDelegate {
     @IBOutlet weak var btnCheck: UIButton!
      var delegate: QueSubmitionDelegate?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblQue: UILabel!
     var arrQueOption: [Option] = []
+    var arrMultiQueAns = [String]()
     var StartedAt: String!
     var index: Int!
+     var currentSection = 0
     var objectData : HomeScreenData!
     var objePollDetails: PollDetails!
     var objectSurvey: SelfSurvey!
@@ -29,34 +32,40 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
     var isSelected : Bool!
     var isSubmited: Bool!
     var selectedElement = [Int : String]()
+  
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var imgView: UIImageView!
     var selectedIndex:IndexPath?
     
     var strSurvay : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        callServayID()
-        
-        
+
         
         StartedAt = Date().toDay
          self.isSelected = false
 
-        self.btnCheck.makeCircular()
-       
         
-        if isSubmited == true{
-            tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell");
-            self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
-            btnCheck.isHidden = true
-        }else{
-            btnCheck.isHidden = false
-            tableView.register(UINib(nibName: "QuestionCellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell");
-            self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 + 20)
-        }
-       
+       self.tableView.delegate = nil
+        self.tableView.dataSource = nil
+        callServayID()
+   
+        
+     
+            if strSurvay != "" {
+                self.tableView.register(UINib(nibName: "HomeCellBar", bundle: nil), forCellReuseIdentifier: "Cell");
+                self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
+                self.btnCheck.isHidden = true
+            }else{
+                self.btnCheck.isHidden = false
+                self.tableView.register(UINib(nibName: "QuestionCellTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell");
+                self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 + 20)
+                self.tableView.allowsMultipleSelection = false
+            }
+   
        
         
         
@@ -67,7 +76,9 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
         
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
     
     
     func callServayID(){
@@ -84,7 +95,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
             if(err != nil){
                 
              
-                 SVProgressHUD.dismiss()
+                 //SVProgressHUD.dismiss()
                 
                 let alertController = UIAlertController(title: "", message: (err?.localizedDescription)!, preferredStyle:UIAlertControllerStyle.alert)
                 
@@ -106,27 +117,42 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
                 print(dicData)
                 self.objePollDetails = PollDetails(fromJson: dicData)
                 let img = self.objePollDetails.data.image
+                
                 if let imgurl = img , img != "" {
                     
                      let url = URL(string:serverPath+imgurl)
-                    self.imgView.kf.setImage(with: url)
+                     self.imgView.kf.setImage(with: url)
+
+                   
                     SVProgressHUD.dismiss()
                 }else{
                     self.imgView.image = UIImage(named: "ic_placeholder.png")
                      SVProgressHUD.dismiss()
                 }
+                if self.objePollDetails.data.multiQuestions == true{
+                    self.btnCheck.setButtonTitle("Next")
+                }else{
+                    self.btnCheck.setButtonTitle("Submit")
+                }
+                
                  self.lblQue.text = self.objePollDetails.data.questions[0].question
                
                 self.arrQueOption = self.objePollDetails.data.questions[0].options
-                if self.isSubmited == true{
-                   
+             
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+     
+                if  self.strSurvay != "" {
+                    
                     self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 300 + 20)
                     
                 }else{
-                  
-                    self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 + 20)
+                    
+                    self.tableViewHeight.constant = CGFloat(self.arrQueOption.count * 50 )
                 }
                 self.tableView.reloadData()
+                
+               
               
             }
            
@@ -154,7 +180,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
     }
     
     
-    func callServiceForQue(QueArray: [[String:String ]]){
+    func callServiceForQue(QueArray: [[String:Any ]]){
     
         SVProgressHUD.show()
         
@@ -219,14 +245,39 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
     
     
     @IBAction func clickToCheck(_ sender: Any) {
-        
+      
         if isSelected == false {
             ECSAlert().showAlert(message: "Please Select Option", controller: self)
         }
         else{
-            let queArray = [["questionId": self.objePollDetails.data.questions[0].id,"givenAnswer":optionName]]
+            if self.objePollDetails.data.multiQuestions == true {
+                
+                if self.btnCheck.currentTitle == "Submit" {
+                    let queArray = [["questionId": self.objePollDetails.data.questions[0].id ?? "","givenAnswer":arrMultiQueAns]]
+                    print(queArray)
+                    callServiceForQue(QueArray: queArray )
+                }else{
+                    currentSection += 1
+                    print(currentSection)
+                    if currentSection == self.objePollDetails.data.questions.count-1 || self.arrQueOption.count==0{
+                        self.btnCheck.setButtonTitle("Submit")
+                    }else{
+                        
+                        
+                        tableView.reloadData()
+                    }
+                }
+                
+               
+               
+                
+            }else{
+                let queArray = [["questionId": self.objePollDetails.data.questions[0].id,"givenAnswer":optionName]]
+                
+                callServiceForQue(QueArray: queArray as! [[String : Any]])
+            }
             
-            callServiceForQue(QueArray: queArray as! [[String : String]])
+           
         }
         
      
@@ -240,7 +291,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
             print(indexPath.section)
             
            
-            let viewChat = PAChatVC(nibName: "PAChatVC", bundle: nil)
+            let viewChat = PAShareVC(nibName: "PAShareVC", bundle: nil)
             viewChat.isShare = true
             viewChat.strShareId = self.objePollDetails.data.id
             self.navigationController?.pushViewController(viewChat, animated: true)
@@ -254,20 +305,7 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
         //self.tableView.reloadSections(indexSet, with: .automatic)
     }
 
-//
-//    @objc func clickToRadio(_ sender: UIButton) {
-//        if let indexPath = getCurrentCellIndexPath(sender) {
-//
-//            print(indexPath.section)
-//              let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
-//             cell.btnRadio.setButtonImage("off.png")
-//            cell.btnRadio.setButtonImage("on.png")
-//
-//        }
-//    }
-//
-//
-//
+
     func getCurrentCellIndexPath(_ sender: UIButton) -> IndexPath? {
         let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
         if let indexPath: IndexPath = tableView.indexPathForRow(at: buttonPosition) {
@@ -298,30 +336,46 @@ class QueSubmition: BaseViewController,QuestionCellTableViewCellDelegate,HomeCel
 
 
 extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if strSurvay != ""{
             return 1
-        }else{
+        } else if self.objePollDetails.data.multiQuestions == true {
+            return self.objePollDetails.data.questions.count
+        }
+        else{
             return self.arrQueOption.count
         }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if strSurvay != ""{
+            return 1
+        } else if self.objePollDetails.data.multiQuestions == true {
+            self.arrQueOption = self.objePollDetails.data.questions[self.currentSection].options
+            return self.objePollDetails.data.questions[self.currentSection].options.count
+        }else{
+            return 1
+        }
+       
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
         if strSurvay != ""{
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! HomeCellBar
-            optionName = arrQueOption[indexPath.section].option
-             self.btnCheck.isHidden = true
+                optionName = arrQueOption[indexPath.section].option
+                self.btnCheck.isHidden = true
          
             cell.lblName.text = self.objePollDetails.data.name
+             //cell.lblName.text = self.objectData.name
             cell.delegate = self
             cell.lblNumberOfViews.text = String(self.objePollDetails.data.attemptedCount)
             
-            
+            //cell.lblNumberOfViews.text = String(self.objectData.attemptedCount)
             cell.lblTimes.text = "remains"
             if let ques = self.objePollDetails.data.questions {
                 let option = ques[0].options
@@ -329,7 +383,14 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
                 // print(option)
             }
             
+//            if let ques = self.objectData.questions {
+//                let option = ques[0].options
+//                cell.cellConfig(arrOption: option!)
+//                // print(option)
+//            }
+            
             let dicTime = self.dateDiff(dateStr: self.objePollDetails.data.expireAt)
+          //  let dicTime = self.dateDiff(dateStr: self.objectData.expireAt)
             var time = ""
             if  let day = dicTime["DD"]{
                 time = "\(day)  days remains"
@@ -350,27 +411,38 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
             return cell
             
         }else{
-             self.btnCheck.isHidden = false
+            
+            self.btnCheck.isHidden = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! QuestionCellTableViewCell
-            optionName = arrQueOption[indexPath.section].option
             
-            if  (selectedIndex == indexPath){
+            
+            if self.objePollDetails.data.multiQuestions == true {
+               
+                cell.lblText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                self.lblQue.text = self.objePollDetails.data.questions[self.currentSection].question
+                optionName = arrQueOption[indexPath.row].option
+                cell.selectionStyle = .none
+                cell.lblText.text = optionName
+                if arrQueOption[indexPath.row].next == "" || arrQueOption.count == 0{
+                    self.btnCheck.setButtonTitle("Submit")
+                }else{
+                    self.btnCheck.setButtonTitle("Next")
+                }
                 
-                cell.lblText.textColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
-                //
-                cell.btnRadio.setButtonImage("on.png")
-                cell.btnRadio.isSelected = true
-            }
-            else{
+
                 
-                cell.lblText.textColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
-                cell.btnRadio.setButtonImage("off.png")
-                cell.btnRadio.isSelected = false
+              
+                
+              
+            
+            }else{
+               optionName = arrQueOption[indexPath.section].option
+                cell.selectionStyle = .none
+                cell.lblText.text = optionName
             }
             
             
-            
-            cell.lblText.text = optionName
+          
             
             return cell
         }
@@ -393,37 +465,50 @@ extension QueSubmition: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         optionName = arrQueOption[indexPath.section].option
         
+
         if strSurvay != "" {
-            
+
         }else{
             let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
             cell.lblText.textColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
-            
-            optionName = arrQueOption[indexPath.section].option
-            self.isSelected = true
+
+            if self.objePollDetails.data.multiQuestions == true {
+                optionName = arrQueOption[indexPath.row].option
+                arrMultiQueAns.append(optionName)
+                self.isSelected = true
+            }else{
+                optionName = arrQueOption[indexPath.section].option
+                self.isSelected = true
+            }
+           
+
           
-            selectedIndex = indexPath
-            tableView.reloadData()
         }
-        
-        
-        
-     
+
+
+
+
 
     }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! QuestionCellTableViewCell
-        self.isSelected = false
-        print(arrQueOption[indexPath.section])
-        cell.lblText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        cell.lblText.textColor = #colorLiteral(red: 0.9585814475, green: 0.6207251014, blue: 0.008665860589, alpha: 1)
-         cell.btnRadio.setButtonImage("off.png")
-        
-        
-        
+    
+   
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as? QuestionCellTableViewCell)?.update(with:  .white)
     }
+    
+    
+    // MARK: - Selection
+    
+     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        tableView.cellForRow(at: indexPath)?.setSelected(true, animated: true)
+        return indexPath
+    }
+    
+   
+    
+    
+    
     
 
 }

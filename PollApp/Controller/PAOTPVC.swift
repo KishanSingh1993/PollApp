@@ -147,8 +147,7 @@ class PAOTPVC: BaseViewController {
                         self.appUserObject?.source = "source"
                             //user["source"] as! String
                         self.appUserObject?.token = user["pushToken"] as! String
-                        self.appUserObject?.userImageUrl = "avatar"
-                            //user["avatar"] as! String
+                        self.appUserObject?.userImageUrl = user["avatar"] as! String
                         self.appUserObject?.mobile = user["mobileNumber"] as! String
                         let typeUser = user["profileType"] as! Int
                         self.appUserObject?.userType = String(typeUser)

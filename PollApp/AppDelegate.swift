@@ -13,10 +13,11 @@ import Crashlytics
 import GooglePlacePicker
 import GoogleMaps
 import UserNotifications
-
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var viewController: UIViewController?
@@ -24,29 +25,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
    
-//        
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { granted, err in
-//            if  granted{
-//                DispatchQueue.main.async {
-//                    application.registerForRemoteNotifications()
-//                }
-//                
-//               
-//            }else{
-//               // ECSAlert().showAlert(message: "User Notification permission denied :\(err?.localizedDescription)", controller: self)
-//                
-//                print("User Notification permission denied :\(String(describing: err?.localizedDescription))")
-//            }
-//        }
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { granted, err in
+            if  granted{
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+                
+               
+            }else{
+              
+                
+                print("User Notification permission denied :\(String(describing: err?.localizedDescription))")
+            }
+        }
             Fabric.with([Crashlytics.self])
             setRootcontrooler()
-        GMSPlacesClient.provideAPIKey(googleApi)
+            GMSPlacesClient.provideAPIKey(googleApi)
+            FirebaseApp.configure()
+        if let userInfo = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] {
+            NSLog("[RemoteNotification] applicationState: \(applicationStateString) didFinishLaunchingWithOptions for iOS9: \(userInfo)")
+            //TODO: Handle background notification
+        }
+        
          return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
     }
 
-    
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
     
     func setRootcontrooler(){
         
@@ -74,19 +83,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for byte in bytes{
             token += String(format:"%2x", byte)
         }
+      
         return token
     }
-    
+    var applicationStateString: String {
+        if UIApplication.shared.applicationState == .active {
+            return "active"
+        } else if UIApplication.shared.applicationState == .background {
+            return "background"
+        }else {
+            return "inactive"
+        }
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print(deviceToken)
+        
         print(deviceString(deviceToken))
+        UserDefaults.standard.set(deviceString(deviceToken), forKey: "deviceToken")
+        UserDefaults.standard.synchronize()
+
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed register \(error.localizedDescription)")
     }
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
+    }
     
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        NSLog("[UserNotificationCenter] applicationState: \(applicationStateString) willPresentNotification: \(userInfo)")
+        //TODO: Handle foreground notification
+        completionHandler([.alert])
+    }
+    
+    // iOS10+, called when received response (default open, dismiss or custom action) for a notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        NSLog("[UserNotificationCenter] applicationState: \(applicationStateString) didReceiveResponse: \(userInfo)")
+        //TODO: Handle background notification
+        completionHandler()
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+   
+        if UIApplication.shared.applicationState == .active {
+            //TODO: Handle foreground notification
+        } else {
+            //TODO: Handle background notification
+        }
+    }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)

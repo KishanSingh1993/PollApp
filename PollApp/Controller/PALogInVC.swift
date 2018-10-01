@@ -21,7 +21,7 @@ class PALogInVC: BaseViewController {
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var viewSecond: UIView!
     
-    
+    var deviceToken : String!
     
     
     var strOTP : String!
@@ -30,7 +30,7 @@ class PALogInVC: BaseViewController {
         super.viewDidLoad()
         
         UIView().setShadow(self.viewLogin)
-        
+      
         
         self.createGradientLayer(viewGradent: self.viewBackgound, color1: "#ba1db5",color2:"#460b64", alphaValue: 0.10)
         
@@ -67,6 +67,7 @@ class PALogInVC: BaseViewController {
     
     
     @IBAction func clickToNext(_ sender: Any) {
+       
         if txtPhone.text?.count == 0 {
             ECSAlert().showAlert(message: "Please Enter Your Phone Number", controller: self)
         }
@@ -102,13 +103,20 @@ class PALogInVC: BaseViewController {
         
     }
     
+    func getDeviceToken(token:String){
+        print(token)
+        self.deviceToken = token
+    }
+    
     func callLogingServiec(){
         
         SVProgressHUD.show()
-        
+//        guard let divecetoken = UserDefaults.standard.string(forKey: "deviceToken")else {
+//            return
+//        }
         
         let dic = ["mobileNumber": self.txtPhone.text ?? "",
-                   "pushToken":"fsafsafsafsadfdas",
+                   "pushToken": UserDefaults.standard.string(forKey: "deviceToken") ?? "NotificationNotAllowed",
                    "deviceId":ECSHelper().getDeviceId()] as [String : Any]
         
         ServiceClass().getLoginDetails(strUrl:"login", param: dic) { error , dicData  in

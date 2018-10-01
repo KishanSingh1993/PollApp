@@ -9,7 +9,7 @@ import SwiftyJSON
 class Option : NSObject, NSCoding{
     
     var count : Int!
-    var next : AnyObject!
+    var next : String!
     var option : String!
     
     
@@ -21,7 +21,7 @@ class Option : NSObject, NSCoding{
             return
         }
         count = json["count"].intValue
-        next = json["next"].stringValue as AnyObject
+        next = json["next"].stringValue
         option = json["option"].stringValue
     }
     
@@ -50,7 +50,7 @@ class Option : NSObject, NSCoding{
     @objc required init(coder aDecoder: NSCoder)
     {
         count = aDecoder.decodeObject(forKey: "count") as? Int
-        next = aDecoder.decodeObject(forKey: "next") as? AnyObject
+        next = aDecoder.decodeObject(forKey: "next") as? String
         option = aDecoder.decodeObject(forKey: "option") as? String
         
     }

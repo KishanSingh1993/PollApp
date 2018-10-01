@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,8 +35,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESJ-ZR-f8s">
+                        <rect key="frame" x="10" y="9" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.63137254899999995" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="47D-Nt-k9Z"/>
+                            <constraint firstAttribute="width" constant="50" id="wTa-cc-Nw5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ESJ-ZR-f8s" firstAttribute="centerY" secondItem="dvm-Yh-Ngz" secondAttribute="centerY" id="0co-iP-RwG"/>
+                    <constraint firstItem="ESJ-ZR-f8s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0q2-k6-EVG"/>
                     <constraint firstItem="Ees-qP-ujx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9t1-2a-dmE"/>
                     <constraint firstItem="dvm-Yh-Ngz" firstAttribute="leading" secondItem="Ees-qP-ujx" secondAttribute="trailing" constant="15" id="VnE-hS-ZWN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dvm-Yh-Ngz" secondAttribute="trailing" constant="15" id="gN2-L7-cYr"/>
@@ -48,6 +61,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgView" destination="Ees-qP-ujx" id="uxM-BT-kjf"/>
+                <outlet property="lblImage" destination="ESJ-ZR-f8s" id="9jF-zA-ghE"/>
                 <outlet property="lblName" destination="dvm-Yh-Ngz" id="Na5-f3-Nri"/>
             </connections>
             <point key="canvasLocation" x="34" y="62"/>

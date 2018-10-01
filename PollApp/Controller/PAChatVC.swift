@@ -249,7 +249,7 @@ extension PAChatVC: UITableViewDelegate,UITableViewDataSource{
         let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell") as! ChatCell
         let obj:GroupMember = arrGroupData[indexPath.section] as! GroupMember
         cell.lblName.text = obj.name
-  
+        cell.lblImage.isHidden = true
         
         
         

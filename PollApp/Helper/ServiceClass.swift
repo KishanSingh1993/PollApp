@@ -736,8 +736,7 @@ class ServiceClass: NSObject {
     
     
     public func getGroupData(strUrl:String,header:String,completion:@escaping (arrayBlock)){
-        
-        let headersValue: HTTPHeaders = [
+                let headersValue: HTTPHeaders = [
             "Authorization": "Bearer \(header)",
             
         ]
@@ -747,7 +746,7 @@ class ServiceClass: NSObject {
         
         
         
-        
+        var dicDataFor = [String:String]()
         
         
         Alamofire.request(baseURL+strUrl, headers: headersValue).responseJSON { response in
@@ -756,18 +755,34 @@ class ServiceClass: NSObject {
             if response.result.isSuccess {
                 let resJson = JSON(response.result.value!)
                 
-                let dicData = resJson.dictionaryObject!
+               let obj = LVShareData(fromJson: resJson)
                 
-                if dicData["status"] as! Int == 200 {
-                    print(resJson["data"].array!)
-                    for rootDic in resJson["data"].array!{
-                        let obj = GroupMember(fromJson: rootDic)
-                        self.arrIteam.append(obj)
+                if obj.status == 200 {
+                        let objData = obj.data!
+                        let arrGroup = objData.groups
+                        let arrayUser = objData.users
+                    
+                    for i in 0 ..< arrGroup!.count{
+                        let objG = arrGroup![i]
+                        dicDataFor["name"] = objG.name
+                        dicDataFor["id"] = objG.id
+                        dicDataFor["userId"] = objG.userId
+                        self.arrIteam.append(dicDataFor)
                     }
+                    for i in 0 ..< arrayUser!.count{
+                        let objU = arrayUser![i]
+                        dicDataFor["name"] = objU.name
+                        dicDataFor["id"] = objU.id
+                        dicDataFor["userId"] = objU.userId
+                        self.arrIteam.append(dicDataFor)
+                    }
+                    
+                    print(self.arrIteam)
+                   
                     completion(nil,self.arrIteam)
                 }
                 else{
-                    let msg = dicData["userMessage"] as! String
+                    let msg = obj.userMessage
                     
                     let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey: msg])
                     

@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,32 +24,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrp-jk-tlc">
-                        <rect key="frame" x="60" y="5" width="260" height="39.5"/>
+                        <rect key="frame" x="55" y="5" width="265" height="39.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOU-78-JYf">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvb-bO-two" customClass="LTHRadioButton" customModule="PollApp" customModuleProvider="target">
                         <rect key="frame" x="15" y="10" width="30" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="o91-9z-STr"/>
-                            <constraint firstAttribute="height" constant="30" id="svJ-U4-t9v"/>
+                            <constraint firstAttribute="width" constant="30" id="8VI-AW-MQu"/>
+                            <constraint firstAttribute="height" constant="30" id="VA5-wR-UWs"/>
                         </constraints>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="nrp-jk-tlc" secondAttribute="bottom" constant="5" id="KAH-cQ-Dr5"/>
                     <constraint firstItem="nrp-jk-tlc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="LVi-lq-nG5"/>
-                    <constraint firstItem="nOU-78-JYf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S4e-u1-mk8"/>
+                    <constraint firstItem="gvb-bO-two" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="VfL-zs-S32"/>
+                    <constraint firstItem="nrp-jk-tlc" firstAttribute="leading" secondItem="gvb-bO-two" secondAttribute="trailing" constant="10" id="aji-4w-2mn"/>
+                    <constraint firstItem="gvb-bO-two" firstAttribute="centerY" secondItem="nrp-jk-tlc" secondAttribute="centerY" id="bsp-o4-euo"/>
                     <constraint firstAttribute="trailing" secondItem="nrp-jk-tlc" secondAttribute="trailing" id="jlD-zh-SG6"/>
-                    <constraint firstItem="nOU-78-JYf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qG1-8z-Ehn"/>
-                    <constraint firstItem="nrp-jk-tlc" firstAttribute="leading" secondItem="nOU-78-JYf" secondAttribute="trailing" constant="15" id="u2p-0u-z5A"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnRadio" destination="nOU-78-JYf" id="YPO-FC-p1M"/>
                 <outlet property="lblText" destination="nrp-jk-tlc" id="NaA-H5-E7e"/>
+                <outlet property="radioButton" destination="gvb-bO-two" id="X6r-r4-EVO"/>
             </connections>
         </tableViewCell>
     </objects>

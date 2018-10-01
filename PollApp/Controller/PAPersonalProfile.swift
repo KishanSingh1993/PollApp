@@ -102,8 +102,8 @@ class PAPersonalProfile: BaseViewController {
         let dic = ["userId": (self.appUserObject?.userId)!,
                    "name": name,
                    "email":email,
-                   "avatar":(self.appUserObject?.userImageUrl)!,
-                   "source": (self.appUserObject?.source)!,
+                   "avatar":imgUrl,
+                   "source": "Facebook",
                    "deviceId": (self.appUserObject?.device_id)!,
                    "pushToken": (self.appUserObject?.token)!,
                    "mobileNumber":(self.appUserObject?.mobile)!,
@@ -160,7 +160,7 @@ class PAPersonalProfile: BaseViewController {
                 self.appUserObject?.userName = dicData["name"] as! String
                 self.appUserObject?.email = dicData["email"] as! String
                 self.appUserObject?.mobile = dicData["mobileNumber"] as! String
-                self.appUserObject?.userImageUrl = self.imgUrl
+                self.appUserObject?.userImageUrl = dicData["avatar"] as! String
                 self.appUserObject?.saveToUserDefault()
                 UserDefaults.standard.setValue(dicData , forKey: "socialProfile")
                 UserDefaults.standard.synchronize()
@@ -272,9 +272,10 @@ extension PAPersonalProfile: UITextFieldDelegate {
             self.pickerView.selectRow(0, inComponent: 0, animated: true)
             self.pickerView(pickerView, didSelectRow: 0, inComponent: 0)
             
-        }else if textField == self.txtCity {
+        }
+        else if textField == self.txtCity {
             
-            textField.resignFirstResponder()
+           textField.resignFirstResponder()
             present(autocompleteController, animated: true, completion: nil)
         }
         

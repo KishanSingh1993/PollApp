@@ -9,14 +9,15 @@
 import UIKit
 
 
-protocol QuestionCellTableViewCellDelegate {
-    func didToggleRadioButton(_ indexPath: IndexPath)
-}
+private let selectedColor   = #colorLiteral(red: 1, green: 0.631372549, blue: 0, alpha: 1)
+private let deselectedColor = UIColor.lightGray
 
 
 class QuestionCellTableViewCell: UITableViewCell {
     @IBOutlet weak var btnRadio: UIButton!
-    var delegate: QuestionCellTableViewCellDelegate?
+  
+    @IBOutlet weak var radioButton: LTHRadioButton!
+    
     @IBOutlet weak var lblText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,49 +25,24 @@ class QuestionCellTableViewCell: UITableViewCell {
 //         lblText.layer.borderWidth = 1.0
     }
 
+    func update(with color: UIColor) {
+        backgroundColor             = color
+        radioButton.selectedColor   = color == .darkGray ? .white : selectedColor
+        radioButton.deselectedColor = color == .darkGray ? .lightGray : deselectedColor
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-       
+        
+        if selected {
+            return radioButton.select(animated: animated)
+        }
+        
+        radioButton.deselect(animated: animated)
     }
     
     
     
-    
-//    func initCellItem() {
-//        
-////        let deselectedImage = UIImage(named: "off.png")?.withRenderingMode(.alwaysTemplate)
-////        let selectedImage = UIImage(named: "on.png")?.withRenderingMode(.alwaysTemplate)
-//        btnRadio.setButtonImage( "off.png")
-//         btnRadio.setButtonImage( "on.png")
-//        //btnRadio.setImage(selectedImage, for: .selected)
-//        btnRadio.addTarget(self, action: #selector(self.radioButtonTapped), for: .touchUpInside)
-//    }
-//    
-//    @objc func radioButtonTapped(_ radioButton: UIButton) {
-//        print("radio button tapped")
-//        let isSelected = !self.btnRadio.isSelected
-//        self.btnRadio.isSelected = isSelected
-//        if isSelected {
-//            deselectOtherButton()
-//        }
-//        let tableView = self.superview as! UITableView
-//        let tappedCellIndexPath = tableView.indexPath(for: self)!
-//        delegate?.didToggleRadioButton(tappedCellIndexPath)
-//    }
-//    
-//    func deselectOtherButton() {
-//        
-//        let tableView = self.superview as! UITableView
-//        let tappedCellIndexPath = tableView.indexPath(for: self)!
-//        let indexPaths = tableView.indexPathsForVisibleRows
-//        for indexPath in indexPaths! {
-//            if indexPath.row != tappedCellIndexPath.row && indexPath.section == tappedCellIndexPath.section {
-//                let cell = tableView.cellForRow(at: IndexPath(row: indexPath.row, section: indexPath.section)) as! QuestionCellTableViewCell
-//                cell.btnRadio.isSelected = false
-//            }
-//        }
-//    }
 
     
     
